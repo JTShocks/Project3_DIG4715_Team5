@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class PlayerJumping : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+[SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float jumpPressBufferTime = .05f;
+    PlayerController player;
+    bool isTryingToJump;
+    float lastJumpPressTime;
+
+    void Awake()
     {
-        
+        player = GetComponent<PlayerController>();
+    }
+    void OnEnable(){ player.OnBeforeMove += OnBeforeMove;}
+
+    void OnDisable(){player.OnBeforeMove -= OnBeforeMove;}
+
+    void OnJump()
+    {
+        isTryingToJump = true;
+        lastJumpPressTime = Time.time;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnBeforeMove()
     {
-        
+        bool wasTryingToJump = Time.time - lastJumpPressTime < jumpPressBufferTime;
+
+        bool isOrWasTryingToJump = isTryingToJump || wasTryingToJump;
+        if(isOrWasTryingToJump && player.isGrounded)
+        {
+            player.velocity.y += jumpSpeed;
+        }
+        isTryingToJump = false;
     }
+
+
 }

@@ -1,11 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //TO:DO
+    /*
+        
+    */
     [SerializeField] bool enableDebugMessages;
     enum MessageType{
         Default,
@@ -15,7 +21,7 @@ public class PlayerController : MonoBehaviour
     //This is the primary player controller that holds a lot of the base properties for the player
     CharacterController character;
 
-    Vector2 moveInput;
+    Vector3 moveInput;
     Vector3 moveDirection;
     internal Vector3 velocity;
 
@@ -23,6 +29,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float mass = 1f;
     [SerializeField] float acceleration = 20f;
     [SerializeField] float playerMovementSpeed;
+    [Description("Turning speed in how many degrees the player should rotate per second")]
+    [SerializeField] float playerTurningSpeed;
     internal float movementSpeedMultiplier;
 
     //References to the various input actions for the player
@@ -44,6 +52,11 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["move"];
 
+    }
+    void Update()
+    {
+        moveInput = GetMovementInput();
+        ChangeLookDirection(moveInput);
     }
 
     void FixedUpdate()
@@ -68,26 +81,48 @@ public class PlayerController : MonoBehaviour
         movementSpeedMultiplier = 1f;
         //Check to see if anything else should happer before moving
         OnBeforeMove?.Invoke();
-        var input = GetMovementInput();
+
+
+        velocity = (transform.forward * moveInput.magnitude);
 
         //Calculate the rate the player should move each frame
         var factor = acceleration * Time.fixedDeltaTime;
-        velocity.x = Mathf.Lerp(velocity.x, input.x, factor);
-        velocity.z = Mathf.Lerp(velocity.z, input.z, factor);
+        velocity.x = Mathf.Lerp(velocity.x, moveDirection.x, factor);
+        velocity.z = Mathf.Lerp(velocity.z, moveDirection.z, factor);
 
-        character.Move(velocity * Time.fixedDeltaTime);
+        character.Move(velocity * playerMovementSpeed * movementSpeedMultiplier* Time.fixedDeltaTime);
     }
 
     Vector3 GetMovementInput()
     {        
+        //Read in the input values to determine where the 
         var moveInput = moveAction.ReadValue<Vector2>();
 
-        var input = new Vector3();
-        input += transform.forward * moveInput.y;
-        input += transform.right * moveInput.x;
+        var input = new Vector3(moveInput.x, 0, moveInput.y);
+
         input = Vector3.ClampMagnitude(input, 1f);
-        input *= playerMovementSpeed * movementSpeedMultiplier;
         return input;
+    }
+
+    void ChangeLookDirection(Vector3 input)
+    {
+
+        //Rotate the player to the direction of their input
+        if(input != Vector3.zero)
+        {
+
+            //This is a matrix that is based relative to the angle of the camera, so that when pressing UP, you consistently move up
+            //TO:DO Get the component of the Main Camera rotation, so this is consistent
+            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,-90,0));
+            var skewedInput = matrix.MultiplyPoint3x4(input);
+
+            var relative = (transform.position + skewedInput) - transform.position;
+            var rot = Quaternion.LookRotation(relative, Vector3.up);
+            //We base the rotation on the relative relationship of the input to the transform
+            //Rotate around the Y axis, then set the rotation only if the input is happening.
+
+            transform.rotation = rot;
+        }
     }
 
     void DebugMessage(string message, MessageType messageType)
