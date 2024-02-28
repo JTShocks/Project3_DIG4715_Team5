@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerJumping : MonoBehaviour
 {
-[SerializeField] float jumpSpeed = 5f;
+[SerializeField] float jumpForce = 5f;
     [SerializeField] float jumpPressBufferTime = .05f;
     PlayerController player;
     bool isTryingToJump;
@@ -31,7 +32,7 @@ public class PlayerJumping : MonoBehaviour
         bool isOrWasTryingToJump = isTryingToJump || wasTryingToJump;
         if(isOrWasTryingToJump && player.isGrounded)
         {
-            player.velocity.y += jumpSpeed;
+            player.velocity.y += jumpForce;
         }
         isTryingToJump = false;
     }
