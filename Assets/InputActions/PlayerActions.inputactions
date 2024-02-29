@@ -38,8 +38,8 @@
                     "id": "0afb1cb5-3188-4173-b866-b4af93f3339c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Dash",
