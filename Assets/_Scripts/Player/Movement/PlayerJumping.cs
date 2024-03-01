@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerJumping : MonoBehaviour
 {
-[SerializeField] float jumpForce = 5f;
+    [SerializeField] float jumpForce = 5f;
     [SerializeField] float jumpPressBufferTime = .05f;
     PlayerController player;
-    bool isTryingToJump;
+    bool isTryingToJump = false;
     bool jumpIsCanceled;
     float lastJumpPressTime;
 
@@ -45,7 +45,7 @@ public class PlayerJumping : MonoBehaviour
         if(isOrWasTryingToJump && player.isGrounded)
         {
             player.velocity.y += jumpForce;
-            isTryingToJump = false;
+
         }
 
         if(jumpIsCanceled)
@@ -55,7 +55,9 @@ public class PlayerJumping : MonoBehaviour
                 player.velocity.y = jumpForce/2;
             }
             jumpIsCanceled = false;
-        }      
+        }
+
+        isTryingToJump = false;      
 
     }
 
