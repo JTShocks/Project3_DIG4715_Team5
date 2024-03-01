@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     //This is the primary player controller that holds a lot of the base properties for the player
     CharacterController character;
 
+    [SerializeField] Transform cameraTransform;
     Vector3 moveInput;
     Vector3 moveDirection;
     internal Vector3 velocity;
