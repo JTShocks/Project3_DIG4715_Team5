@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     CharacterController character;
 
     [SerializeField] Transform cameraTransform;
+    private float cameraYRotation;
     Vector3 moveInput;
     Vector3 moveDirection;
     internal Vector3 velocity;
@@ -52,6 +53,8 @@ public class PlayerController : MonoBehaviour
         character = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["move"];
+        cameraYRotation = cameraTransform.eulerAngles.y;
+        Debug.Log(cameraYRotation);
 
     }
     void Update()
@@ -114,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
             //This is a matrix that is based relative to the angle of the camera, so that when pressing UP, you consistently move up
             //TO:DO Get the component of the Main Camera rotation, so this is consistent
-            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,-90,0));
+            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,cameraYRotation,0));
             var skewedInput = matrix.MultiplyPoint3x4(input);
 
             var relative = (transform.position + skewedInput) - transform.position;
@@ -145,5 +148,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+    
 
 }
