@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Transform cameraTransform;
     private float cameraYRotation;
-    Vector3 moveInput;
-    Vector3 moveDirection;
+    internal Vector3 moveInput;
+    internal Vector3 moveDirection;
     internal Vector3 velocity;
 
     [Header("Player Statistics")]
