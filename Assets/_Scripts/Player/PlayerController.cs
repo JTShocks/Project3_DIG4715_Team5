@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     [Description("Turning speed in how many degrees the player should rotate per second")]
     [SerializeField] float playerTurningSpeed;
     internal float movementSpeedMultiplier;
+    internal float massModifier;
 
     //References to the various input actions for the player
     PlayerInput playerInput;
@@ -67,13 +68,14 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         //All movement calculations should be in FixedUpdate, since we are mostly dealing with rigidbodies
-        UpdateGravity();
+
         UpdateMovement();
+        UpdateGravity();
     }
 
     void UpdateGravity()
     {
-        var gravity =  mass * Time.fixedDeltaTime * Physics.gravity;
+        var gravity =  mass * massModifier * Time.fixedDeltaTime * Physics.gravity;
         velocity.y = isGrounded? - 1f : velocity.y + gravity.y;
     }
     bool CheckForGrounded()
@@ -84,6 +86,7 @@ public class PlayerController : MonoBehaviour
     void UpdateMovement()
     {
         movementSpeedMultiplier = 1f;
+        massModifier = 1f;
         moveDirection = transform.forward * moveInput.magnitude * playerMovementSpeed * movementSpeedMultiplier;
        
         //Check to see if anything else should happer before moving
