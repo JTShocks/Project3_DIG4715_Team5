@@ -13,4 +13,8 @@ public class Ability : ScriptableObject
     {
 
     }
+    public virtual void Deactivate(GameObject parent)
+    {
+        
+    }
 }

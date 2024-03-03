@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,14 +33,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float mass = 1f;
     [SerializeField] float acceleration = 20f;
     [SerializeField] float playerMovementSpeed;
+    [SerializeField] float fallSpeedCap;
     [Description("Turning speed in how many degrees the player should rotate per second")]
     [SerializeField] float playerTurningSpeed;
     internal float movementSpeedMultiplier;
     internal float massModifier;
+    internal float fallingSpeedMultiplier;
 
     //References to the various input actions for the player
     PlayerInput playerInput;
         InputAction moveAction;
+
+    [SerializeField] float currentFallingSpeed;
 
     internal bool isGrounded => CheckForGrounded();
 
@@ -57,26 +62,32 @@ public class PlayerController : MonoBehaviour
         moveAction = playerInput.actions["move"];
         cameraYRotation = cameraTransform.eulerAngles.y;
         Debug.Log(cameraYRotation);
+        SetBaseModifiers();
 
     }
     void Update()
     {
         moveInput = GetMovementInput();
         ChangeLookDirection(moveInput);
+        currentFallingSpeed = velocity.y;
     }
 
     void FixedUpdate()
     {
         //All movement calculations should be in FixedUpdate, since we are mostly dealing with rigidbodies
-
-        UpdateMovement();
         UpdateGravity();
+        UpdateMovement();
     }
 
     void UpdateGravity()
     {
+        //TO:DO
+        /*
+            Find a good way to cap the player's falling speed to smooth out movement and to work with the glide ability
+        */
         var gravity =  mass * massModifier * Time.fixedDeltaTime * Physics.gravity;
         velocity.y = isGrounded? - 1f : velocity.y + gravity.y;
+        velocity.y = Mathf.Clamp(velocity.y, -fallSpeedCap * fallingSpeedMultiplier, velocity.y);
     }
     bool CheckForGrounded()
     {
@@ -85,8 +96,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMovement()
     {
-        movementSpeedMultiplier = 1f;
-        massModifier = 1f;
+
         moveDirection = transform.forward * moveInput.magnitude * playerMovementSpeed * movementSpeedMultiplier;
        
         //Check to see if anything else should happer before moving
@@ -154,6 +164,13 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+    }
+
+    public void SetBaseModifiers()
+    {
+        movementSpeedMultiplier = 1f;
+        massModifier = 1f;
+        fallingSpeedMultiplier = 1f;
     }
     
 

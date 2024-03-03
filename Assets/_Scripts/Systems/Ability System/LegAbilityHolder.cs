@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HandAbilityHolder : MonoBehaviour
+public class LegAbilityHolder : MonoBehaviour
 {
-
     [SerializeField] bool enableDebugMessages;
     enum MessageType{
         Default,
@@ -21,7 +20,7 @@ public class HandAbilityHolder : MonoBehaviour
     }
 
     [Header("Current Equipped Ability")]
-    [SerializeField] Ability handAbility;
+    [SerializeField] Ability legAbility;
         float abilityActiveTime;
         float abilityCooldownTime;
 
@@ -35,36 +34,33 @@ public class HandAbilityHolder : MonoBehaviour
 
     void OnBeforeMove()
     {
-        if(handAbility == null)
+        if(legAbility== null)
         {
             return;
+        }
+        if(player.isGrounded)
+        {
+            //When the player is grounded, the ability is Ready again
+            state = AbilityState.Ready;
+            DebugMessage(legAbility.name + " is now ready.", MessageType.Default);
         }
         switch(state)
         {
             case AbilityState.Active:
-                handAbility.Activate(gameObject);
                 if(abilityActiveTime > 0)
                 {
                     abilityActiveTime -= Time.fixedDeltaTime;
                 }
                 else
                 {
+                    player.SetBaseModifiers();
                     state = AbilityState.Cooldown;
-                    abilityCooldownTime = handAbility.cooldownTime;
-                    handAbility.Deactivate(gameObject);
-                    DebugMessage(handAbility.name + " is on cooldown.", MessageType.Default);
+                    abilityCooldownTime = legAbility.cooldownTime;
+                    DebugMessage(legAbility.name + " is on cooldown.", MessageType.Default);
                 }
             break;
             case AbilityState.Cooldown:
-                if(abilityCooldownTime > 0)
-                {
-                    abilityCooldownTime -= Time.fixedDeltaTime;
-                }
-                else
-                {
-                    state = AbilityState.Ready;
-                    DebugMessage(handAbility.name + " is now ready.", MessageType.Default);
-                }
+
             break;
             default:
             break;
@@ -73,14 +69,23 @@ public class HandAbilityHolder : MonoBehaviour
 
     }
     
-    void OnDash(InputValue value)
+    void OnJump(InputValue value)
     {
-        if(state == AbilityState.Ready && value.isPressed)
+        if(value.isPressed)
+        {            
+
+            if(state == AbilityState.Ready)
+            {
+                state = AbilityState.Active;
+                abilityActiveTime = legAbility.activeTime;
+            }
+            if(abilityActiveTime > 0)
+                legAbility.Activate(gameObject);
+                DebugMessage(legAbility.name + " has been activated.", MessageType.Default);
+        }
+        else 
         {
-            handAbility.Activate(gameObject);
-            state = AbilityState.Active;
-            abilityActiveTime = handAbility.activeTime;
-            DebugMessage(handAbility.name + " has been activated.", MessageType.Default);
+            legAbility.Deactivate(gameObject);
         }
     }
 

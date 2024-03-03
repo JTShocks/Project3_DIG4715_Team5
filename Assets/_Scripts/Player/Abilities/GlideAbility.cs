@@ -8,11 +8,23 @@ public class GlideAbility : Ability
 {
     [Description("Must be a value LESS THAN 1")]
     [Range(0.1f, 1f)]
-    float glideMassReduction;
+    public float glideFallspeedReduction;
     public override void Activate(GameObject parent)
     {
         PlayerController player = parent.GetComponent<PlayerController>();
 
-        player.massModifier *= glideMassReduction;
+        if(!player.isGrounded)
+        {
+            player.velocity.y = 0;
+            player.fallingSpeedMultiplier *= glideFallspeedReduction;
+            player.velocity.y *= glideFallspeedReduction;
+        }
+
+        
+    }
+    public override void Deactivate(GameObject parent)
+    {
+        PlayerController player = parent.GetComponent<PlayerController>();
+        player.SetBaseModifiers();
     }
 }
