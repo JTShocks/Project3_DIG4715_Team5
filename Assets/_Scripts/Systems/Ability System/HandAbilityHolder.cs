@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AbilityHolder : MonoBehaviour
+public class HandAbilityHolder : MonoBehaviour
 {
 
     [SerializeField] bool enableDebugMessages;
