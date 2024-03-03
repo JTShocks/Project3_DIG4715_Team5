@@ -11,7 +11,7 @@ public class DashAbility : Ability
     {
         PlayerController player = parent.GetComponent<PlayerController>();
         
-        player.velocity = player.moveInput.normalized * dashVelocity;
+        player.velocity = parent.transform.forward * dashVelocity;
         
     }
 }

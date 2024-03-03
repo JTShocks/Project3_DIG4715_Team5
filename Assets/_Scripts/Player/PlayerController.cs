@@ -84,10 +84,13 @@ public class PlayerController : MonoBehaviour
     void UpdateMovement()
     {
         movementSpeedMultiplier = 1f;
+        moveDirection = transform.forward * moveInput.magnitude * playerMovementSpeed * movementSpeedMultiplier;
+       
         //Check to see if anything else should happer before moving
         OnBeforeMove?.Invoke();
 
-        moveDirection = transform.forward * moveInput.magnitude * playerMovementSpeed * movementSpeedMultiplier;
+         
+        
 
 
         //Calculate the rate the player should move each frame
