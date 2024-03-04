@@ -6190,6 +6190,11 @@ PrefabInstance:
       objectReference: {fileID: 928247865}
     - target: {fileID: 1762211906260358180, guid: 8917be626c953764c82ef5c9bfc3d8b7,
         type: 3}
+      propertyPath: playerTurningSpeed
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762211906260358180, guid: 8917be626c953764c82ef5c9bfc3d8b7,
+        type: 3}
       propertyPath: playerMovementSpeed
       value: 7
       objectReference: {fileID: 0}

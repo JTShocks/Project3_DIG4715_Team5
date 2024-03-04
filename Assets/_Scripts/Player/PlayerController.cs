@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
 
     //TO:DO
     /*
-        
+        Adjust the player turning to ONLY do the smooth turn when the new input is less than 90 degrees
+            Should have snappy change
     */
     [SerializeField] bool enableDebugMessages;
     enum MessageType{
@@ -39,6 +40,9 @@ public class PlayerController : MonoBehaviour
     internal float movementSpeedMultiplier;
     internal float massModifier;
     internal float fallingSpeedMultiplier;
+    internal float turnSpeedMultiplier;
+
+    internal bool facingIsLocked = false;
 
     //References to the various input actions for the player
     PlayerInput playerInput;
@@ -142,7 +146,24 @@ public class PlayerController : MonoBehaviour
             //We base the rotation on the relative relationship of the input to the transform
             //Rotate around the Y axis, then set the rotation only if the input is happening.
 
-            transform.rotation = rot;
+            //We first compare the current rotation angle to the desired rotation angle. Since we want the player to instantly change direction when the flick the stick to turn around
+
+            var angle = Quaternion.Angle(transform.rotation, rot);
+            if(angle >= 90)
+            {
+                if(!facingIsLocked)
+                {
+                //If the new angle is greater than 90 degrees, we can assume the player meant to switch direction
+                    transform.rotation = rot;
+                }
+
+            } 
+            else
+            {
+                //We want the smooth motion from the moving around
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, playerTurningSpeed*turnSpeedMultiplier * Time.deltaTime);
+            }
+            
         }
     }
 
@@ -171,6 +192,7 @@ public class PlayerController : MonoBehaviour
         movementSpeedMultiplier = 1f;
         massModifier = 1f;
         fallingSpeedMultiplier = 1f;
+        turnSpeedMultiplier = 1f;
     }
     
 

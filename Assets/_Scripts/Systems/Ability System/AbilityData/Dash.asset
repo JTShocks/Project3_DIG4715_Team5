@@ -16,3 +16,4 @@ MonoBehaviour:
   cooldownTime: 0.5
   activeTime: 0.3
   dashVelocity: 20
+  turningSpeedModifier: 0.5
