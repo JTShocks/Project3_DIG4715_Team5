@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class LegAbilityHolder : MonoBehaviour
+public class GlideAbilityHolder : MonoBehaviour
 {
     [SerializeField] bool enableDebugMessages;
     enum MessageType{
@@ -20,29 +20,35 @@ public class LegAbilityHolder : MonoBehaviour
     }
 
     [Header("Current Equipped Ability")]
-    [SerializeField] Ability legAbility;
+    [SerializeField] Ability glideAbility;
         float abilityActiveTime;
         float abilityCooldownTime;
+    static bool abilityIsEnabled = false;
 
     AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
     }
 
-    void OnEnable(){player.OnBeforeMove += OnBeforeMove;}
-    void OnDisable(){player.OnBeforeMove -= OnBeforeMove;}
+    void OnEnable(){player.OnBeforeMove += OnBeforeMove; AbilityController.OnAbilityEquip += SetActiveAbility;}
+    void OnDisable(){player.OnBeforeMove -= OnBeforeMove; AbilityController.OnAbilityEquip -= SetActiveAbility;}
 
     void OnBeforeMove()
     {
-        if(legAbility== null)
+        if(!abilityIsEnabled)
         {
             return;
         }
+        if(glideAbility== null)
+        {
+            return;
+        }
+
         if(player.isGrounded)
         {
             //When the player is grounded, the ability is Ready again
             state = AbilityState.Ready;
-            DebugMessage(legAbility.name + " is now ready.", MessageType.Default);
+            DebugMessage(glideAbility.name + " is now ready.", MessageType.Default);
         }
         switch(state)
         {
@@ -55,8 +61,8 @@ public class LegAbilityHolder : MonoBehaviour
                 {
                     player.SetBaseModifiers();
                     state = AbilityState.Cooldown;
-                    abilityCooldownTime = legAbility.cooldownTime;
-                    DebugMessage(legAbility.name + " is on cooldown.", MessageType.Default);
+                    abilityCooldownTime = glideAbility.cooldownTime;
+                    DebugMessage(glideAbility.name + " is on cooldown.", MessageType.Default);
                 }
             break;
             case AbilityState.Cooldown:
@@ -77,15 +83,30 @@ public class LegAbilityHolder : MonoBehaviour
             if(state == AbilityState.Ready)
             {
                 state = AbilityState.Active;
-                abilityActiveTime = legAbility.activeTime;
+                abilityActiveTime = glideAbility.activeTime;
             }
             if(abilityActiveTime > 0)
-                legAbility.Activate(gameObject);
-                DebugMessage(legAbility.name + " has been activated.", MessageType.Default);
+                glideAbility.Activate(gameObject);
+                DebugMessage(glideAbility.name + " has been activated.", MessageType.Default);
         }
         else 
         {
-            legAbility.Deactivate(gameObject);
+            glideAbility.Deactivate(gameObject);
+        }
+    }
+    void SetActiveAbility(Ability ability)
+    {
+        Debug.Log("Event was triggered");
+        if(ability.abilitySlot == glideAbility.abilitySlot)
+        {
+            if(glideAbility == ability)
+            {
+                abilityIsEnabled = true;
+            }
+            else
+            {
+                abilityIsEnabled = false;
+            }
         }
     }
 

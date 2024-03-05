@@ -44,11 +44,12 @@ GameObject:
   - component: {fileID: 7770817178429437190}
   - component: {fileID: 1364602460308625088}
   - component: {fileID: 7531006865214405596}
+  - component: {fileID: 836978532766154215}
   - component: {fileID: 1762211906260358180}
   - component: {fileID: 1540410985591090462}
   - component: {fileID: 1705921609893260010}
-  - component: {fileID: 7556132598843109290}
-  - component: {fileID: 2063214638277830507}
+  - component: {fileID: 6428431310945496100}
+  - component: {fileID: 3637954747446037314}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -119,6 +120,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &836978532766154215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125284797614351659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed13772be8949a4aa5df5f00ca49279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities:
+  - {fileID: 11400000, guid: 2121cd018d1d0df4881f962c963d9421, type: 2}
+  - {fileID: 11400000, guid: 46e1bc963205e414e887b3fa6fb96849, type: 2}
 --- !u!114 &1762211906260358180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +152,9 @@ MonoBehaviour:
   mass: 2
   acceleration: 20
   playerMovementSpeed: 5
+  fallSpeedCap: 0
   playerTurningSpeed: 720
+  currentFallingSpeed: 0
   groundCheckDistance: 0.1
   groundLayer:
     serializedVersion: 2
@@ -186,7 +204,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &7556132598843109290
+--- !u!114 &6428431310945496100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableDebugMessages: 1
   handAbility: {fileID: 11400000, guid: 2121cd018d1d0df4881f962c963d9421, type: 2}
---- !u!114 &2063214638277830507
+--- !u!114 &3637954747446037314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableDebugMessages: 1
-  legAbility: {fileID: 11400000, guid: 46e1bc963205e414e887b3fa6fb96849, type: 2}
+  glideAbility: {fileID: 11400000, guid: 46e1bc963205e414e887b3fa6fb96849, type: 2}
 --- !u!1 &4975486989984823664
 GameObject:
   m_ObjectHideFlags: 0

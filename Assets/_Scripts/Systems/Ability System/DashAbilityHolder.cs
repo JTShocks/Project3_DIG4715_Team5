@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HandAbilityHolder : MonoBehaviour
+public class DashAbilityHolder : MonoBehaviour
 {
-
     [SerializeField] bool enableDebugMessages;
     enum MessageType{
         Default,
@@ -13,6 +12,7 @@ public class HandAbilityHolder : MonoBehaviour
         Error
     }
     PlayerController player;
+    AbilityController abilityController;
     //This script is attached to the Player object and holds reference to the active ability in each slot
     enum AbilityState{
         Ready,
@@ -24,14 +24,16 @@ public class HandAbilityHolder : MonoBehaviour
     [SerializeField] Ability handAbility;
         float abilityActiveTime;
         float abilityCooldownTime;
+    static bool abilityIsEnabled = false;
 
     AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
+
     }
 
-    void OnEnable(){player.OnBeforeMove += OnBeforeMove;}
-    void OnDisable(){player.OnBeforeMove -= OnBeforeMove;}
+    void OnEnable(){player.OnBeforeMove += OnBeforeMove; AbilityController.OnAbilityEquip += SetActiveAbility;}
+    void OnDisable(){player.OnBeforeMove -= OnBeforeMove; AbilityController.OnAbilityEquip -= SetActiveAbility;}
 
     void OnBeforeMove()
     {
@@ -75,12 +77,33 @@ public class HandAbilityHolder : MonoBehaviour
     
     void OnDash(InputValue value)
     {
+        if(!abilityIsEnabled)
+        {
+            return;
+        }
         if(state == AbilityState.Ready && value.isPressed)
         {
             handAbility.Activate(gameObject);
             state = AbilityState.Active;
             abilityActiveTime = handAbility.activeTime;
             DebugMessage(handAbility.name + " has been activated.", MessageType.Default);
+        }
+    }
+
+
+    void SetActiveAbility(Ability ability)
+    {
+        Debug.Log("Ability has been activated");
+        if(ability.abilitySlot == handAbility.abilitySlot)
+        {
+            if(ability == handAbility)
+            {
+                abilityIsEnabled = true;
+            }
+            else
+            {
+                abilityIsEnabled = false;
+            }
         }
     }
 
