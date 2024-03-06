@@ -15,11 +15,11 @@ public class AbilityController : MonoBehaviour
         foreach (Ability ability in AbilitiesManager.instance.unlockedAbilities)
         {
             Debug.Log(ability);
-            EquipAbility(ability);
+            EnableAbility(ability);
         }
     }
 
-    void EquipAbility(Ability ability)
+    void EnableAbility(Ability ability)
     {
         Debug.Log("Equipping ability" + ability);
         if(OnAbilityEquip != null)

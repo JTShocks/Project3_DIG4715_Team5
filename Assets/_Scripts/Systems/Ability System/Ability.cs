@@ -6,12 +6,7 @@ using UnityEngine;
 
 public class Ability : ScriptableObject
 {
-    public enum AbilitySlot{
-        Core,
-        Hand,
-        Leg,
-        Weapon
-    }
+
     public new string name;
     [TextArea]
     public string description;
