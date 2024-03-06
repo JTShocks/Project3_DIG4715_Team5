@@ -6,25 +6,24 @@ using UnityEngine;
 public class AbilityController : MonoBehaviour
 {
 
-    public static Action<Ability> OnAbilityEquip;
+    public static Action<Ability> OnEnableAbility;
 
     public List<Ability> equippedAbilities;
 
+    void OnEnable(){AbilitiesManager.OnEquipAbility += EnableAbility;}
+    void OnDisable(){AbilitiesManager.OnEquipAbility -= EnableAbility;}
+
     void Start()
     {
-        foreach (Ability ability in AbilitiesManager.instance.unlockedAbilities)
-        {
-            Debug.Log(ability);
-            EnableAbility(ability);
-        }
+
     }
 
     void EnableAbility(Ability ability)
     {
         Debug.Log("Equipping ability" + ability);
-        if(OnAbilityEquip != null)
+        if(OnEnableAbility != null)
         {
-            OnAbilityEquip.Invoke(ability);
+            OnEnableAbility.Invoke(ability);
         }
     }
 }

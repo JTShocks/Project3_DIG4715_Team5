@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
             //We first compare the current rotation angle to the desired rotation angle. Since we want the player to instantly change direction when the flick the stick to turn around
 
             var angle = Quaternion.Angle(transform.rotation, rot);
-            if(angle >= 90)
+            if(angle > 89)
             {
                 if(!facingIsLocked)
                 {

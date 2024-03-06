@@ -32,8 +32,8 @@ public class DashAbilityHolder : MonoBehaviour
 
     }
 
-    void OnEnable(){player.OnBeforeMove += OnBeforeMove; AbilityController.OnAbilityEquip += SetActiveAbility;}
-    void OnDisable(){player.OnBeforeMove -= OnBeforeMove; AbilityController.OnAbilityEquip -= SetActiveAbility;}
+    void OnEnable(){player.OnBeforeMove += OnBeforeMove; AbilityController.OnEnableAbility += SetActiveAbility;}
+    void OnDisable(){player.OnBeforeMove -= OnBeforeMove; AbilityController.OnEnableAbility -= SetActiveAbility;}
 
     void OnBeforeMove()
     {

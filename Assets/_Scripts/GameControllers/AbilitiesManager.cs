@@ -8,6 +8,7 @@ public class AbilitiesManager : MonoBehaviour
     public static AbilitiesManager instance {get; private set;}
 
     public static Action<Ability> OnUnlockAbility;
+    public static Action<Ability> OnEquipAbility;
 
     [Header("Player Unlocked Abilities")]
     // Holds a list of all the unlocked abilities, unsorted.
@@ -54,9 +55,16 @@ public class AbilitiesManager : MonoBehaviour
     //Methods for equipping and dequipping abilities
     public void EquipAbility(Ability ability)
     {
-        //Always clear the space before trying to equip an ability
-        ClearAbilitySlot(ability.abilitySlot);
-        equippedAbilities[ability.abilitySlot] = ability;
+        if(!unlockedAbilities.Contains(ability))
+        {
+            return;
+        }
+            //Always clear the space before trying to equip an ability
+            ClearAbilitySlot(ability.abilitySlot);
+            equippedAbilities[ability.abilitySlot] = ability;
+            OnEquipAbility?.Invoke(ability);
+        
+
     }
 
     public void ClearAbilitySlot(AbilitySlot slotToClear)

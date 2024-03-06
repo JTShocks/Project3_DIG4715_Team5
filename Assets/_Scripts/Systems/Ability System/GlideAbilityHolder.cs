@@ -30,8 +30,8 @@ public class GlideAbilityHolder : MonoBehaviour
         player = GetComponent<PlayerController>();
     }
 
-    void OnEnable(){player.OnBeforeMove += OnBeforeMove; AbilityController.OnAbilityEquip += SetActiveAbility;}
-    void OnDisable(){player.OnBeforeMove -= OnBeforeMove; AbilityController.OnAbilityEquip -= SetActiveAbility;}
+    void OnEnable(){player.OnBeforeMove += OnBeforeMove; AbilityController.OnEnableAbility += SetActiveAbility;}
+    void OnDisable(){player.OnBeforeMove -= OnBeforeMove; AbilityController.OnEnableAbility -= SetActiveAbility;}
 
     void OnBeforeMove()
     {
@@ -39,12 +39,7 @@ public class GlideAbilityHolder : MonoBehaviour
         {
             return;
         }
-        if(glideAbility== null)
-        {
-            return;
-        }
-
-        if(player.isGrounded)
+        if(player.isGrounded && state != AbilityState.Ready)
         {
             //When the player is grounded, the ability is Ready again
             state = AbilityState.Ready;
@@ -77,6 +72,10 @@ public class GlideAbilityHolder : MonoBehaviour
     
     void OnJump(InputValue value)
     {
+        if(!abilityIsEnabled)
+        {
+            return;
+        }
         if(value.isPressed)
         {            
 
