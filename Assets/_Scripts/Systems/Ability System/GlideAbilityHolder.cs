@@ -96,7 +96,6 @@ public class GlideAbilityHolder : MonoBehaviour
     }
     void SetActiveAbility(Ability ability)
     {
-        Debug.Log("Event was triggered");
         if(ability.abilitySlot == glideAbility.abilitySlot)
         {
             if(glideAbility == ability)

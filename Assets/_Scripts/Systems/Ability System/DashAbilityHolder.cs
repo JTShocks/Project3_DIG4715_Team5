@@ -93,7 +93,6 @@ public class DashAbilityHolder : MonoBehaviour
 
     void SetActiveAbility(Ability ability)
     {
-        Debug.Log("Ability has been activated");
         if(ability.abilitySlot == handAbility.abilitySlot)
         {
             if(ability == handAbility)
