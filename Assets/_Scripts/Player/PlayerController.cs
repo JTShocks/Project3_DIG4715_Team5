@@ -102,15 +102,12 @@ public class PlayerController : MonoBehaviour
     {
 
         moveDirection = transform.forward * moveInput.magnitude * playerMovementSpeed * movementSpeedMultiplier;
+        //Calculate the rate the player should move each frame
+
        
         //Check to see if anything else should happer before moving
         OnBeforeMove?.Invoke();
 
-         
-        
-
-
-        //Calculate the rate the player should move each frame
         var factor = acceleration * Time.fixedDeltaTime;
         velocity.x = Mathf.Lerp(velocity.x, moveDirection.x, factor);
         velocity.z = Mathf.Lerp(velocity.z, moveDirection.z, factor);
