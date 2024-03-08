@@ -26,6 +26,7 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private bool waitAtLastWaypoint;
     [SerializeField] bool isLooping;
     [SerializeField] bool isAlternating;
+    [SerializeField] bool canMove;
 
     bool reverseDirection;
 
@@ -47,19 +48,28 @@ public class MovingPlatform : MonoBehaviour
 
         if(currentWaitTime > 0)
         {
+            canMove = false;
             currentWaitTime -= Time.deltaTime;
         }
         else
         {
-            FollowWaypoint();
+            canMove = true;
         }
 
+
+    }
+    void FixedUpdate()
+    {
+        if(canMove)
+        {
+            FollowWaypoint();
+        }
     }
 
     void FollowWaypoint()
     {
-        transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, platformMoveSpeed * Time.deltaTime);
-        if(Vector3.Distance(transform.position, currentWaypoint.position) <= 0.1)
+        rb.MovePosition(Vector3.MoveTowards(rb.position, currentWaypoint.position, platformMoveSpeed * Time.fixedDeltaTime));
+        if(Vector3.Distance(rb.position, currentWaypoint.position) <= 0.1)
         {   
                // If the current waypoint is the first in it's line or the last in it's line, wait some time before moving again.
             if(currentWaypoint.GetSiblingIndex() == waypoints.transform.childCount -1 || currentWaypoint.GetSiblingIndex() == 0)  
@@ -89,19 +99,14 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Player"))
+        PlayerController player = other.GetComponent<PlayerController>();
+        if(player != null)
         {
-            other.transform.SetParent(transform);
+            //player.moveDirection = GetComponent<VelocityCalculator>().GetVelocity();
+            player.character.Move(GetComponent<VelocityCalculator>().GetVelocity() * Time.fixedDeltaTime) ;
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            other.transform.SetParent(null);
-        }
-    }
 }

@@ -7,15 +7,19 @@ public class VelocityCalculator : MonoBehaviour
     private Vector3 _previousPosition;
     private Vector3 _velocity;
 
-    private void Start()
+    private Rigidbody rb;
+
+    private void Awake()
     {
-        _previousPosition = transform.position;
+
+        rb = GetComponent<Rigidbody>();
+                _previousPosition = rb.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        _velocity = (transform.position - _previousPosition) / Time.deltaTime;
-        _previousPosition = transform.position;
+        _velocity = (rb.position - _previousPosition) / Time.fixedDeltaTime;
+        _previousPosition = rb.position;
     }
 
     public Vector3 GetVelocity()

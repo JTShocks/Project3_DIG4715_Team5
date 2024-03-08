@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         Error
     }
     //This is the primary player controller that holds a lot of the base properties for the player
-    CharacterController character;
+    internal CharacterController character;
 
     [SerializeField] Transform cameraTransform;
     private float cameraYRotation;
