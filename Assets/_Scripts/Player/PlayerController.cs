@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         Error
     }
     //This is the primary player controller that holds a lot of the base properties for the player
-    CharacterController character;
+    internal CharacterController character;
 
     [SerializeField] Transform cameraTransform;
     private float cameraYRotation;
@@ -102,15 +102,12 @@ public class PlayerController : MonoBehaviour
     {
 
         moveDirection = transform.forward * moveInput.magnitude * playerMovementSpeed * movementSpeedMultiplier;
+        //Calculate the rate the player should move each frame
+
        
         //Check to see if anything else should happer before moving
         OnBeforeMove?.Invoke();
 
-         
-        
-
-
-        //Calculate the rate the player should move each frame
         var factor = acceleration * Time.fixedDeltaTime;
         velocity.x = Mathf.Lerp(velocity.x, moveDirection.x, factor);
         velocity.z = Mathf.Lerp(velocity.z, moveDirection.z, factor);
@@ -149,7 +146,7 @@ public class PlayerController : MonoBehaviour
             //We first compare the current rotation angle to the desired rotation angle. Since we want the player to instantly change direction when the flick the stick to turn around
 
             var angle = Quaternion.Angle(transform.rotation, rot);
-            if(angle >= 90)
+            if(angle > 89)
             {
                 if(!facingIsLocked)
                 {

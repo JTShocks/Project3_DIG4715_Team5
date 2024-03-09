@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Dash
   m_EditorClassIdentifier: 
   name: Dash
+  description: Dash forward with powerful steam, dealing damage to foes and barriers.
+    Can maneuver slightly while in the air
   cooldownTime: 0.5
   activeTime: 0.3
+  abilitySlot: 1
   dashVelocity: 20
   turningSpeedModifier: 0.5
