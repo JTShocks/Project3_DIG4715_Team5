@@ -70,7 +70,7 @@ public class GlideAbilityHolder : MonoBehaviour
 
     }
     
-    void OnJump(InputValue value)
+    void OnUseCore(InputValue value)
     {
         if(!abilityIsEnabled)
         {
