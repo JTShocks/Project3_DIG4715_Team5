@@ -31,8 +31,13 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
         if(currentHealth <= 0)
         {
-            Destroy(gameObject);
+            KillEnemy();
         }
+    }
+
+    public virtual void KillEnemy()
+    {
+        Destroy(gameObject);
     }
 
     

@@ -13,7 +13,7 @@ public class WrenchAbilityHolder : MonoBehaviour
     }
     PlayerController player;
     //This script is attached to the Player object and holds reference to the active ability in each slot
-    enum AbilityState{
+    internal enum AbilityState{
         Ready,
         Active,
         Cooldown
@@ -25,7 +25,7 @@ public class WrenchAbilityHolder : MonoBehaviour
         float abilityCooldownTime;
     static bool abilityIsEnabled = false;
 
-    AbilityState state = AbilityState.Ready;
+    internal AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
     }
@@ -42,14 +42,18 @@ public class WrenchAbilityHolder : MonoBehaviour
         switch(state)
         {
             case AbilityState.Active:
+                
+                if(player.velocity.y < 0)
+                    player.fallingSpeedMultiplier = 0;
+                    player.velocity.y = 0;
                 if(abilityActiveTime > 0)
                 {
-                    player.fallingSpeedMultiplier = 0;
                     abilityActiveTime -= Time.fixedDeltaTime;
                 }
                 else
                 {
                     player.SetBaseModifiers();
+  
                     wrenchAbility.Deactivate(gameObject);
                     state = AbilityState.Cooldown;
                     abilityCooldownTime = wrenchAbility.cooldownTime;
@@ -73,6 +77,7 @@ public class WrenchAbilityHolder : MonoBehaviour
 
     }
     
+    
     void OnFire(InputValue value)
     {
         if(!abilityIsEnabled)
@@ -83,9 +88,15 @@ public class WrenchAbilityHolder : MonoBehaviour
         {            
 
         }
+        if(state == AbilityState.Ready)
+        {
 
-        wrenchAbility.Activate(gameObject);
         state = AbilityState.Active;
+        Debug.Log("Swung the wrench");
+                wrenchAbility.Activate(gameObject);
+        }
+
+
 
     }
     void SetActiveAbility(Ability ability)
@@ -122,5 +133,6 @@ public class WrenchAbilityHolder : MonoBehaviour
 
         }
     }
+
     
 }
