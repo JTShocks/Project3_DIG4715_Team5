@@ -6,12 +6,14 @@ public class SceneManager : MonoBehaviour
 {
     public static int entranceToUse;
     public List<ExitPointInfo> exitPoints;
+    public FadeScreen fadeScreen;
 
     // Start is called before the first frame update
     void Start()
     {
         SetPlayerPosition();
-        //Invoke("SetPlayerPosition", 1f);
+
+        fadeScreen.ActivateFadeOut();
     }
 
     public void SetPlayerPosition()

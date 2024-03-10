@@ -7,6 +7,7 @@ public class ExitPoint : MonoBehaviour
     public int index;
     public string sceneToLoad;
     public Transform Exit;
+    public FadeScreen fadeScreen;
 
     // Set the scene to load upon the player entering the trigger.
     private void OnTriggerEnter(Collider other)
@@ -15,7 +16,14 @@ public class ExitPoint : MonoBehaviour
         {
             SceneManager.entranceToUse = index;
 
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
+            fadeScreen.ActivateFadeIn();
+
+            Invoke("LoadScene", 0.4f);
         }
+    }
+
+    private void LoadScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
     }
 }
