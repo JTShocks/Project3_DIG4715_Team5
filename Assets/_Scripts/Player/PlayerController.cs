@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     }
     //This is the primary player controller that holds a lot of the base properties for the player
     internal CharacterController character;
+    public static Transform playerTransform;
 
     [SerializeField] Transform cameraTransform;
     private float cameraYRotation;
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        playerTransform = transform;
         moveInput = GetMovementInput();
         ChangeLookDirection(moveInput);
         currentFallingSpeed = velocity.y;

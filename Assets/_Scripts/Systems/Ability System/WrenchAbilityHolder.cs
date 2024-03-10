@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GlideAbilityHolder : MonoBehaviour
+public class WrenchAbilityHolder : MonoBehaviour
 {
-    [SerializeField] bool enableDebugMessages;
+[SerializeField] bool enableDebugMessages;
     enum MessageType{
         Default,
         Warning,
@@ -13,19 +13,19 @@ public class GlideAbilityHolder : MonoBehaviour
     }
     PlayerController player;
     //This script is attached to the Player object and holds reference to the active ability in each slot
-    enum AbilityState{
+    internal enum AbilityState{
         Ready,
         Active,
         Cooldown
     }
 
     [Header("Current Equipped Ability")]
-    [SerializeField] Ability glideAbility;
+    [SerializeField] Ability wrenchAbility;
         float abilityActiveTime;
         float abilityCooldownTime;
     static bool abilityIsEnabled = false;
 
-    AbilityState state = AbilityState.Ready;
+    internal AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
     }
@@ -39,15 +39,13 @@ public class GlideAbilityHolder : MonoBehaviour
         {
             return;
         }
-        if(player.isGrounded && state != AbilityState.Ready)
-        {
-            //When the player is grounded, the ability is Ready again
-            state = AbilityState.Ready;
-            DebugMessage(glideAbility.name + " is now ready.", MessageType.Default);
-        }
         switch(state)
         {
             case AbilityState.Active:
+                
+                if(player.velocity.y < 0)
+                    player.fallingSpeedMultiplier = 0;
+                    player.velocity.y = 0;
                 if(abilityActiveTime > 0)
                 {
                     abilityActiveTime -= Time.fixedDeltaTime;
@@ -55,13 +53,22 @@ public class GlideAbilityHolder : MonoBehaviour
                 else
                 {
                     player.SetBaseModifiers();
+  
+                    wrenchAbility.Deactivate(gameObject);
                     state = AbilityState.Cooldown;
-                    abilityCooldownTime = glideAbility.cooldownTime;
-                    DebugMessage(glideAbility.name + " is on cooldown.", MessageType.Default);
+                    abilityCooldownTime = wrenchAbility.cooldownTime;
+                    DebugMessage(wrenchAbility.name + " is on cooldown.", MessageType.Default);
                 }
             break;
             case AbilityState.Cooldown:
-
+                if(abilityCooldownTime > 0)
+                {
+                    abilityCooldownTime -= Time.fixedDeltaTime;
+                }
+                else
+                {
+                    state = AbilityState.Ready;
+                }
             break;
             default:
             break;
@@ -70,7 +77,8 @@ public class GlideAbilityHolder : MonoBehaviour
 
     }
     
-    void OnUseCore(InputValue value)
+    
+    void OnFire(InputValue value)
     {
         if(!abilityIsEnabled)
         {
@@ -79,25 +87,23 @@ public class GlideAbilityHolder : MonoBehaviour
         if(value.isPressed)
         {            
 
-            if(state == AbilityState.Ready)
-            {
-                state = AbilityState.Active;
-                abilityActiveTime = glideAbility.activeTime;
-            }
-            if(abilityActiveTime > 0)
-                glideAbility.Activate(gameObject);
-                DebugMessage(glideAbility.name + " has been activated.", MessageType.Default);
         }
-        else 
+        if(state == AbilityState.Ready)
         {
-            glideAbility.Deactivate(gameObject);
+
+        state = AbilityState.Active;
+        Debug.Log("Swung the wrench");
+                wrenchAbility.Activate(gameObject);
         }
+
+
+
     }
     void SetActiveAbility(Ability ability)
     {
-        if(ability.abilitySlot == glideAbility.abilitySlot)
+        if(ability.abilitySlot == wrenchAbility.abilitySlot)
         {
-            if(glideAbility == ability)
+            if(wrenchAbility == ability)
             {
                 abilityIsEnabled = true;
             }
@@ -127,5 +133,6 @@ public class GlideAbilityHolder : MonoBehaviour
 
         }
     }
+
     
 }
