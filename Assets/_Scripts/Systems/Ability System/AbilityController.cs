@@ -13,9 +13,15 @@ public class AbilityController : MonoBehaviour
     void OnEnable(){AbilitiesManager.OnEquipAbility += EnableAbility;}
     void OnDisable(){AbilitiesManager.OnEquipAbility -= EnableAbility;}
 
-    void Start()
+    void Awake()
     {
-
+        if(equippedAbilities.Count > 0)
+        {
+            foreach(Ability ability in equippedAbilities)
+            {
+                EnableAbility(ability);
+            }
+        }
     }
 
     void EnableAbility(Ability ability)
