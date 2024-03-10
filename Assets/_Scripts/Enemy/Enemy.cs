@@ -14,9 +14,11 @@ public class Enemy : MonoBehaviour, ITakeDamage
     public EnemyState state;
     //Get a reference to the enemy behaviour
     EnemyBehaviour enemyBehaviour;
+    
+    float currentHealth;
 
     internal Rigidbody rb;
-    internal float movementSpeed;
+    [SerializeField] internal float movementSpeed;
     //Enemy needs
     //Health, Movespeed, Idle, Move, Attack states and behaviours
 
@@ -26,8 +28,14 @@ public class Enemy : MonoBehaviour, ITakeDamage
     }
     public void TakeDamage(float amount)
     {
-        throw new System.NotImplementedException();
+
+        if(currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
+    
     public void ChangeEnemyState(EnemyState newState)
     {
         state = newState;

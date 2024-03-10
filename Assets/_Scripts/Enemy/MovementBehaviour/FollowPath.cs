@@ -11,7 +11,7 @@ public class FollowPath : MovementBehaviour
     private Transform currentWaypoint;
     float currentWaitTime;
     [SerializeField] private float waitTimeBeforeMovingAgain;
-    Enemy hostEnemy;
+    Enemy enemy;
 
     [Tooltip("This is what determines how close the enemy should get to their waypoint before trying to move to the next one")]
     [Range(0.1f, 1f)]
@@ -23,16 +23,21 @@ public class FollowPath : MovementBehaviour
     
     bool reverseDirection;
 
+    void Awake()
+    {
+        currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint);
+    }
+
     public override void RunMovementBehaviour(GameObject parent)
     {
-        hostEnemy = parent.GetComponent<Enemy>();
+        enemy = GetComponent<Enemy>();
         FollowWaypoint();
     }
 
-    void FollowWaypoint()
+    public void FollowWaypoint()
     {
-        hostEnemy.rb.MovePosition(Vector3.MoveTowards(hostEnemy.rb.position, currentWaypoint.position, hostEnemy.movementSpeed * Time.fixedDeltaTime));
-        if(Vector3.Distance(hostEnemy.rb.position, currentWaypoint.position) <= 0.1)
+        enemy.rb.MovePosition(Vector3.MoveTowards(enemy.rb.position, currentWaypoint.position, enemy.movementSpeed * Time.fixedDeltaTime));
+        if(Vector3.Distance(enemy.rb.position, currentWaypoint.position) <= 0.1)
         {   
                // If the current waypoint is the first in it's line or the last in it's line, wait some time before moving again.
             if(currentWaypoint.GetSiblingIndex() == waypoints.transform.childCount -1 || currentWaypoint.GetSiblingIndex() == 0)  
