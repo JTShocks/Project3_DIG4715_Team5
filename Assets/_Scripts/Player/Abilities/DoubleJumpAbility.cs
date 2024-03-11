@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoubleJumpAbility : MonoBehaviour
+public class DoubleJumpAbility : Ability
 {
     public override void Activate(GameObject parent)
     {

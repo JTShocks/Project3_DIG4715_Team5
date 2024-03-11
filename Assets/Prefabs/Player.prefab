@@ -114,9 +114,9 @@ GameObject:
   - component: {fileID: 1762211906260358180}
   - component: {fileID: 1540410985591090462}
   - component: {fileID: 1705921609893260010}
-  - component: {fileID: 6428431310945496100}
+  - component: {fileID: 4541786806197897284}
+  - component: {fileID: 5241464506580189749}
   - component: {fileID: 5206982687087792258}
-  - component: {fileID: 3637954747446037314}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -140,7 +140,7 @@ Transform:
   - {fileID: 848992749660259731}
   - {fileID: 7567558137035916318}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1364602460308625088
 CharacterController:
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6428431310945496100
+--- !u!114 &4541786806197897284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,11 +281,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 4125284797614351659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49381c45a6d347a479b7130753456340, type: 3}
+  m_Script: {fileID: 11500000, guid: 2844825992ffe6c47b4899013cd12880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebugMessages: 1
+  enableDebugMessages: 0
   handAbility: {fileID: 11400000, guid: 2121cd018d1d0df4881f962c963d9421, type: 2}
+--- !u!114 &5241464506580189749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125284797614351659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5906c4ed8a2ce46b68f830753573fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDebugMessages: 0
+  glideAbility: {fileID: 11400000, guid: 46e1bc963205e414e887b3fa6fb96849, type: 2}
 --- !u!114 &5206982687087792258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,22 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb1c5426fb55924985c1fe5a5662655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebugMessages: 1
+  enableDebugMessages: 0
   wrenchAbility: {fileID: 11400000, guid: d2128fd586c5ef648b91f14fdc443ccf, type: 2}
---- !u!114 &3637954747446037314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4125284797614351659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf01fa1aae6f3345aa47f12064927f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableDebugMessages: 1
-  glideAbility: {fileID: 11400000, guid: 46e1bc963205e414e887b3fa6fb96849, type: 2}
 --- !u!1 &4975486989984823664
 GameObject:
   m_ObjectHideFlags: 0
