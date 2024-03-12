@@ -164,8 +164,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9176698, y: 0.16286373, z: 4.038103}
-  m_Center: {x: 0, y: 0.2, z: 0.016496181}
+  m_Size: {x: 2.1605043, y: 0.40454847, z: 4.236712}
+  m_Center: {x: -0.03210354, y: 0.32084236, z: -0.019898176}
 --- !u!114 &3633840980000397179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +185,7 @@ MonoBehaviour:
   waitAtLastWaypoint: 1
   isLooping: 0
   isAlternating: 1
+  canMove: 0
 --- !u!114 &8616104676244862731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +256,7 @@ Transform:
   - {fileID: 4272307537964419690}
   - {fileID: 8011504639326817976}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6420673317484866460
 PrefabInstance:

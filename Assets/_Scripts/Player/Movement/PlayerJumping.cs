@@ -7,10 +7,13 @@ public class PlayerJumping : MonoBehaviour
 {
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float jumpPressBufferTime = .05f;
+
     PlayerController player;
     bool isTryingToJump = false;
     bool jumpIsCanceled;
-    float lastJumpPressTime;
+    float lastJumpPressTime = 0.5f;
+
+
 
     void Awake()
     {
@@ -27,16 +30,20 @@ public class PlayerJumping : MonoBehaviour
         {
             isTryingToJump = true;
             lastJumpPressTime = Time.time;
+
         }
         else
         {
             jumpIsCanceled = true;
         }
 
+
     }
 
     void OnBeforeMove()
     {
+
+            
         bool wasTryingToJump = Time.time - lastJumpPressTime < jumpPressBufferTime;
 
         bool isOrWasTryingToJump = isTryingToJump || wasTryingToJump;
@@ -45,7 +52,6 @@ public class PlayerJumping : MonoBehaviour
         if(isOrWasTryingToJump && player.isGrounded)
         {
             player.velocity.y += jumpForce;
-
         }
 
         if(jumpIsCanceled)

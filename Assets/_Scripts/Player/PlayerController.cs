@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float currentFallingSpeed;
 
     internal bool isGrounded => CheckForGrounded();
+    float lastGroundedTime;
 
     [Range(0.1f, 1f)]
     [SerializeField] float groundCheckDistance;
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         //All movement calculations should be in FixedUpdate, since we are mostly dealing with rigidbodies
+
         UpdateGravity();
         UpdateMovement();
     }
