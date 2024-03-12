@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     }
     //This is the primary player controller that holds a lot of the base properties for the player
     internal CharacterController character;
+
+    internal Rigidbody rb;
     public static Transform playerTransform;
 
     [SerializeField] Transform cameraTransform;
@@ -62,7 +64,8 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         //Get the components for the game object
-        character = GetComponent<CharacterController>();
+        //character = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["move"];
         cameraYRotation = cameraTransform.eulerAngles.y;
@@ -91,13 +94,13 @@ public class PlayerController : MonoBehaviour
         /*
             Find a good way to cap the player's falling speed to smooth out movement and to work with the glide ability
         */
-        var gravity =  mass * massModifier * Time.fixedDeltaTime * Physics.gravity;
+        var gravity =  rb.mass * massModifier * Time.fixedDeltaTime * Physics.gravity;
         velocity.y = isGrounded? - 1f : velocity.y + gravity.y;
         velocity.y = Mathf.Clamp(velocity.y, -fallSpeedCap * fallingSpeedMultiplier, velocity.y);
     }
     bool CheckForGrounded()
     {
-        return Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundLayer);
+        return Physics.Raycast(rb.position, Vector3.down, groundCheckDistance, groundLayer);
     }
 
     void UpdateMovement()
@@ -110,11 +113,16 @@ public class PlayerController : MonoBehaviour
         //Check to see if anything else should happer before moving
         OnBeforeMove?.Invoke();
 
-        var factor = acceleration * Time.fixedDeltaTime;
-        velocity.x = Mathf.Lerp(velocity.x, moveDirection.x, factor);
-        velocity.z = Mathf.Lerp(velocity.z, moveDirection.z, factor);
 
-        character.Move(velocity * Time.fixedDeltaTime);
+        velocity.x = moveDirection.x;
+        velocity.z = moveDirection.z;
+       // var factor = acceleration * Time.fixedDeltaTime;
+        //velocity.x = Mathf.Lerp(velocity.x, moveDirection.x, factor);
+        //velocity.z = Mathf.Lerp(velocity.z, moveDirection.z, factor);
+
+        rb.velocity = velocity;
+
+        //character.Move(velocity * Time.fixedDeltaTime);
     }
 
     Vector3 GetMovementInput()
