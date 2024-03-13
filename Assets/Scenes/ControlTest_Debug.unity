@@ -4540,12 +4540,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &928247865 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3060139886117998824, guid: 535441ee9fb2895458e0910ff5f66b39,
-    type: 3}
-  m_PrefabInstance: {fileID: 7822155860296012478}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &958601858
 GameObject:
   m_ObjectHideFlags: 0
@@ -9987,7 +9981,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraTransform
       value: 
-      objectReference: {fileID: 928247865}
+      objectReference: {fileID: 1249637833}
     - target: {fileID: 2050719599458757295, guid: 8917be626c953764c82ef5c9bfc3d8b7,
         type: 3}
       propertyPath: m_Layer
