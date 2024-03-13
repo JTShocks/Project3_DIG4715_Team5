@@ -6,7 +6,7 @@ using UnityEngine;
 public class StandIdle : IdleBehaviour
 {
 
-    Enemy hostEnemy;
+    EnemyBehaviour hostEnemy;
 
     bool isRunning;
     [Header("Behaviour values")]
@@ -19,7 +19,7 @@ public class StandIdle : IdleBehaviour
 
     void Awake()
     {
-        hostEnemy = GetComponent<Enemy>();
+        hostEnemy = GetComponent<EnemyBehaviour>();
     }
 
     public override void RunIdleBehaviour(GameObject parent)
@@ -38,7 +38,7 @@ public class StandIdle : IdleBehaviour
     IEnumerator Idling()
     {
         yield return new WaitForSeconds(timeToStandIdle);
-        hostEnemy.ChangeEnemyState(Enemy.EnemyState.Move);
+        hostEnemy.ChangeEnemyState(EnemyBehaviour.EnemyState.Move);
         isRunning = false;
         yield return null;
     }

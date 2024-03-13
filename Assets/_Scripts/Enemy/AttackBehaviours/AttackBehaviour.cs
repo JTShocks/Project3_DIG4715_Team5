@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackBehaviour : MonoBehaviour
 {
 
-    public void RunAttackBehaviour(GameObject parent)
+    public virtual void RunAttackBehaviour(GameObject parent)
     {
         
     }

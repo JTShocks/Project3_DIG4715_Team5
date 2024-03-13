@@ -112,6 +112,7 @@ public class PlayerController : MonoBehaviour
         OnBeforeMove?.Invoke();
 
         var factor = acceleration * Time.fixedDeltaTime;
+
         velocity.x = Mathf.Lerp(velocity.x, moveDirection.x, factor);
         velocity.z = Mathf.Lerp(velocity.z, moveDirection.z, factor);
 

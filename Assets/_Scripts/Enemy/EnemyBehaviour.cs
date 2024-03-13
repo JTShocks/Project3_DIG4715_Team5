@@ -5,7 +5,14 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
 
-    Enemy hostEnemy;
+    public enum EnemyState{
+        Idle,
+        Move,
+        Attack
+    }
+
+    public EnemyState state;
+    internal Enemy hostEnemy;
 
     //Store a reference to the behaviours of this enemy
     //When the state switches, the behaviour becomes active 
@@ -27,12 +34,12 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(hostEnemy.state){
-            case Enemy.EnemyState.Idle:
+        switch(state){
+            case EnemyState.Idle:
             idleBehaviour.RunIdleBehaviour(gameObject);
             break;
 
-            case Enemy.EnemyState.Attack:
+            case EnemyState.Attack:
             attackBehaviour.RunAttackBehaviour(gameObject);
             break;
         }
@@ -40,9 +47,25 @@ public class EnemyBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(hostEnemy.state == Enemy.EnemyState.Move)
+        if(state == EnemyState.Move)
         {
             movementBehaviour.RunMovementBehaviour(gameObject);
+        }
+    }
+
+        public void ChangeEnemyState(EnemyState newState)
+    {
+        state = newState;
+        switch(state){
+            case EnemyState.Idle:
+
+            break;
+            case EnemyState.Move:
+
+            break;
+            case EnemyState.Attack:
+
+            break;
         }
     }
 
