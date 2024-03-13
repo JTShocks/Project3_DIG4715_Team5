@@ -103,8 +103,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void UpdateMovement()
-    {
-
+    { 
         moveDirection = transform.forward * moveInput.magnitude * playerMovementSpeed * movementSpeedMultiplier;
         //Calculate the rate the player should move each frame
 

@@ -11,7 +11,9 @@ public class PlayerJumping : MonoBehaviour
     PlayerController player;
     bool isTryingToJump = false;
     bool jumpIsCanceled;
-    float lastJumpPressTime = 0.5f;
+    float lastJumpPressTime;
+    [SerializeField] float coyoteTime;
+    private float coyoteTimeCounter;
 
 
 
@@ -42,16 +44,24 @@ public class PlayerJumping : MonoBehaviour
 
     void OnBeforeMove()
     {
-
+        if(player.isGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.fixedDeltaTime;
+        }
             
         bool wasTryingToJump = Time.time - lastJumpPressTime < jumpPressBufferTime;
 
         bool isOrWasTryingToJump = isTryingToJump || wasTryingToJump;
 
         //If the player was trying to jump and the jump wasn't canceled
-        if(isOrWasTryingToJump && player.isGrounded)
+        if(isOrWasTryingToJump && coyoteTimeCounter > 0f)
         {
-            player.velocity.y += jumpForce;
+            player.velocity.y = jumpForce;
+            coyoteTimeCounter = 0;
         }
 
         if(jumpIsCanceled)
@@ -62,8 +72,9 @@ public class PlayerJumping : MonoBehaviour
             }
             jumpIsCanceled = false;
         }
+        isTryingToJump = false;
 
-        isTryingToJump = false;      
+      
 
     }
 

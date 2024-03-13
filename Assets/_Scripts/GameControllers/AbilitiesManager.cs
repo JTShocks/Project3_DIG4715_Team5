@@ -43,7 +43,7 @@ public class AbilitiesManager : MonoBehaviour
     }
 
     //This function unlocks the ability and send out an event when an ability is unlocked
-    void UnlockAbility(Ability ability)
+    public void UnlockAbility(Ability ability)
     {
         if(!unlockedAbilities.Contains(ability))
         {
