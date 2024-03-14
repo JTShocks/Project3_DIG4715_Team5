@@ -35,7 +35,7 @@ public class MovingPlatform : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint);
-        transform.position = currentWaypoint.position;
+        rb.position = currentWaypoint.position;
         //Define the starting position of the platform on its route
     }
 
@@ -68,7 +68,7 @@ public class MovingPlatform : MonoBehaviour
 
     void FollowWaypoint()
     {
-        rb.MovePosition(Vector3.MoveTowards(rb.position, currentWaypoint.position, platformMoveSpeed * Time.fixedDeltaTime));
+        rb.position = Vector3.MoveTowards(rb.position, currentWaypoint.position, platformMoveSpeed * Time.fixedDeltaTime);
         if(Vector3.Distance(rb.position, currentWaypoint.position) <= 0.1)
         {   
                // If the current waypoint is the first in it's line or the last in it's line, wait some time before moving again.
@@ -105,8 +105,13 @@ public class MovingPlatform : MonoBehaviour
         if(player != null)
         {
             //player.moveDirection = GetComponent<VelocityCalculator>().GetVelocity();
-            player.character.Move(GetComponent<VelocityCalculator>().GetVelocity() * Time.fixedDeltaTime) ;
+            player.character.Move(GetComponent<VelocityCalculator>().GetVelocity() * Time.fixedDeltaTime);
+            
+            //player.transform.SetParent(transform);
+            //player.velocity = GetComponent<VelocityCalculator>().GetVelocity();
         }
     }
+
+
 
 }

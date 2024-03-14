@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float currentFallingSpeed;
 
     internal bool isGrounded => CheckForGrounded();
+    float lastGroundedTime;
 
     [Range(0.1f, 1f)]
     [SerializeField] float groundCheckDistance;
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         //All movement calculations should be in FixedUpdate, since we are mostly dealing with rigidbodies
+
         UpdateGravity();
         UpdateMovement();
     }
@@ -101,8 +103,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void UpdateMovement()
-    {
-
+    { 
         moveDirection = transform.forward * moveInput.magnitude * playerMovementSpeed * movementSpeedMultiplier;
         //Calculate the rate the player should move each frame
 
@@ -111,6 +112,7 @@ public class PlayerController : MonoBehaviour
         OnBeforeMove?.Invoke();
 
         var factor = acceleration * Time.fixedDeltaTime;
+
         velocity.x = Mathf.Lerp(velocity.x, moveDirection.x, factor);
         velocity.z = Mathf.Lerp(velocity.z, moveDirection.z, factor);
 

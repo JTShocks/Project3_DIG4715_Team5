@@ -7,10 +7,15 @@ public class PlayerJumping : MonoBehaviour
 {
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float jumpPressBufferTime = .05f;
+
     PlayerController player;
     bool isTryingToJump = false;
     bool jumpIsCanceled;
     float lastJumpPressTime;
+    [SerializeField] float coyoteTime;
+    private float coyoteTimeCounter;
+
+
 
     void Awake()
     {
@@ -27,25 +32,36 @@ public class PlayerJumping : MonoBehaviour
         {
             isTryingToJump = true;
             lastJumpPressTime = Time.time;
+
         }
         else
         {
             jumpIsCanceled = true;
         }
 
+
     }
 
     void OnBeforeMove()
     {
+        if(player.isGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.fixedDeltaTime;
+        }
+            
         bool wasTryingToJump = Time.time - lastJumpPressTime < jumpPressBufferTime;
 
         bool isOrWasTryingToJump = isTryingToJump || wasTryingToJump;
 
         //If the player was trying to jump and the jump wasn't canceled
-        if(isOrWasTryingToJump && player.isGrounded)
+        if(isOrWasTryingToJump && coyoteTimeCounter > 0f)
         {
-            player.velocity.y += jumpForce;
-
+            player.velocity.y = jumpForce;
+            coyoteTimeCounter = 0;
         }
 
         if(jumpIsCanceled)
@@ -56,8 +72,9 @@ public class PlayerJumping : MonoBehaviour
             }
             jumpIsCanceled = false;
         }
+        isTryingToJump = false;
 
-        isTryingToJump = false;      
+      
 
     }
 

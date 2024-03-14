@@ -5,13 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, ITakeDamage
 {
 
-    public enum EnemyState{
-        Idle,
-        Move,
-        Attack
-    }
 
-    public EnemyState state;
     //Get a reference to the enemy behaviour
     EnemyBehaviour enemyBehaviour;
     
@@ -41,19 +35,5 @@ public class Enemy : MonoBehaviour, ITakeDamage
     }
 
     
-    public void ChangeEnemyState(EnemyState newState)
-    {
-        state = newState;
-        switch(state){
-            case EnemyState.Idle:
 
-            break;
-            case EnemyState.Move:
-
-            break;
-            case EnemyState.Attack:
-
-            break;
-        }
-    }
 }

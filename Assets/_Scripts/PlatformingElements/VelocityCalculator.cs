@@ -12,7 +12,7 @@ public class VelocityCalculator : MonoBehaviour
     private void Awake()
     {
 
-        rb = GetComponent<Rigidbody>();
+       rb = GetComponent<Rigidbody>();
                 _previousPosition = rb.position;
     }
 

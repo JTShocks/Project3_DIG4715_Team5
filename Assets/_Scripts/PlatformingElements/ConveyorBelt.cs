@@ -12,6 +12,8 @@ public class ConveyorBelt : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         PlayerController player = other.GetComponent<PlayerController>();
+
+        Rigidbody rb = other.GetComponent<Rigidbody>();
         //If the player is in the trigger zone
         if(player != null)
         {
@@ -29,5 +31,18 @@ public class ConveyorBelt : MonoBehaviour
 
             
         }
+
+        if(rb != null)
+        {            Vector3 beltVelocity = transform.forward * beltSpeed;
+            if(beltMoveLeft)
+            {
+                beltVelocity = transform.forward * -1 * beltSpeed;
+            }
+
+            if(isBeltActive)
+            {
+                rb.velocity = beltVelocity;
+            }
+}
     }
 }
