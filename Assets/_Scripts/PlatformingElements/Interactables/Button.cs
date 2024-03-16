@@ -19,6 +19,6 @@ public class Button : Interactable
 
     void OnTriggerEnter(Collider other)
     {
-        Interact();
+        //Interact();
     }
 }
