@@ -16,11 +16,11 @@ public class FallAwayPlatform : MonoBehaviour
 
     [SerializeField] float recoveryTime;
     float currentRecoveryTime;
+    float currentDelayTime;
     [SerializeField] float delayBeforeFalling;
 
     private FallingPlatformState state;
 
-    // Start is called before the first frame update
     void Awake()
     {
         state = FallingPlatformState.Normal;
@@ -35,13 +35,38 @@ public class FallAwayPlatform : MonoBehaviour
 
             break;
             case FallingPlatformState.Falling:
-
+            currentDelayTime -= Time.deltaTime;
+            if(currentDelayTime <= 0)
+            {
+                //Tell the animation to make the thing fall
+                //Disable the collider for that time
+                currentRecoveryTime = recoveryTime;
+                state = FallingPlatformState.Recovery;
+            }
             break;
             case FallingPlatformState.Recovery:
-
+            currentRecoveryTime -= Time.deltaTime;
+            if(currentRecoveryTime <= 0)
+            {
+                //Play the reset animation
+                //Set the state back to normal
+                state = FallingPlatformState.Normal;
+            }
             break;
             default:
             break;
+        }
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        //This checks for the player standing ont the fallaway platform
+        CharacterController character = other.GetComponent<CharacterController>();
+        if(character != null && state == FallingPlatformState.Normal)
+        {
+            currentDelayTime = delayBeforeFalling;
+            state = FallingPlatformState.Falling;
         }
     }
 }

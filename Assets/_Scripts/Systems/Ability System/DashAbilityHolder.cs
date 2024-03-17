@@ -26,6 +26,7 @@ public class DashAbilityHolder : MonoBehaviour
         float abilityCooldownTime;
     static bool abilityIsEnabled = false;
 
+    [SerializeField] BoxCollider hitbox;
     AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
@@ -54,6 +55,7 @@ public class DashAbilityHolder : MonoBehaviour
                     state = AbilityState.Cooldown;
                     abilityCooldownTime = handAbility.cooldownTime;
                     handAbility.Deactivate(gameObject);
+                    hitbox.enabled = false;
                     DebugMessage(handAbility.name + " is on cooldown.", MessageType.Default);
                 }
             break;
@@ -83,6 +85,7 @@ public class DashAbilityHolder : MonoBehaviour
         }
         if(state == AbilityState.Ready && value.isPressed)
         {
+            hitbox.enabled = true;
             handAbility.Activate(gameObject);
             state = AbilityState.Active;
             abilityActiveTime = handAbility.activeTime;
