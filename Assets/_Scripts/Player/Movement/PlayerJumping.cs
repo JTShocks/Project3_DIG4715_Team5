@@ -9,18 +9,19 @@ public class PlayerJumping : MonoBehaviour
     [SerializeField] float jumpPressBufferTime = .05f;
 
     PlayerController player;
+    private DoubleJumpAbilityHolder doubleJumpHolder;
     bool isTryingToJump = false;
     bool jumpIsCanceled;
     float lastJumpPressTime;
     [SerializeField] float coyoteTime;
     private float coyoteTimeCounter;
-
-
+    private bool hasJumped = false;
 
     void Awake()
     {
         player = GetComponent<PlayerController>();
 
+        doubleJumpHolder = GetComponent<DoubleJumpAbilityHolder>();
     }
     void OnEnable(){ player.OnBeforeMove += OnBeforeMove;}
 
@@ -32,27 +33,27 @@ public class PlayerJumping : MonoBehaviour
         {
             isTryingToJump = true;
             lastJumpPressTime = Time.time;
-
         }
         else
         {
             jumpIsCanceled = true;
         }
 
-
     }
 
     void OnBeforeMove()
     {
-        if(player.isGrounded)
+        if (player.isGrounded)
         {
             coyoteTimeCounter = coyoteTime;
+            doubleJumpHolder.ResetDoubleJump();
+            hasJumped = false;
         }
         else
         {
             coyoteTimeCounter -= Time.fixedDeltaTime;
         }
-            
+
         bool wasTryingToJump = Time.time - lastJumpPressTime < jumpPressBufferTime;
 
         bool isOrWasTryingToJump = isTryingToJump || wasTryingToJump;
@@ -62,6 +63,13 @@ public class PlayerJumping : MonoBehaviour
         {
             player.velocity.y = jumpForce;
             coyoteTimeCounter = 0;
+            hasJumped = true;
+        }
+        else if(!player.isGrounded && hasJumped && doubleJumpHolder.canDoubleJump)
+        {
+            player.velocity.y += jumpForce;
+            doubleJumpHolder.UseDoubleJump();
+            hasJumped = false;
         }
 
         if(jumpIsCanceled)
@@ -72,9 +80,7 @@ public class PlayerJumping : MonoBehaviour
             }
             jumpIsCanceled = false;
         }
-        isTryingToJump = false;
-
-      
+        isTryingToJump = false;      
 
     }
 
