@@ -60,7 +60,7 @@ public class PlayerJumping : MonoBehaviour
         //If the player was trying to jump and the jump wasn't canceled
         if(isOrWasTryingToJump && coyoteTimeCounter > 0f)
         {
-            player.velocity.y = jumpForce;
+            player.velocity.y = Mathf.Sqrt(jumpForce* -3 * Physics.gravity.y);
             coyoteTimeCounter = 0;
         }
 
