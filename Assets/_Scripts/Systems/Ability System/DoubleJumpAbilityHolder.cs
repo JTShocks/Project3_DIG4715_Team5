@@ -7,7 +7,7 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
 {
     PlayerController player;
 
-    public DoubleJumpAbilityHolder doubleJumpAbility;
+    public DoubleJumpAbility doubleJumpAbility;
     public bool canDoubleJump = true;
 
     [SerializeField] bool enableDebugMessages;
