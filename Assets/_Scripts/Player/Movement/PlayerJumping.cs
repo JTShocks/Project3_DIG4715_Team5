@@ -46,7 +46,7 @@ public class PlayerJumping : MonoBehaviour
         if (player.isGrounded)
         {
             coyoteTimeCounter = coyoteTime;
-            doubleJumpHolder.ResetDoubleJump();
+            //doubleJumpHolder.ResetDoubleJump();
             hasJumped = false;
         }
         else
@@ -65,12 +65,12 @@ public class PlayerJumping : MonoBehaviour
             coyoteTimeCounter = 0;
             hasJumped = true;
         }
-        else if(!player.isGrounded && hasJumped && doubleJumpHolder.canDoubleJump)
+        /*else if(!player.isGrounded && hasJumped && doubleJumpHolder.canDoubleJump)
         {
             player.velocity.y += jumpForce;
-            doubleJumpHolder.UseDoubleJump();
+            //doubleJumpHolder.UseDoubleJump();
             hasJumped = false;
-        }
+        }*/
 
         if(jumpIsCanceled)
         {

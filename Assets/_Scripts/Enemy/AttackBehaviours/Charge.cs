@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Charge : AttackBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void RunAttackBehaviour(GameObject parent)
     {
-        
-    }
+        //Charge behaviour is in two phases
+        // 1: Charging up the attack
+        // 2: Running towards the player
 
-    // Update is called once per frame
-    void Update()
-    {
+        //Borrow the rotation from the player script to limit the turning radius of during the charge
+
         
     }
 }

@@ -260,7 +260,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-53876
+  m_Name: pb_Mesh-2784
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -772,6 +772,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &163903248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4125284797614351659, guid: 8917be626c953764c82ef5c9bfc3d8b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5592845754298353927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &200423241
 GameObject:
   m_ObjectHideFlags: 0
@@ -3197,6 +3203,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5592845754298353927}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &499571384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163903248}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44a195df6e13ae47bf49c879c05aabb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doubleJumpAbility: {fileID: 0}
+  canDoubleJump: 1
+  enableDebugMessages: 0
+  jumpAbility: {fileID: 11400000, guid: 7f6ce6176d3278f44b670d0332aa7c98, type: 2}
 --- !u!1 &726753755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3932,6 +3954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19289b9a2deebd847aff54db87342e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aggroRange: 8
 --- !u!1 &861769362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4425,7 +4448,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-53852
+  m_Name: pb_Mesh-2760
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -7397,7 +7420,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-53892
+  m_Name: pb_Mesh-2800
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -8249,7 +8272,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-53864
+  m_Name: pb_Mesh-2772
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -10358,6 +10381,11 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 2570
       objectReference: {fileID: 0}
+    - target: {fileID: 3990993215046122166, guid: 5f1a73b48e910b1419d289662a40437b,
+        type: 3}
+      propertyPath: timeToStandIdle
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4077835859809934515, guid: 5f1a73b48e910b1419d289662a40437b,
         type: 3}
       propertyPath: m_Mesh
@@ -10636,7 +10664,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4125284797614351659, guid: 8917be626c953764c82ef5c9bfc3d8b7,
+        type: 3}
+      insertIndex: 9
+      addedObject: {fileID: 499571384}
   m_SourcePrefab: {fileID: 100100000, guid: 8917be626c953764c82ef5c9bfc3d8b7, type: 3}
 --- !u!1001 &7822155860296012478
 PrefabInstance:

@@ -37,7 +37,7 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
         player = GetComponent<PlayerController>();
     }
 
-    void Enable() { player.OnBeforeMove += OnBeforeMove; AbilityController.OnEnableAbility += SetActiveAbility; }
+    void OnEnable() { player.OnBeforeMove += OnBeforeMove; AbilityController.OnEnableAbility += SetActiveAbility; }
     void OnDisable() { player.OnBeforeMove -= OnBeforeMove; AbilityController.OnEnableAbility -= SetActiveAbility; }
 
     void OnBeforeMove()
