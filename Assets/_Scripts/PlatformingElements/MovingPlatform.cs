@@ -28,6 +28,8 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] bool isAlternating;
     [SerializeField] bool canMove;
 
+    bool isMoving;
+
     bool reverseDirection;
 
 
@@ -41,6 +43,8 @@ public class MovingPlatform : MonoBehaviour
 
     void Update()
     {
+        isMoving = GetComponent<VelocityCalculator>().GetVelocity() != Vector3.zero;
+
         if(!isActive)
         {
             return;
@@ -104,8 +108,15 @@ public class MovingPlatform : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
         if(player != null)
         {
+
+            Vector3 platformVelocity = GetComponent<VelocityCalculator>().GetVelocity();
+
+            player.character.Move(platformVelocity * Time.fixedDeltaTime);
+            
+
+
             //player.moveDirection = GetComponent<VelocityCalculator>().GetVelocity();
-            player.character.Move(GetComponent<VelocityCalculator>().GetVelocity() * Time.fixedDeltaTime);
+
             
             //player.transform.SetParent(transform);
             //player.velocity = GetComponent<VelocityCalculator>().GetVelocity();
