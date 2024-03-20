@@ -5,6 +5,9 @@ using UnityEngine;
 public class FallAwayPlatform : MonoBehaviour
 {
 
+    //There will be an animator tied to this object that will play the proper animation
+    //Temporary solution, the place of the Platform just disappears
+
     enum FallingPlatformState{
         Normal,
         Falling,
@@ -13,6 +16,8 @@ public class FallAwayPlatform : MonoBehaviour
     //Elements needed
     //Duration before dropping
     //Recovery time
+
+    [SerializeField] GameObject platform;
 
     [SerializeField] float recoveryTime;
     float currentRecoveryTime;
@@ -41,6 +46,7 @@ public class FallAwayPlatform : MonoBehaviour
                 //Tell the animation to make the thing fall
                 //Disable the collider for that time
                 currentRecoveryTime = recoveryTime;
+                platform.SetActive(false);
                 state = FallingPlatformState.Recovery;
             }
             break;
@@ -50,6 +56,7 @@ public class FallAwayPlatform : MonoBehaviour
             {
                 //Play the reset animation
                 //Set the state back to normal
+                platform.SetActive(true);
                 state = FallingPlatformState.Normal;
             }
             break;
