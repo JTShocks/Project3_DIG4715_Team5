@@ -8,14 +8,19 @@ public class SeekAndDestroy : AttackBehaviour
    //The enemy will move towards the player and deal damage on contact
 
    
-    EnemyBehaviour behaviour;
+   EnemyBehaviour behaviour;
    [SerializeField] float aggroRange;
 
    Vector3 targetPos;
+
+   void Awake()
+   {
+      behaviour = GetComponent<EnemyBehaviour>();
+   }
    public override void RunAttackBehaviour(GameObject parent)
    {
       Transform player = PlayerController.playerTransform;
-      behaviour = parent.GetComponent<EnemyBehaviour>();
+      //behaviour = parent.GetComponent<EnemyBehaviour>();
       targetPos = new Vector3(player.position.x, gameObject.transform.position.y, player.position.z);
 
       behaviour.hostEnemy.transform.LookAt(targetPos);
