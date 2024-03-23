@@ -2512,7 +2512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeUpTime: 3
   maxTimeAllowedCharging: 6
-  turningRadius: 90
+  turningRadius: 135
   chargeSpeed: 10
 --- !u!114 &442202594
 MonoBehaviour:
