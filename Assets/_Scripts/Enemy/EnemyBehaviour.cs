@@ -53,7 +53,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-        public void ChangeEnemyState(EnemyState newState)
+    public void ChangeEnemyState(EnemyState newState)
     {
         state = newState;
         switch(state){
