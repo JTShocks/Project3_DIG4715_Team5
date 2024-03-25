@@ -146,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e10805215db025b43891fc8eb829f91d,
         type: 3}
       propertyPath: m_Name
-      value: box Variant
+      value: Boxes
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e10805215db025b43891fc8eb829f91d,
         type: 3}
