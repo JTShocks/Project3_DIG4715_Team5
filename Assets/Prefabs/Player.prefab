@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 1705921609893260010}
   - component: {fileID: 4541786806197897284}
   - component: {fileID: 5241464506580189749}
+  - component: {fileID: 4403643101716850127}
   - component: {fileID: 5206982687087792258}
   m_Layer: 8
   m_Name: Player
@@ -284,7 +285,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   mass: 4
   acceleration: 20
-  playerMovementSpeed: 7
+  playerMovementSpeed: 9
   fallSpeedCap: 30
   playerTurningSpeed: 360
   currentFallingSpeed: 0
@@ -367,6 +368,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableDebugMessages: 0
   glideAbility: {fileID: 11400000, guid: 46e1bc963205e414e887b3fa6fb96849, type: 2}
+--- !u!114 &4403643101716850127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125284797614351659}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44a195df6e13ae47bf49c879c05aabb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doubleJumpAbility: {fileID: 0}
+  canDoubleJump: 1
+  enableDebugMessages: 0
+  jumpAbility: {fileID: 11400000, guid: 7f6ce6176d3278f44b670d0332aa7c98, type: 2}
 --- !u!114 &5206982687087792258
 MonoBehaviour:
   m_ObjectHideFlags: 0
