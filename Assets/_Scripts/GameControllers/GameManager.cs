@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     }
 
     public static GameState currentGameState;
+
+    public GameState previousState;
     static GameManager instance;
     //Controls the game state and there is always an instance of the game manager for other scripts to call
     //The player controller is what will send the input to pause the game, but the game manager does the pausing
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
             if(currentGameState == GameState.Paused)
             {
 
-                ChangeGameState(GameState.Running);
+                ChangeGameState(previousState);
             }
             else
             {
@@ -64,6 +66,7 @@ public class GameManager : MonoBehaviour
 
     void ChangeGameState(GameState newState)
     {
+        currentGameState = previousState;
         switch(newState)
         {
             case GameState.Paused:
