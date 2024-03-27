@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     bool gameIsPaused;
     private void Awake()
     {
+        currentGameState = GameState.Running;
         if(instance == null)
         {
             instance = this;
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     void ChangeGameState(GameState newState)
     {
-        currentGameState = previousState;
+        previousState = currentGameState;
         switch(newState)
         {
             case GameState.Paused:
