@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -66,16 +67,17 @@ public class PlayerController : MonoBehaviour
         character = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["move"];
-        cameraYRotation = cameraTransform.eulerAngles.y;
+        
         Debug.Log(cameraYRotation);
         SetBaseModifiers();
 
     }
     void Update()
     {
+        cameraYRotation = cameraTransform.eulerAngles.y;
         playerTransform = transform;
         moveInput = GetMovementInput();
-        ChangeLookDirection(moveInput);
+        ChangeLookDirection(moveDirection);
         currentFallingSpeed = velocity.y;
     }
 
@@ -104,7 +106,10 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMovement()
     { 
-        moveDirection = transform.forward * moveInput.magnitude * playerMovementSpeed * movementSpeedMultiplier;
+
+        moveDirection = moveInput;
+        moveDirection = Quaternion.AngleAxis(cameraYRotation, Vector3.up) * moveDirection;
+        moveDirection.Normalize();
         //Calculate the rate the player should move each frame
 
        
@@ -113,8 +118,8 @@ public class PlayerController : MonoBehaviour
 
         var factor = acceleration * Time.fixedDeltaTime;
 
-        velocity.x = Mathf.Lerp(velocity.x, moveDirection.x, factor);
-        velocity.z = Mathf.Lerp(velocity.z, moveDirection.z, factor);
+        velocity.x = Mathf.Lerp(velocity.x, moveDirection.x * playerMovementSpeed * movementSpeedMultiplier, factor);
+        velocity.z = Mathf.Lerp(velocity.z, moveDirection.z * playerMovementSpeed * movementSpeedMultiplier, factor);
 
         character.Move(velocity * Time.fixedDeltaTime);
     }
@@ -136,34 +141,32 @@ public class PlayerController : MonoBehaviour
         //Rotate the player to the direction of their input
         if(input != Vector3.zero)
         {
-
+            /*
             //This is a matrix that is based relative to the angle of the camera, so that when pressing UP, you consistently move up
             //TO:DO Get the component of the Main Camera rotation, so this is consistent
             var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,cameraYRotation,0));
             var skewedInput = matrix.MultiplyPoint3x4(input);
 
             var relative = (transform.position + skewedInput) - transform.position;
-            var rot = Quaternion.LookRotation(relative, Vector3.up);
+            var rot = Quaternion.LookRotation(cameraTransform.forward, Vector3.up);
             //We base the rotation on the relative relationship of the input to the transform
             //Rotate around the Y axis, then set the rotation only if the input is happening.
 
             //We first compare the current rotation angle to the desired rotation angle. Since we want the player to instantly change direction when the flick the stick to turn around
 
             var angle = Quaternion.Angle(transform.rotation, rot);
-            if(angle > 89)
-            {
-                if(!facingIsLocked)
-                {
-                //If the new angle is greater than 90 degrees, we can assume the player meant to switch direction
-                    transform.rotation = rot;
-                }
 
-            } 
-            else
-            {
+
                 //We want the smooth motion from the moving around
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, playerTurningSpeed*turnSpeedMultiplier * Time.deltaTime);
-            }
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, playerTurningSpeed*turnSpeedMultiplier * Time.deltaTime);
+            */
+
+
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, playerTurningSpeed * turnSpeedMultiplier * Time.deltaTime);
+            //float targetAngle = Mathf.Atan2(input.x, input.z) * Mathf.Rad2Deg;
+            //float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref playerTurningSpeed, 0.1f);
+            //transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
             
         }
     }
