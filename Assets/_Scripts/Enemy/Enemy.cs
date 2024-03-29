@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     internal Rigidbody rb;
     [SerializeField] internal float movementSpeed;
+    [SerializeField] internal float damage;
     //Enemy needs
     //Health, Movespeed, Idle, Move, Attack states and behaviours
 

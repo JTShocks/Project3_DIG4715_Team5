@@ -11,6 +11,8 @@ public class SeekAndDestroy : AttackBehaviour
    EnemyBehaviour behaviour;
    [SerializeField] float aggroRange;
 
+   float moveSpeedModifier = 1;
+
    Vector3 targetPos;
 
    void Awake()
@@ -35,10 +37,28 @@ public class SeekAndDestroy : AttackBehaviour
 
     void MoveEnemyToPoint(Enemy enemy)
     {
-        enemy.rb.position = Vector3.MoveTowards(enemy.rb.position, targetPos,  enemy.movementSpeed * Time.fixedDeltaTime);
-        if(Vector3.Distance(enemy.rb.position, targetPos) <= 0.5)
+        enemy.rb.position = Vector3.MoveTowards(enemy.rb.position, targetPos,  enemy.movementSpeed * moveSpeedModifier* Time.fixedDeltaTime);
+        if(Vector3.Distance(enemy.rb.position, targetPos) <= 0.75)
         {
-            Debug.Log("Should be dealing contact damage");
+            
         }
+
     }
+
+   void OnCollisionStay(Collision other)
+   {
+      if(other.gameObject.CompareTag("Player"))
+      {
+         moveSpeedModifier = 0;
+         ITakeDamage target = other.collider.GetComponent<ITakeDamage>();
+         if(target != null)
+         {
+            target.TakeDamage(behaviour.hostEnemy.damage);
+         }
+      }
+      else
+      {
+         moveSpeedModifier = 1;
+      }
+   }
 }

@@ -26,7 +26,7 @@ public class ConveyorBelt : MonoBehaviour
 
             if(isBeltActive)
             {
-            player.character.Move(beltVelocity * Time.fixedDeltaTime);
+                player.character.Move(beltVelocity * Time.fixedDeltaTime);
             }
 
             

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,17 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static Action<bool> OnGamePause;
+    public enum GameState{
+        Cutscene,
+        Paused,
+        Running
+    }
+
+    public static GameState currentGameState;
+
+    public GameState previousState;
     static GameManager instance;
     //Controls the game state and there is always an instance of the game manager for other scripts to call
     //The player controller is what will send the input to pause the game, but the game manager does the pausing
@@ -12,6 +24,7 @@ public class GameManager : MonoBehaviour
     bool gameIsPaused;
     private void Awake()
     {
+        currentGameState = GameState.Running;
         if(instance == null)
         {
             instance = this;
@@ -28,13 +41,14 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(gameIsPaused)
+            if(currentGameState == GameState.Paused)
             {
-                UnpauseGame();
+
+                ChangeGameState(previousState);
             }
             else
             {
-                PauseGame();
+                ChangeGameState(GameState.Paused);
             }
         }
     }
@@ -49,5 +63,33 @@ public class GameManager : MonoBehaviour
     {
         gameIsPaused = false;
         Time.timeScale = 1;
+    }
+
+    void ChangeGameState(GameState newState)
+    {
+        previousState = currentGameState;
+        switch(newState)
+        {
+            case GameState.Paused:
+            //Pause the game when the state is changed
+                PauseGame();
+            //Send a signal to any listeners that care about the game being paused
+                OnGamePause?.Invoke(true);
+            break;
+            case GameState.Cutscene:
+            break;
+            case GameState.Running:
+            //If the game was paused, it is no longer paused
+                UnpauseGame();
+                OnGamePause?.Invoke(false);
+            break;
+        }
+
+        currentGameState = newState;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
