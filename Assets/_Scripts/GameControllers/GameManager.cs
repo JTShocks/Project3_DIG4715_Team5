@@ -87,4 +87,9 @@ public class GameManager : MonoBehaviour
 
         currentGameState = newState;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
