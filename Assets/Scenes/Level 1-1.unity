@@ -26888,6 +26888,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1248579268}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &716836970 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8430499608703410586, guid: 535441ee9fb2895458e0910ff5f66b39,
+    type: 3}
+  m_PrefabInstance: {fileID: 1248579268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &718508026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4768437299679272047, guid: 1e90644f0105d5347b4d29090ef2779e,
@@ -32932,7 +32938,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_SpeedMode: 0
-    m_MaxSpeed: 2
+    m_MaxSpeed: 5.02
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Y
@@ -32956,9 +32962,9 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 1
-    m_MaxSpeed: 0.5
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
+    m_MaxSpeed: 2.54
+    m_AccelTime: 0
+    m_DecelTime: 0
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertInput: 0
@@ -80652,6 +80658,11 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1705921609893260010, guid: 8917be626c953764c82ef5c9bfc3d8b7,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 716836970}
     - target: {fileID: 1762211906260358180, guid: 8917be626c953764c82ef5c9bfc3d8b7,
         type: 3}
       propertyPath: freeLookCamera
