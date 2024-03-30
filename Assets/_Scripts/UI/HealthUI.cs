@@ -10,28 +10,40 @@ public class HealthUI : MonoBehaviour
 
    //It will work by creating the list of children, starting at the parent origin, then each child will be moved over X space by the current child position.
 
-    [SerializeField] GameObject bulbPrefab;
-   List<GameObject> healthImages = new();
+   [SerializeField] List<Image> healthImages = new();
+   [SerializeField] Sprite bulbOn;
+   [SerializeField] Sprite bulbOff;
 
-   void Awake()
+
+
+
+   void Start()
    {
      PlaceHealthImages();
    }
 
    void PlaceHealthImages()
    {
-        float bulbDistanceDiff = 0;
 
-        for(int i =0; i < 5; i++)
+        for(int i =0; i < healthImages.Count; i++)
         {
-            //Place in an image for each health position, using the previous child as a reference
-            GameObject newBulb = Instantiate(bulbPrefab, this.GetComponent<RectTransform>());
-            
-            HealthBulb bulb = newBulb.GetComponent<HealthBulb>();
-            bulb.currentImage.rectTransform.position = new Vector3(bulbDistanceDiff,0,0);
-            healthImages.Add(newBulb);
-            bulbDistanceDiff += 20;
-            Debug.Log("Created health image");
+
+            if(i < PlayerHealth.CurrentHealth)
+            {
+                healthImages[i].sprite = bulbOn;
+            }
+            else{
+                healthImages[i].sprite = bulbOff;
+            }
+
+            if(i < PlayerHealth.MaxHealth)
+            {
+                healthImages[i].enabled = true;
+            }
+            else{
+                healthImages[i].enabled = false;
+            }
+            //Activate each heart based on how much health the player has at the moment
         }
    }
 
