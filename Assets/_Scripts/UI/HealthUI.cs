@@ -15,17 +15,16 @@ public class HealthUI : MonoBehaviour
    [SerializeField] Sprite bulbOff;
 
 
-
-
-   void Start()
-   {
-     PlaceHealthImages();
-   }
+    void OnEnable(){GameManager.OnGameLoad += PlaceHealthImages;
+    PlayerHealth.OnPlayerChangeHealth += PlaceHealthImages;}
+    void OnDisable(){GameManager.OnGameLoad -= PlaceHealthImages;
+    PlayerHealth.OnPlayerChangeHealth -= PlaceHealthImages;
+    }
 
    void PlaceHealthImages()
    {
 
-        for(int i =0; i < healthImages.Count; i++)
+        for(int i =0; i < PlayerHealth.MaxHealth; i++)
         {
 
             if(i < PlayerHealth.CurrentHealth)
@@ -47,15 +46,4 @@ public class HealthUI : MonoBehaviour
         }
    }
 
-   void LoseHealthStage()
-   {
-        //Get the diff between maxHealth and currentHealth, use that to loop through all the images and change them into the new image
-   }
-
-   void UpdateHealthImages()
-   {
-        //Start at the image at the end of the list
-        //Change the image of that point, related to the missing health.
-
-   }
 }

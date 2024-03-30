@@ -16,12 +16,12 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
     Coroutine invincibleTimer;
 
     //These are static variables since there is only going to be 1 of these scripts and the health should persist between the scenes
+        public static int MaxHealth = 5;
     public static int CurrentHealth {get; private set;}
-    public static int MaxHealth;
+
 
     void Awake()
     {
-        MaxHealth = 5;
         CurrentHealth = MaxHealth;
     }
 

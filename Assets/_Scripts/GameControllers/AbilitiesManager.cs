@@ -49,6 +49,7 @@ public class AbilitiesManager : MonoBehaviour
         {
             unlockedAbilities.Add(ability);
             OnUnlockAbility?.Invoke(ability);
+            EquipAbility(ability);
         }
     }
 
@@ -72,6 +73,8 @@ public class AbilitiesManager : MonoBehaviour
         // Sets the value of the space to null or empty, 
         equippedAbilities[slotToClear] = null;
     }
+
+    
 
 
 

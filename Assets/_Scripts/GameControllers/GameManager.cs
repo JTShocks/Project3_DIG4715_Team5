@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static Action<bool> OnGamePause;
+    public static Action OnGameLoad;
     public enum GameState{
         Cutscene,
         Paused,
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     public static GameState currentGameState;
 
     public GameState previousState;
-    static GameManager instance;
+    public static GameManager instance;
     //Controls the game state and there is always an instance of the game manager for other scripts to call
     //The player controller is what will send the input to pause the game, but the game manager does the pausing
 
@@ -34,6 +35,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        OnGameLoad?.Invoke();
+
     }
 
     // Update is called once per frame
@@ -57,12 +61,19 @@ public class GameManager : MonoBehaviour
     {
         gameIsPaused = true;
         Time.timeScale = 0;
+        OnGamePause?.Invoke(true);
     }
 
     public void UnpauseGame()
     {
         gameIsPaused = false;
         Time.timeScale = 1;
+        OnGamePause?.Invoke(false);
+
+        if(currentGameState == GameState.Paused)
+        {
+            currentGameState = previousState;
+        }
     }
 
     void ChangeGameState(GameState newState)
@@ -74,14 +85,14 @@ public class GameManager : MonoBehaviour
             //Pause the game when the state is changed
                 PauseGame();
             //Send a signal to any listeners that care about the game being paused
-                OnGamePause?.Invoke(true);
+                
             break;
             case GameState.Cutscene:
             break;
             case GameState.Running:
             //If the game was paused, it is no longer paused
                 UnpauseGame();
-                OnGamePause?.Invoke(false);
+                
             break;
         }
 
