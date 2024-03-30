@@ -10,22 +10,28 @@ public class HealthUI : MonoBehaviour
 
    //It will work by creating the list of children, starting at the parent origin, then each child will be moved over X space by the current child position.
 
-   [SerializeField] Image litBulb;
-   [SerializeField] Image darkBulb;
+    [SerializeField] GameObject bulbPrefab;
+   List<GameObject> healthImages = new();
 
-   List<Image> healthImages = new();
+   void Awake()
+   {
+     PlaceHealthImages();
+   }
 
    void PlaceHealthImages()
    {
-        float bulbDistanceDiff = 10;
+        float bulbDistanceDiff = 0;
 
-        for(int i =0; i < PlayerHealth.MaxHealth; i++)
+        for(int i =0; i < 5; i++)
         {
             //Place in an image for each health position, using the previous child as a reference
-            Image newBulb = Instantiate(litBulb, this.transform);
-            newBulb.transform.position = Vector3.right * bulbDistanceDiff;
-            healthImages.Add(newBulb);
+            GameObject newBulb = Instantiate(bulbPrefab, this.GetComponent<RectTransform>());
             
+            HealthBulb bulb = newBulb.GetComponent<HealthBulb>();
+            bulb.currentImage.rectTransform.position = new Vector3(bulbDistanceDiff,0,0);
+            healthImages.Add(newBulb);
+            bulbDistanceDiff += 20;
+            Debug.Log("Created health image");
         }
    }
 
