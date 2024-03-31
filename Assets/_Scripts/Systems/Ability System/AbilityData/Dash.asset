@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad0d5fdfd7d22c48b34bcaed3e16caf, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  name: Dash
+  name: Dash Fist
   description: Dash forward with powerful steam, dealing damage to foes and barriers.
     Can maneuver slightly while in the air
+  tutorialText: Press RB to Dash forward and activate switches and deal damage to
+    enemies.
   cooldownTime: 0.5
   activeTime: 0.3
   abilitySlot: 1
