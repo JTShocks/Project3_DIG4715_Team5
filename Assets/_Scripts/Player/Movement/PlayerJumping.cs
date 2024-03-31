@@ -32,6 +32,7 @@ public class PlayerJumping : MonoBehaviour
         if(value.isPressed)
         {
             isTryingToJump = true;
+            player.playerAnimator.SetTrigger("OnJump");
             lastJumpPressTime = Time.time;
         }
         else

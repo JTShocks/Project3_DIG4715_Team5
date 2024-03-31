@@ -86,6 +86,7 @@ public class DashAbilityHolder : MonoBehaviour
         if(state == AbilityState.Ready && value.isPressed)
         {
             hitbox.enabled = true;
+            player.playerAnimator.SetTrigger("OnDash");
             handAbility.Activate(gameObject);
             state = AbilityState.Active;
             abilityActiveTime = handAbility.activeTime;
