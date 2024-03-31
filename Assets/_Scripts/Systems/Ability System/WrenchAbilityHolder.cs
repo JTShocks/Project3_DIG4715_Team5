@@ -25,6 +25,8 @@ public class WrenchAbilityHolder : MonoBehaviour
         float abilityCooldownTime;
     static bool abilityIsEnabled = false;
 
+    [SerializeField] Hitbox hitbox;
+
     internal AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
@@ -46,6 +48,7 @@ public class WrenchAbilityHolder : MonoBehaviour
                 if(player.velocity.y < 0)
                     player.fallingSpeedMultiplier = 0;
                     player.velocity.y = 0;
+
                 if(abilityActiveTime > 0)
                 {
                     abilityActiveTime -= Time.fixedDeltaTime;
@@ -53,7 +56,7 @@ public class WrenchAbilityHolder : MonoBehaviour
                 else
                 {
                     player.SetBaseModifiers();
-  
+                    
                     wrenchAbility.Deactivate(gameObject);
                     state = AbilityState.Cooldown;
                     abilityCooldownTime = wrenchAbility.cooldownTime;
@@ -67,6 +70,7 @@ public class WrenchAbilityHolder : MonoBehaviour
                 }
                 else
                 {
+                    hitbox.box.enabled = false;
                     state = AbilityState.Ready;
                 }
             break;
@@ -94,6 +98,8 @@ public class WrenchAbilityHolder : MonoBehaviour
         state = AbilityState.Active;
         Debug.Log("Swung the wrench");
                 wrenchAbility.Activate(gameObject);
+                hitbox.damage = 1;
+                hitbox.box.enabled = true;
         }
 
 

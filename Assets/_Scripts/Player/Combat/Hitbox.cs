@@ -5,7 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Hitbox : MonoBehaviour
 {
+    internal BoxCollider box;
+    internal int damage;
 
+    void Awake(){
+        box = GetComponent<BoxCollider>();
+    }
     //Base hitbox class
     //Create override version depending on the need to account for the ability or situation
     public virtual void OnTriggerEnter(Collider other)
@@ -13,7 +18,7 @@ public class Hitbox : MonoBehaviour
         ITakeDamage t = other.GetComponent<ITakeDamage>();
         if(t != null)
         {
-            DealDamage(t, 0);
+            DealDamage(t, damage);
         }
     }
 
