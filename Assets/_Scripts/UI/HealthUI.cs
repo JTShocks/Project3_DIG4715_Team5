@@ -10,34 +10,40 @@ public class HealthUI : MonoBehaviour
 
    //It will work by creating the list of children, starting at the parent origin, then each child will be moved over X space by the current child position.
 
-   [SerializeField] Image litBulb;
-   [SerializeField] Image darkBulb;
+   [SerializeField] List<Image> healthImages = new();
+   [SerializeField] Sprite bulbOn;
+   [SerializeField] Sprite bulbOff;
 
-   List<Image> healthImages = new();
+
+    void OnEnable(){GameManager.OnGameLoad += PlaceHealthImages;
+    PlayerHealth.OnPlayerChangeHealth += PlaceHealthImages;}
+    void OnDisable(){GameManager.OnGameLoad -= PlaceHealthImages;
+    PlayerHealth.OnPlayerChangeHealth -= PlaceHealthImages;
+    }
 
    void PlaceHealthImages()
    {
-        float bulbDistanceDiff = 10;
 
         for(int i =0; i < PlayerHealth.MaxHealth; i++)
         {
-            //Place in an image for each health position, using the previous child as a reference
-            Image newBulb = Instantiate(litBulb, this.transform);
-            newBulb.transform.position = Vector3.right * bulbDistanceDiff;
-            healthImages.Add(newBulb);
-            
+
+            if(i < PlayerHealth.CurrentHealth)
+            {
+                healthImages[i].sprite = bulbOn;
+            }
+            else{
+                healthImages[i].sprite = bulbOff;
+            }
+
+            if(i < PlayerHealth.MaxHealth)
+            {
+                healthImages[i].enabled = true;
+            }
+            else{
+                healthImages[i].enabled = false;
+            }
+            //Activate each heart based on how much health the player has at the moment
         }
    }
 
-   void LoseHealthStage()
-   {
-        //Get the diff between maxHealth and currentHealth, use that to loop through all the images and change them into the new image
-   }
-
-   void UpdateHealthImages()
-   {
-        //Start at the image at the end of the list
-        //Change the image of that point, related to the missing health.
-
-   }
 }

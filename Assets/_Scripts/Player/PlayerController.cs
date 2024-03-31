@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +23,8 @@ public class PlayerController : MonoBehaviour
     //This is the primary player controller that holds a lot of the base properties for the player
     internal CharacterController character;
     public static Transform playerTransform;
+
+    [SerializeField] GameObject playerModel;
 
     [SerializeField] Transform cameraTransform;
     private float cameraYRotation;
@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
 
     public event Action OnBeforeMove;
 
+    [SerializeField] public Animator playerAnimator;
+
     void Awake()
     {
         //Get the components for the game object
@@ -77,8 +79,20 @@ public class PlayerController : MonoBehaviour
         cameraYRotation = cameraTransform.eulerAngles.y;
         playerTransform = transform;
         moveInput = GetMovementInput();
+        playerAnimator.SetBool("IsNotFalling", isGrounded);
         ChangeLookDirection(moveDirection);
         currentFallingSpeed = velocity.y;
+
+        if(moveInput != Vector3.zero && isGrounded)
+        {
+            playerAnimator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("IsMoving", false);
+        }
+
+        
     }
 
     void FixedUpdate()
@@ -98,6 +112,7 @@ public class PlayerController : MonoBehaviour
         var gravity =  mass * massModifier * Time.fixedDeltaTime * Physics.gravity;
         velocity.y = isGrounded? - 1f : velocity.y + gravity.y;
         velocity.y = Mathf.Clamp(velocity.y, -fallSpeedCap * fallingSpeedMultiplier, velocity.y);
+        playerAnimator.SetFloat("FallSpeed", velocity.y + 1);
     }
     bool CheckForGrounded()
     {

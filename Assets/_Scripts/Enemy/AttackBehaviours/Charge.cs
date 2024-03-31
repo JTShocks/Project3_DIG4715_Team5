@@ -99,8 +99,14 @@ public class Charge : AttackBehaviour
     {
         if(chargingAtPlayer)
         {
-            //Deal damage to the player
+            if(collision.collider.CompareTag("Player"))
+            {
+                ITakeDamage target = GetComponent<ITakeDamage>();
+                target.TakeDamage(behaviour.hostEnemy.damage);
+
+            }
         }
+
     }
 
     

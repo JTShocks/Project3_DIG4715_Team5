@@ -29,4 +29,15 @@ public class UIController : MonoBehaviour
     //Each ability by category, assigned to a direction to quick equip
     //Have on pause the menus, use RB and LB to switch which menu is active
     //Pause/ escape always closes the menu and is a way to get out of ANY menu
+
+
+    public void ResumeGame()
+    {
+        GameManager.instance.UnpauseGame();
+    }
+
+    public void QuitGame()
+    {
+        GameManager.instance.QuitGame();
+    }
 }

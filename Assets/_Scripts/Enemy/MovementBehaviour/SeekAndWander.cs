@@ -24,7 +24,7 @@ public class SeekAndWander : MovementBehaviour
         {
             currentWaypoint = behaviour.hostEnemy.rb.position;
         }
-        if(Physics.Raycast(behaviour.hostEnemy.rb.position + Vector3.up, currentWaypoint + Vector3.up + Vector3.up, wanderRadius, whatIsSolid))
+        if(Physics.Raycast(behaviour.hostEnemy.rb.position + Vector3.up, currentWaypoint + Vector3.up, wanderRadius+2, whatIsSolid))
         {
             //If this returns true, there is something in the way of the enemy
             //They will wait for a few moments, then find a new location to move too            
@@ -64,7 +64,7 @@ public class SeekAndWander : MovementBehaviour
     void MoveEnemyToPoint(Enemy enemy)
     {
         enemy.rb.position = Vector3.MoveTowards(enemy.rb.position, currentWaypoint,  enemy.movementSpeed * Time.fixedDeltaTime);
-        if(Vector3.Distance(enemy.rb.position, currentWaypoint) <= 0.5)
+        if(Vector3.Distance(enemy.rb.position, currentWaypoint) <= .8)
         {
             
             currentWaypoint = GenerateRandomPoint();
@@ -77,4 +77,5 @@ public class SeekAndWander : MovementBehaviour
         if(behaviour != null)
         Debug.DrawLine(behaviour.hostEnemy.rb.position + Vector3.up, currentWaypoint + Vector3.up, Color.red);
     }
+    
 }
