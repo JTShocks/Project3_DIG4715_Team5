@@ -53,12 +53,7 @@ public class Charge : AttackBehaviour
         
         if(currentChargeDuration >= maxTimeAllowedCharging)
         {
-
-            chargingAtPlayer = false;
-            isChargingUp = false;
-            currentChargeUpTime = 0;
-            currentChargeDuration = 0;
-            behaviour.ChangeEnemyState(EnemyBehaviour.EnemyState.Idle);
+            ExitChargeState();
         }
         
 
@@ -94,6 +89,15 @@ public class Charge : AttackBehaviour
         behaviour.hostEnemy.rb.position += transform.forward * chargeSpeed * Time.fixedDeltaTime;
 
     }
+    void ExitChargeState()
+    {
+        
+            chargingAtPlayer = false;
+            isChargingUp = false;
+            currentChargeUpTime = 0;
+            currentChargeDuration = 0;
+            behaviour.ChangeEnemyState(EnemyBehaviour.EnemyState.Idle);
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -101,8 +105,9 @@ public class Charge : AttackBehaviour
         {
             if(collision.collider.CompareTag("Player"))
             {
-                ITakeDamage target = GetComponent<ITakeDamage>();
+                ITakeDamage target = collision.collider.GetComponent<ITakeDamage>();
                 target.TakeDamage(behaviour.hostEnemy.damage);
+                ExitChargeState();
 
             }
         }

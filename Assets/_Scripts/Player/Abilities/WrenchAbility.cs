@@ -18,7 +18,7 @@ public class WrenchAbility : Ability
         PlayerController player = parent.GetComponent<PlayerController>();
 
 
-        Animator animator = parent.GetComponent<Animator>();
+        Animator animator = player.playerAnimator;
         animator.SetTrigger("OnSwing");
     }
     public override void Deactivate(GameObject parent)

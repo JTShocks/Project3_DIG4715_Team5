@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour, ITakeDamage
     {
         rb = GetComponent<Rigidbody>();
     }
+
+    
     public void TakeDamage(float amount)
     {
 
