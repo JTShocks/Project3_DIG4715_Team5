@@ -12,7 +12,7 @@ public class DashAbility : Ability
     {
         PlayerController player = parent.GetComponent<PlayerController>();
         
-        player.velocity = player.transform.forward* dashVelocity;
+        player.velocity = player.transform.forward * dashVelocity;
         player.turnSpeedMultiplier = turningSpeedModifier;
         player.facingIsLocked = true;
     }

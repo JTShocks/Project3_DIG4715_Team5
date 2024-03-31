@@ -18,5 +18,5 @@ MonoBehaviour:
   cooldownTime: 0.5
   activeTime: 0.3
   abilitySlot: 1
-  dashVelocity: 20
+  dashVelocity: 50
   turningSpeedModifier: 0.5
