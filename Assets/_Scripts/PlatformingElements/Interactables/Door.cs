@@ -27,5 +27,7 @@ public class Door : MonoBehaviour
     void ActivateDoor()
     {
         Debug.LogFormat("Door {0} activated by event", id);
+
+        Destroy(gameObject);
     }
 }
