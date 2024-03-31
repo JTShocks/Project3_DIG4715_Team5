@@ -20,7 +20,7 @@ public class Respawner : MonoBehaviour
         RespawnManager respawnManager = FindObjectOfType<RespawnManager>();
         if(respawnManager != null)
         {
-            respawnManager.RespawnPlayer(player);
+            respawnManager.UpdateCheckpointIndex(checkpointIndex);
         }
         else
         {
