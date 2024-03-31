@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - ConveyorBelt
+  - Spike Hazard
   layers:
   - Default
   - TransparentFX
