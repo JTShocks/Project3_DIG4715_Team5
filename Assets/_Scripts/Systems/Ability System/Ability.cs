@@ -10,6 +10,8 @@ public class Ability : ScriptableObject
     public new string name;
     [TextArea]
     public string description;
+    [TextArea]
+    public string tutorialText;
     public float cooldownTime;
     public float activeTime;
     public AbilitySlot abilitySlot;
