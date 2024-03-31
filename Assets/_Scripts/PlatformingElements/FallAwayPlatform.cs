@@ -20,6 +20,8 @@ public class FallAwayPlatform : MonoBehaviour
     [SerializeField] GameObject platform;
 
     [SerializeField] float recoveryTime;
+
+    [SerializeField] AudioSource audioSource;
     float currentRecoveryTime;
     float currentDelayTime;
     [SerializeField] float delayBeforeFalling;
@@ -43,6 +45,10 @@ public class FallAwayPlatform : MonoBehaviour
             currentDelayTime -= Time.deltaTime;
             if(currentDelayTime <= 0)
             {
+
+                if (audioSource != null)
+                audioSource.Play();
+
                 //Tell the animation to make the thing fall
                 //Disable the collider for that time
                 currentRecoveryTime = recoveryTime;
