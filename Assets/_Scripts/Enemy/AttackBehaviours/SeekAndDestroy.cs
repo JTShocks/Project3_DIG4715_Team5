@@ -41,7 +41,7 @@ public class SeekAndDestroy : AttackBehaviour
         if(Vector3.Distance(enemy.rb.position, targetPos) <= 0.75)
         {
             
-        }
+        }   
 
     }
 
@@ -54,6 +54,7 @@ public class SeekAndDestroy : AttackBehaviour
          if(target != null)
          {
             target.TakeDamage(behaviour.hostEnemy.damage);
+            behaviour.ChangeEnemyState(EnemyBehaviour.EnemyState.Idle);
          }
       }
       else
