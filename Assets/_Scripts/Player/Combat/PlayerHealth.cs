@@ -19,10 +19,12 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
         public static int MaxHealth = 5;
     public static int CurrentHealth {get; private set;}
 
+    private RespawnManager respawnManager;
 
     void Awake()
     {
         CurrentHealth = MaxHealth;
+        respawnManager = FindObjectOfType<RespawnManager>();
     }
 
     IEnumerator InvincibleTime()
@@ -79,6 +81,16 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
     {
         //What to do when the player reaches 0 health
         //This would be the respawning
+        if(respawnManager != null)
+        {
+            respawnManager.RespawnPlayer(gameObject);
+            CurrentHealth = MaxHealth;
+            OnPlayerChangeHealth?.Invoke();
+        }
+        else
+        {
+            Debug.Log("RespawnManager not found!");
+        }
     }
 
 
