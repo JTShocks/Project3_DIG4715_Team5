@@ -40,6 +40,9 @@ public class AbilitiesManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
+        EquipAbility(unlockedAbilities[0]);
     }
 
     //This function unlocks the ability and send out an event when an ability is unlocked
