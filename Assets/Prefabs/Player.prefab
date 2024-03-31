@@ -1834,7 +1834,7 @@ Transform:
   - {fileID: 2843603030470095826}
   - {fileID: 8212170328440908508}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1364602460308625088
 CharacterController:
@@ -3160,6 +3160,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8fa230dc8cc876a4188b6c73993aebe1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1b562bcee0fe6ad44bb851bef128d258, type: 2}
     - target: {fileID: 919132149155446097, guid: 8fa230dc8cc876a4188b6c73993aebe1,
         type: 3}
       propertyPath: m_Name
