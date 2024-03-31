@@ -8,13 +8,17 @@ public class SafeSpotSaver : MonoBehaviour
     public LayerMask groundLayer;
     private Vector3 lastSafePosition;
     private float nextCheckTime;
-    private Rigidbody playerRigidbody; // CharacterController could go here if using that instead.
+    //private Rigidbody playerRigidbody; // CharacterController could go here if using that instead.
+    private CharacterController characterController;
+    private PlayerHealth playerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         // Get stuff.
-        playerRigidbody = GetComponent<Rigidbody>();
+        //playerRigidbody = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
+        playerHealth = GetComponent<PlayerHealth>();
         lastSafePosition = transform.position;
         nextCheckTime = Time.time + checkInterval;
     }
@@ -23,16 +27,16 @@ public class SafeSpotSaver : MonoBehaviour
     {
         if(Time.time >= nextCheckTime)
         {
-            Debug.Log("IsGrounded: " + IsGrounded() + ", HasGroundAround: " + HasGroundAround());
+            //Debug.Log("IsGrounded: " + IsGrounded() + ", HasGroundAround: " + HasGroundAround());
             if (IsGrounded() && HasGroundAround())
             {
                 lastSafePosition = transform.position;
-                Debug.Log("Saved position: " + lastSafePosition);
+                //Debug.Log("Saved position: " + lastSafePosition);
             }
             nextCheckTime = Time.time + checkInterval;
         }
     }
-
+    /*
     // If collide with spike, reset position of player to last safe position.
     void OnCollisionEnter(Collision collision)
     {
@@ -43,7 +47,18 @@ public class SafeSpotSaver : MonoBehaviour
             playerRigidbody.velocity = Vector3.zero;
         }
     }
-
+    */
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.gameObject.CompareTag("Spike Hazard"))
+        {
+            playerHealth.TakeDamage(1);
+            characterController.enabled = false;
+            transform.position = lastSafePosition;
+            characterController.enabled = true;
+        }
+    }
+    /*
     // Check if the player is indeed grounded. Raycast is used.
     bool IsGrounded()
     {
@@ -53,6 +68,11 @@ public class SafeSpotSaver : MonoBehaviour
             return true;
         }
         return false;
+    }
+    */
+    bool IsGrounded()
+    {
+        return characterController.isGrounded;
     }
 
     // Checks for ground around the player.
