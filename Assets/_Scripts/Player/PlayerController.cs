@@ -119,6 +119,20 @@ public class PlayerController : MonoBehaviour
         return Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundLayer);
     }
 
+    void OnPause()
+    {
+
+            if(GameManager.currentGameState == GameManager.GameState.Paused)
+            {
+
+                GameManager.instance.ChangeGameState(GameManager.instance.previousState);
+            }
+            else
+            {
+                GameManager.instance.ChangeGameState(GameManager.GameState.Paused);
+            }
+    }
+
     void UpdateMovement()
     { 
 

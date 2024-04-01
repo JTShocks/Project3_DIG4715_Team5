@@ -19,12 +19,14 @@ public class GameManager : MonoBehaviour
 
     public GameState previousState;
     public static GameManager instance;
+
     //Controls the game state and there is always an instance of the game manager for other scripts to call
     //The player controller is what will send the input to pause the game, but the game manager does the pausing
 
     bool gameIsPaused;
     private void Awake()
     {
+        //pause = PlayerInput.
         currentGameState = GameState.Running;
         if(instance == null)
         {
@@ -40,22 +42,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(currentGameState == GameState.Paused)
-            {
-
-                ChangeGameState(previousState);
-            }
-            else
-            {
-                ChangeGameState(GameState.Paused);
-            }
-        }
-    }
 
     public void PauseGame()
     {
@@ -76,7 +62,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void ChangeGameState(GameState newState)
+   public void ChangeGameState(GameState newState)
     {
         previousState = currentGameState;
         switch(newState)
