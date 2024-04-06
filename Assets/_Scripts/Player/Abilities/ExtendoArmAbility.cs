@@ -21,14 +21,16 @@ public class ExtendoArmAbility : Ability
 
     public override void Activate(GameObject parent)
     {
-        //Spawn in the box/ component that is checking for if it hits a certain ledge.
-        //Give it a calculated "endPoint" that it moves toward
-        //When it reaches the end, it signals back to the extendo arm ability that it hit something
-        //Begin the retraction
+
+        ExtendoArmAbilityHolder holder = parent.GetComponent<ExtendoArmAbilityHolder>();
+        holder.handDestination = parent.transform.position + Vector3.forward * grappleArmDistance;
+        holder.handRetractSpeed = grappleArmRetractSpeed;
+
     }
 
     public override void Deactivate(GameObject parent)
     {
-        
+        //Destroy the hitbox
+        //Begin the retraction
     }
 }

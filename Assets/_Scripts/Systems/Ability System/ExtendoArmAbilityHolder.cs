@@ -20,6 +20,13 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         float abilityCooldownTime;
     static bool abilityIsEnabled = false;
     AbilityState state = AbilityState.Ready;
+
+    //These are the variables specific to the extendoArm
+
+    Rigidbody handRB;
+    internal Vector3 handDestination;
+    internal float handRetractSpeed;
+
     void Awake(){
         player = GetComponent<PlayerController>();
     }
@@ -40,6 +47,12 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
             case AbilityState.Ready:
             break;
             case AbilityState.Active:
+            //While this is active, the player is locked in place and has no input
+            //Only when the hand begins moving, then it will continue.
+
+                //Hand will spawn at the transform forward in local position, 1 space away.
+            //handRB.position = Vector3.MoveTowards()
+            //When the ability is active, it is moving the hand to the desired location
             break;
             case AbilityState.Cooldown:
             break;
@@ -57,6 +70,13 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         }
         if(state == AbilityState.Ready && value.isPressed)
         {
+            extendArmAbility.Activate(gameObject);
+            state = AbilityState.Active;
+
+            //CreateHand()
+
+
+
             /*hitbox.enabled = true;
             player.playerAnimator.SetTrigger("OnDash");
             handAbility.Activate(gameObject);
@@ -64,6 +84,11 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
             abilityActiveTime = handAbility.activeTime;
             DebugMessage(handAbility.name + " has been activated.", MessageType.Default);*/
         }
+    }
+
+    void CreateHandHitbox()
+    {
+        //Instantiate()
     }
 
 
