@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
     internal bool facingIsLocked = false;
 
+    internal bool controlsLocked = false;
+
     //References to the various input actions for the player
     PlayerInput playerInput;
         InputAction moveAction;
@@ -78,10 +80,16 @@ public class PlayerController : MonoBehaviour
     {
         cameraYRotation = cameraTransform.eulerAngles.y;
         playerTransform = transform;
-        moveInput = GetMovementInput();
+
         playerAnimator.SetBool("IsNotFalling", isGrounded);
-        ChangeLookDirection(moveDirection);
+
         currentFallingSpeed = velocity.y;
+
+        if(!controlsLocked)
+        {
+                moveInput = GetMovementInput();
+                ChangeLookDirection(moveDirection);
+        }
 
         if(moveInput != Vector3.zero && isGrounded)
         {
@@ -135,7 +143,6 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMovement()
     { 
-
         moveDirection = moveInput;
         moveDirection = Quaternion.AngleAxis(cameraYRotation, Vector3.up) * moveDirection;
         moveDirection.Normalize();

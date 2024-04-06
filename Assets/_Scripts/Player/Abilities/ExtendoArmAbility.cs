@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class ExtendoArmAbility : Ability
 {
 
@@ -10,9 +11,20 @@ public class ExtendoArmAbility : Ability
     // After it is done retracting, the player will begin falling at normal speed.
     // 
 
+    //Instantiate a "grapple hitbox"
+    //If it collides with anything, handle the collision
+    //Deactivate = delete the spawned box and return player movement to normal
+    //Lock out inputs until the ability is done
+
+    [SerializeField] float grappleArmDistance;
+    [SerializeField] float grappleArmRetractSpeed;
+
     public override void Activate(GameObject parent)
     {
-        
+        //Spawn in the box/ component that is checking for if it hits a certain ledge.
+        //Give it a calculated "endPoint" that it moves toward
+        //When it reaches the end, it signals back to the extendo arm ability that it hit something
+        //Begin the retraction
     }
 
     public override void Deactivate(GameObject parent)
