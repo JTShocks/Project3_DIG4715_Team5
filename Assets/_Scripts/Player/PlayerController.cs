@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetBool("IsNotFalling", isGrounded);
 
         currentFallingSpeed = velocity.y;
-
+        moveInput = Vector2.zero;
         if(!controlsLocked)
         {
                 moveInput = GetMovementInput();

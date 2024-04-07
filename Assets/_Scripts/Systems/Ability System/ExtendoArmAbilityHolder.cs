@@ -12,7 +12,6 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         Cooldown
     }
 
-    bool isRetracting;
 
      [Header("Current Equipped Ability")]
     [SerializeField] Ability extendArmAbility;
@@ -27,11 +26,31 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
     internal Vector3 handDestination;
     internal float handRetractSpeed;
 
+    [SerializeField] GameObject extendoHand;
+
+    Vector3 dropPointDirection;
+    Vector3 dropPoint;
+
+    bool foundGrapplePoint = false;
+
+    ExtendoHand activeHand;
+    GameObject hand;
+
     void Awake(){
         player = GetComponent<PlayerController>();
     }
-    void OnEnable(){player.OnBeforeMove += OnBeforeMove; AbilityController.OnEnableAbility += SetActiveAbility;}
-    void OnDisable(){player.OnBeforeMove -= OnBeforeMove; AbilityController.OnEnableAbility -= SetActiveAbility;}
+    void OnEnable(){
+        player.OnBeforeMove += OnBeforeMove;
+        AbilityController.OnEnableAbility += SetActiveAbility;
+        ExtendoHand.OnReachHandHold += SetDestinationPoint;
+        ExtendoHand.OnRetracted += OnRetracted;
+    }
+    void OnDisable(){
+        player.OnBeforeMove -= OnBeforeMove;
+        AbilityController.OnEnableAbility -= SetActiveAbility;
+        ExtendoHand.OnReachHandHold -= SetDestinationPoint;
+        ExtendoHand.OnRetracted -= OnRetracted;
+    }
 
     void OnBeforeMove()
     {
@@ -50,11 +69,32 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
             //While this is active, the player is locked in place and has no input
             //Only when the hand begins moving, then it will continue.
 
+
+                if(activeHand.isRetracting)
+                {
+                    if(foundGrapplePoint)
+                    {
+                        PullPlayerToGrapplePoint();
+                    }
+                    else
+                    {
+                        player.velocity = Vector3.zero;
+                        activeHand.Retract(transform.position);
+                    }
+                }
+                else
+                {
+                    player.velocity = Vector3.zero;
+                    activeHand.Launch(handDestination);
+
+                }
                 //Hand will spawn at the transform forward in local position, 1 space away.
             //handRB.position = Vector3.MoveTowards()
             //When the ability is active, it is moving the hand to the desired location
             break;
             case AbilityState.Cooldown:
+
+                state = AbilityState.Ready;
             break;
             //While the ability is active, before it goes on cooldown, it checks if it is retracting and will wait until it is done retracting.
             default:
@@ -71,7 +111,10 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         if(state == AbilityState.Ready && value.isPressed)
         {
             extendArmAbility.Activate(gameObject);
-            state = AbilityState.Active;
+            CreateHandHitbox();
+
+            player.controlsLocked = true;
+            player.facingIsLocked = true;
 
             //CreateHand()
 
@@ -88,7 +131,49 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
 
     void CreateHandHitbox()
     {
-        //Instantiate()
+        //Create the hand
+        player.velocity = Vector3.zero;
+        hand = Instantiate(extendoHand);
+        activeHand = hand.GetComponent<ExtendoHand>();
+        activeHand.rb.position = transform.position + transform.forward + new Vector3(0,1,0);
+            activeHand.retractSpeed = handRetractSpeed;
+
+                        state = AbilityState.Active;
+        //Get the necessary components for the hand
+        //Subscribe to the events on the hand, then unsubscribe when the hand is not active
+    }
+
+    void OnRetracted()
+    {
+        state = AbilityState.Cooldown;
+                        Destroy(hand);
+                activeHand = null;
+                player.controlsLocked = false;
+                player.facingIsLocked = false;
+                foundGrapplePoint = false;
+    }
+
+    void SetDestinationPoint(Vector3 dropPoint)
+    {
+        this.dropPoint = dropPoint;
+        dropPointDirection = dropPoint - transform.position;
+        foundGrapplePoint = true;
+
+
+    }
+
+    void PullPlayerToGrapplePoint()
+    {
+        player.velocity = new Vector3(dropPointDirection.normalized.x, 0, dropPointDirection.normalized.z) * handRetractSpeed;
+        //transform.position = Vector3.MoveTowards(player.transform.position, dropPoint, Time.fixedDeltaTime);
+        if(Vector3.Distance(player.transform.position, dropPoint) <= 2)
+        {
+            //If the player makes it to the destination, then the arm should stop retracting
+            //Change the state first
+            activeHand.isRetracting = false;
+            OnRetracted();
+        }
+
     }
 
 

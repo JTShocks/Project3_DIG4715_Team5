@@ -23,7 +23,8 @@ public class ExtendoArmAbility : Ability
     {
 
         ExtendoArmAbilityHolder holder = parent.GetComponent<ExtendoArmAbilityHolder>();
-        holder.handDestination = parent.transform.position + Vector3.forward * grappleArmDistance;
+        holder.handDestination = parent.transform.position + parent.transform.forward * grappleArmDistance;
+        Debug.Log(holder.handDestination);
         holder.handRetractSpeed = grappleArmRetractSpeed;
 
     }

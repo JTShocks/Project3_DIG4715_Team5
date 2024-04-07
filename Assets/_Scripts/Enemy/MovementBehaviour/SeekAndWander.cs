@@ -68,7 +68,7 @@ public class SeekAndWander : MovementBehaviour
         {
             
             currentWaypoint = GenerateRandomPoint();
-            Debug.Log("Going to new point " + currentWaypoint);
+            //Debug.Log("Going to new point " + currentWaypoint);
         }
     }
 
