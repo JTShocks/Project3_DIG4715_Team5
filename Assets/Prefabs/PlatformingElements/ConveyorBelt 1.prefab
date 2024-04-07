@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 6457316793258000240}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &7867859782645571919
 GameObject:
@@ -359,6 +359,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0baa64b797c59a14ca63368150bf53cd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ConveyorBelt
       objectReference: {fileID: 0}
     - target: {fileID: 937389094744850853, guid: 0baa64b797c59a14ca63368150bf53cd,
         type: 3}
