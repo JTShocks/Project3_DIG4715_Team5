@@ -7002,33 +7002,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1742442273 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1878900220872177700, guid: a856a5a018f610f4c9daa747acb8ecf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 9118136649770239658}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &1742442275
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742442273}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1785475313
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -9695,7 +9668,7 @@ PrefabInstance:
     - target: {fileID: 4496301349988438109, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12919362
+      value: 0.12919363
       objectReference: {fileID: 0}
     - target: {fileID: 4496301349988438109, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
@@ -9841,7 +9814,7 @@ PrefabInstance:
     - target: {fileID: 934178954711822251, guid: a856a5a018f610f4c9daa747acb8ecf9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4443881672944105265, guid: a856a5a018f610f4c9daa747acb8ecf9,
         type: 3}
@@ -9904,11 +9877,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1878900220872177700, guid: a856a5a018f610f4c9daa747acb8ecf9, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1878900220872177700, guid: a856a5a018f610f4c9daa747acb8ecf9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1742442275}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a856a5a018f610f4c9daa747acb8ecf9, type: 3}
