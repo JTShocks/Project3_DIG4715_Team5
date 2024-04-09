@@ -6,7 +6,6 @@ using UnityEngine;
 public class AbilitiesManager : MonoBehaviour
 {
     public static AbilitiesManager instance {get; private set;}
-
     public static Action<Ability> OnUnlockAbility;
     public static Action<Ability> OnEquipAbility;
 
@@ -51,7 +50,6 @@ public class AbilitiesManager : MonoBehaviour
         {
             unlockedAbilities.Add(ability);
             OnUnlockAbility?.Invoke(ability);
-            EquipAbility(ability);
         }
     }
 
