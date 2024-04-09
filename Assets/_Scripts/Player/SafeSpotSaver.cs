@@ -27,7 +27,7 @@ public class SafeSpotSaver : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(Time.time >= nextCheckTime && characterController.velocity.y <= 0)
+        if (Time.time >= nextCheckTime && characterController.velocity.y <= 0)
         {
             Debug.Log("IsGrounded: " + IsGrounded() + ", HasGroundAround: " + HasGroundAround());
             if (IsGrounded() && HasGroundAround() && !IsStandingOnPlatform())
@@ -52,10 +52,10 @@ public class SafeSpotSaver : MonoBehaviour
     */
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.CompareTag("Spike Hazard"))
+        if (hit.gameObject.CompareTag("Spike Hazard"))
         {
             //playerHealth.TakeDamage(1);
-            if(PlayerHealth.CurrentHealth > 0)
+            if (PlayerHealth.CurrentHealth > 0)
             {
                 characterController.enabled = false;
                 Vector3 respawnPosition = lastSafePosition;
@@ -102,13 +102,13 @@ public class SafeSpotSaver : MonoBehaviour
         {
             // Cross product of the up vector and direction vector for a result that is a vector that is perpendicular to both the up vector and direction vector.
             Vector3 diagonalDirection = Quaternion.AngleAxis(diagonalDownwardAngle, Vector3.Cross(Vector3.up, dir)) * dir;
-            if(!Physics.Raycast(transform.position, diagonalDirection, out hit, 0.5f, groundLayer))
+            if (!Physics.Raycast(transform.position, diagonalDirection, out hit, 0.5f, groundLayer))
             {
                 return false;
             }
-            if(Physics.Raycast(transform.position, diagonalDirection, out hit, spikeHazardCheckDistance))
+            if (Physics.Raycast(transform.position, diagonalDirection, out hit, spikeHazardCheckDistance))
             {
-                if(hit.collider.CompareTag("Spike Hazard"))
+                if (hit.collider.CompareTag("Spike Hazard"))
                 {
                     return false;
                 }
@@ -120,9 +120,9 @@ public class SafeSpotSaver : MonoBehaviour
     bool IsStandingOnPlatform()
     {
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, Vector3.down, out hit, 1f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f))
         {
-            if(hit.collider.CompareTag("Platform"))
+            if (hit.collider.CompareTag("Platform") || hit.collider.CompareTag("ConveyorBelt"))
             {
                 return true;
             }
