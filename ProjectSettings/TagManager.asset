@@ -18,6 +18,7 @@ TagManager:
   - Enemy
   - Player
   - ConveyerBelt
+  - GrapplePoint
   - Platform
   - 
   - 
