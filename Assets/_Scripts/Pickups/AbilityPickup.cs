@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AbilityPickup : Pickup
 {
+
+    [SerializeField] bool autoEquipOnPickup;
     [SerializeField] Ability abilityToPickup;
 
     public override void OnPickup()
@@ -11,6 +13,13 @@ public class AbilityPickup : Pickup
 
         AbilitiesManager.instance.UnlockAbility(abilityToPickup);
         base.OnPickup();
+
+        if(autoEquipOnPickup)
+        {
+            AbilitiesManager.instance.EquipAbility(abilityToPickup);
+        }
+
+
     }
 
 
