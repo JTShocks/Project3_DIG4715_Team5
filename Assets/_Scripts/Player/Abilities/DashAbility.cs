@@ -21,7 +21,7 @@ public class DashAbility : Ability
     {
         PlayerController player = parent.GetComponent<PlayerController>();
 
-        player.SetBaseModifiers();
+        player.turnSpeedMultiplier = 1;
         player.facingIsLocked = false;
     }
 }

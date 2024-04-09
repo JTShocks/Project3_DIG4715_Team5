@@ -5860,7 +5860,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30706
+  m_Name: pb_Mesh33044
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -8465,6 +8465,7 @@ MonoBehaviour:
   unlockedAbilities:
   - {fileID: 11400000, guid: d2128fd586c5ef648b91f14fdc443ccf, type: 2}
   - {fileID: 11400000, guid: feef5e4f294a4ee4aab9130745851d2a, type: 2}
+  - {fileID: 11400000, guid: 46e1bc963205e414e887b3fa6fb96849, type: 2}
 --- !u!4 &2144034485
 Transform:
   m_ObjectHideFlags: 0
@@ -9375,13 +9376,19 @@ PrefabInstance:
     - target: {fileID: 836978532766154215, guid: 8917be626c953764c82ef5c9bfc3d8b7,
         type: 3}
       propertyPath: equippedAbilities.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 836978532766154215, guid: 8917be626c953764c82ef5c9bfc3d8b7,
         type: 3}
       propertyPath: equippedAbilities.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: feef5e4f294a4ee4aab9130745851d2a,
+      objectReference: {fileID: 11400000, guid: 2121cd018d1d0df4881f962c963d9421,
+        type: 2}
+    - target: {fileID: 836978532766154215, guid: 8917be626c953764c82ef5c9bfc3d8b7,
+        type: 3}
+      propertyPath: equippedAbilities.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 46e1bc963205e414e887b3fa6fb96849,
         type: 2}
     - target: {fileID: 1289288672722450560, guid: 8917be626c953764c82ef5c9bfc3d8b7,
         type: 3}
@@ -9668,7 +9675,7 @@ PrefabInstance:
     - target: {fileID: 4496301349988438109, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12919363
+      value: 0.12919362
       objectReference: {fileID: 0}
     - target: {fileID: 4496301349988438109, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
