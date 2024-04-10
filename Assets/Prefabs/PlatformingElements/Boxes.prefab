@@ -153,6 +153,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e10805215db025b43891fc8eb829f91d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1075306870285647189, guid: e10805215db025b43891fc8eb829f91d,
         type: 3}
       propertyPath: m_Layer
@@ -434,6 +439,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7680720295622942990, guid: aa718d1bb1d73c547ab3f45ee14439af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3140664983928161637, guid: aa718d1bb1d73c547ab3f45ee14439af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -1893958971290526765, guid: aa718d1bb1d73c547ab3f45ee14439af,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -443,6 +458,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: boxmesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa718d1bb1d73c547ab3f45ee14439af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2622244276365392774, guid: aa718d1bb1d73c547ab3f45ee14439af,
         type: 3}
@@ -454,6 +474,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0c7562248d3a6da4ab4b1348b22fc0a1, type: 2}
+    - target: {fileID: 6786578224621190310, guid: aa718d1bb1d73c547ab3f45ee14439af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 740034527291298994, guid: aa718d1bb1d73c547ab3f45ee14439af, type: 3}

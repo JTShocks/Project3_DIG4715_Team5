@@ -7,7 +7,7 @@ using UnityEngine;
 public class GlideAbility : Ability
 {
     [Description("Must be a value LESS THAN 1")]
-    [Range(0.1f, 1f)]
+    [Range(0.01f, 0.1f)]
     public float glideFallspeedReduction;
     public override void Activate(GameObject parent)
     {

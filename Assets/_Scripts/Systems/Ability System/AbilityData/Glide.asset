@@ -15,7 +15,8 @@ MonoBehaviour:
   name: Glide
   description: Hold A while in mid-air to glide down slowly for a short amount of
     time.
+  tutorialText: 
   cooldownTime: 0
-  activeTime: 2
+  activeTime: 10
   abilitySlot: 0
-  glideFallspeedReduction: 0.1
+  glideFallspeedReduction: 0.086
