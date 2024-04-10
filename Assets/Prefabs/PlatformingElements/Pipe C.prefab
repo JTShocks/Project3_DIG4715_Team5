@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4644400239874576283
 Transform:
@@ -193,10 +193,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7917291961305824890, guid: e486bf898e82ff24ba9fb013659d7723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -6455847199496120064, guid: e486bf898e82ff24ba9fb013659d7723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -5731229141766309534, guid: e486bf898e82ff24ba9fb013659d7723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -2793727289926329592, guid: e486bf898e82ff24ba9fb013659d7723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e486bf898e82ff24ba9fb013659d7723,
         type: 3}
       propertyPath: m_Name
       value: Cross_pipe 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e486bf898e82ff24ba9fb013659d7723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177480117784723453, guid: e486bf898e82ff24ba9fb013659d7723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7216655632450529714, guid: e486bf898e82ff24ba9fb013659d7723,
         type: 3}

@@ -17,8 +17,8 @@ MonoBehaviour:
     Can maneuver slightly while in the air
   tutorialText: Press RB to Dash forward and activate switches and deal damage to
     enemies.
-  cooldownTime: 0.5
-  activeTime: 0.3
+  cooldownTime: 0
+  activeTime: 0.4
   abilitySlot: 1
-  dashVelocity: 20
+  dashVelocity: 25
   turningSpeedModifier: 0.5
