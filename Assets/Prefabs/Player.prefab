@@ -1812,6 +1812,7 @@ GameObject:
   - component: {fileID: 5206982687087792258}
   - component: {fileID: 2359688569577189281}
   - component: {fileID: 5266141629295509413}
+  - component: {fileID: 7265361395487969626}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1894,7 +1895,7 @@ MonoBehaviour:
   playerModel: {fileID: 0}
   cameraTransform: {fileID: 0}
   mass: 4
-  acceleration: 40
+  acceleration: 10
   playerMovementSpeed: 9
   fallSpeedCap: 30
   playerTurningSpeed: 1080
@@ -1902,7 +1903,7 @@ MonoBehaviour:
   groundCheckDistance: 0.1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 2112
   playerAnimator: {fileID: 4489231211724637555}
 --- !u!114 &1540410985591090462
 MonoBehaviour:
@@ -1993,6 +1994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableDebugMessages: 0
   glideAbility: {fileID: 11400000, guid: 46e1bc963205e414e887b3fa6fb96849, type: 2}
+  state: 0
 --- !u!114 &4403643101716850127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,6 +2058,21 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &7265361395487969626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125284797614351659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21c7c13fe2ca994e9c7c9bd329d1450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendArmAbility: {fileID: 11400000, guid: feef5e4f294a4ee4aab9130745851d2a, type: 2}
+  extendoHand: {fileID: 7367350047104539552, guid: cace1905c87289f49b7277477c724f11,
+    type: 3}
 --- !u!1 &4218285873491946072
 GameObject:
   m_ObjectHideFlags: 0
