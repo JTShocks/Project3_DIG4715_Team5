@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -8,15 +7,18 @@ public class DoubleJumpAbility : Ability
 {
     private float doubleJumpForce = 5f;
 
-    private DoubleJumpAbilityHolder doubleJumpAbilityHolder;
+    [SerializeField]
+    [Range(1, 5)]
+    private float doubleJumpForceMultiplier = 1.5f;
 
     public override void Activate(GameObject parent)
     {
+        DoubleJumpAbilityHolder doubleJumpAbilityHolder = parent.GetComponent<DoubleJumpAbilityHolder>();
         PlayerController player = parent.GetComponent<PlayerController>();
 
         if(!player.isGrounded && doubleJumpAbilityHolder.canDoubleJump)
         {
-            player.velocity.y += doubleJumpForce;
+            player.velocity.y = Mathf.Sqrt(doubleJumpForce * doubleJumpForceMultiplier * -3 * Physics.gravity.y);
             doubleJumpAbilityHolder.canDoubleJump = false;
         }
     }

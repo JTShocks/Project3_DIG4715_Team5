@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fa1a327ce8b68b4caf3e8760c71e2e1, type: 3}
-  m_Name: DoubleJump
+  m_Name: Double Jump
   m_EditorClassIdentifier: 
   name: Double Jump
-  description: 
-  cooldownTime: 0
-  activeTime: 0
+  description: This ability grants the user the ability to jump a second time.
+  tutorialText: Press JUMP again to do a second jump.
+  cooldownTime: 0.4
+  activeTime: 5
   abilitySlot: 2
+  doubleJumpForceMultiplier: 1.51

@@ -7,6 +7,7 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
 {
     PlayerController player;
 
+    [SerializeField]
     public DoubleJumpAbility doubleJumpAbility;
     public bool canDoubleJump = true;
 
@@ -37,8 +38,8 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
         player = GetComponent<PlayerController>();
     }
 
-    void OnEnable() {} //player.OnBeforeMove += OnBeforeMove; AbilityController.OnEnableAbility += SetActiveAbility; }
-    void OnDisable() {} //player.OnBeforeMove -= OnBeforeMove; AbilityController.OnEnableAbility -= SetActiveAbility; }
+    void OnEnable() { player.OnBeforeMove += OnBeforeMove; AbilityController.OnEnableAbility += SetActiveAbility; }
+    void OnDisable() { player.OnBeforeMove -= OnBeforeMove; AbilityController.OnEnableAbility -= SetActiveAbility; }
 
     void OnBeforeMove()
     {
@@ -47,6 +48,7 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
         if (player.isGrounded && state != AbilityState.Ready)
         {
             state = AbilityState.Ready;
+            canDoubleJump = true;
             DebugMessage(jumpAbility.name + " is now ready.", MessageType.Default);
         }
         switch(state)
@@ -58,40 +60,36 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
                 }
                 else
                 {
-                    player.SetBaseModifiers();
+                    //player.SetBaseModifiers();
                     state = AbilityState.Cooldown;
                     abilityCooldownTime = jumpAbility.cooldownTime;
+                    jumpAbility.Deactivate(gameObject);
                     DebugMessage(jumpAbility.name + " is on cooldown.", MessageType.Default);
                 }
                 break;
             case AbilityState.Cooldown:
+                if(abilityCooldownTime > 0)
+                {
+                    abilityCooldownTime -= Time.fixedDeltaTime;
+                }
+                else
+                {
+                    state = AbilityState.Ready;
+                }
                 break;
             default:
                 break;
         }
     }
 
-    void OnJumpAgain(InputValue value)
+    void OnJump(InputValue value)
     {
-        UseDoubleJump();
-    }
-
-    public void UseDoubleJump()
-    {
-        if(state == AbilityState.Ready)
+        if(state == AbilityState.Ready && value.isPressed)
         {
             jumpAbility.Activate(gameObject);
             state = AbilityState.Active;
+            abilityActiveTime = jumpAbility.activeTime;
             DebugMessage(jumpAbility.name + " has been activated.", MessageType.Default);
-        }
-    }
-
-    public void ResetDoubleJump()
-    {
-        if(state == AbilityState.Cooldown && player.isGrounded)
-        {
-            state = AbilityState.Ready;
-            DebugMessage(jumpAbility.name + " has been reset.", MessageType.Default);
         }
     }
 
@@ -100,9 +98,7 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
         if(ability.abilitySlot == jumpAbility.abilitySlot)
         {
             if (jumpAbility == ability)
-                abilityIsEnabled = true;
-            else
-                abilityIsEnabled = false;
+                abilityIsEnabled = (jumpAbility == ability);
         }
     }
 
