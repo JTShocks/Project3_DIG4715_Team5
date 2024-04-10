@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 1204178572265074522}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 92.712006, y: -44.906982, z: 134.91}
 --- !u!33 &2010474723337973116
 MeshFilter:
@@ -199,6 +199,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f76b084f75495ef48a542333778f036a,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

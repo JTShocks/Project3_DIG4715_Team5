@@ -13,7 +13,7 @@ public class GlideAbilityHolder : MonoBehaviour
     }
     PlayerController player;
     //This script is attached to the Player object and holds reference to the active ability in each slot
-    enum AbilityState{
+    public enum AbilityState{
         Ready,
         Active,
         Cooldown
@@ -25,7 +25,7 @@ public class GlideAbilityHolder : MonoBehaviour
         float abilityCooldownTime;
     static bool abilityIsEnabled = false;
 
-    AbilityState state = AbilityState.Ready;
+    public AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
     }
@@ -48,17 +48,20 @@ public class GlideAbilityHolder : MonoBehaviour
         switch(state)
         {
             case AbilityState.Active:
-                if(abilityActiveTime > 0)
-                {
-                    abilityActiveTime -= Time.fixedDeltaTime;
-                }
-                else
-                {
-                    player.SetBaseModifiers();
-                    state = AbilityState.Cooldown;
-                    abilityCooldownTime = glideAbility.cooldownTime;
-                    DebugMessage(glideAbility.name + " is on cooldown.", MessageType.Default);
-                }
+                /*
+                    if(abilityActiveTime > 0)
+                    {
+                        abilityActiveTime -= Time.fixedDeltaTime;
+                    }
+                    else
+                    {
+                        player.SetBaseModifiers();
+                        state = AbilityState.Cooldown;
+                        abilityCooldownTime = glideAbility.cooldownTime;
+                        DebugMessage(glideAbility.name + " is on cooldown.", MessageType.Default);
+                    }
+                */
+
             break;
             case AbilityState.Cooldown:
 
@@ -79,18 +82,14 @@ public class GlideAbilityHolder : MonoBehaviour
         if(value.isPressed)
         {            
 
-            if(state == AbilityState.Ready)
-            {
-                state = AbilityState.Active;
-                abilityActiveTime = glideAbility.activeTime;
-            }
-            if(abilityActiveTime > 0)
-                glideAbility.Activate(gameObject);
-                DebugMessage(glideAbility.name + " has been activated.", MessageType.Default);
+        glideAbility.Activate(gameObject);
+        state = AbilityState.Active;
+                
         }
         else 
         {
             glideAbility.Deactivate(gameObject);
+            state = AbilityState.Ready;
         }
     }
     void SetActiveAbility(Ability ability)

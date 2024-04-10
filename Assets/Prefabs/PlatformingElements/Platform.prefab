@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1996706021638157414}
   m_Layer: 6
   m_Name: Platform
-  m_TagString: Platform
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6788083265124682372
 Rigidbody:
