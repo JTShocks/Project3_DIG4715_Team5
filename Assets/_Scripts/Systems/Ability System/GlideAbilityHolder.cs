@@ -13,7 +13,7 @@ public class GlideAbilityHolder : MonoBehaviour
     }
     PlayerController player;
     //This script is attached to the Player object and holds reference to the active ability in each slot
-    enum AbilityState{
+    public enum AbilityState{
         Ready,
         Active,
         Cooldown
@@ -25,7 +25,7 @@ public class GlideAbilityHolder : MonoBehaviour
         float abilityCooldownTime;
     static bool abilityIsEnabled = false;
 
-    AbilityState state = AbilityState.Ready;
+    public AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
     }
