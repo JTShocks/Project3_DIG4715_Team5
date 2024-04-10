@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5041985793772457101}
   m_Layer: 6
   m_Name: Pipe C 1
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 3619693697537268315}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.767}
 --- !u!33 &783926016216795810
 MeshFilter:
@@ -242,6 +242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e486bf898e82ff24ba9fb013659d7723,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
       objectReference: {fileID: 0}
     - target: {fileID: 2177480117784723453, guid: e486bf898e82ff24ba9fb013659d7723,
         type: 3}

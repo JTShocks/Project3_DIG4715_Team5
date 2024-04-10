@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7318149835222070053}
   - component: {fileID: 6509288747046003674}
   - component: {fileID: 1692250710222161127}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Gear
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 37.426, y: -2.481, z: 50.609}
 --- !u!33 &7318149835222070053
 MeshFilter:

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 612768538594288808}
   m_Layer: 0
   m_Name: FallingPlatform
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,6 +313,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: fallingmesh Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888930993375171194, guid: 420051cedd1a45445b363b223feed919,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

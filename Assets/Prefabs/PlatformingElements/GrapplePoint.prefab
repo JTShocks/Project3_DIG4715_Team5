@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 9169186468729101439}
   m_Layer: 10
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ Transform:
   - {fileID: 9169186468729101439}
   - {fileID: 934178954711822251}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8201325032130372265
 MonoBehaviour:
