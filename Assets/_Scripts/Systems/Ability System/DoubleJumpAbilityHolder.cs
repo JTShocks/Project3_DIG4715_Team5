@@ -7,8 +7,6 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
 {
     PlayerController player;
 
-    [SerializeField]
-    public DoubleJumpAbility doubleJumpAbility;
     public bool canDoubleJump = true;
 
     [SerializeField] bool enableDebugMessages;
@@ -45,7 +43,7 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
     {
         if (!abilityIsEnabled)
             return;
-        if (player.isGrounded && state != AbilityState.Ready)
+        if (player.isGrounded)
         {
             state = AbilityState.Ready;
             canDoubleJump = true;
@@ -87,7 +85,7 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
         if(state == AbilityState.Ready && value.isPressed)
         {
             jumpAbility.Activate(gameObject);
-            state = AbilityState.Active;
+            //state = AbilityState.Active;
             abilityActiveTime = jumpAbility.activeTime;
             DebugMessage(jumpAbility.name + " has been activated.", MessageType.Default);
         }

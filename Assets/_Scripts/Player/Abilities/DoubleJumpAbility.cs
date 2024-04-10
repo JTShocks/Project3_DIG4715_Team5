@@ -16,7 +16,9 @@ public class DoubleJumpAbility : Ability
         DoubleJumpAbilityHolder doubleJumpAbilityHolder = parent.GetComponent<DoubleJumpAbilityHolder>();
         PlayerController player = parent.GetComponent<PlayerController>();
 
-        if(!player.isGrounded && doubleJumpAbilityHolder.canDoubleJump)
+        PlayerJumping jumping = parent.GetComponent<PlayerJumping>();
+
+        if(doubleJumpAbilityHolder.canDoubleJump && jumping.coyoteTimeCounter <= 0f)
         {
             player.velocity.y = Mathf.Sqrt(doubleJumpForce * doubleJumpForceMultiplier * -3 * Physics.gravity.y);
             doubleJumpAbilityHolder.canDoubleJump = false;
@@ -25,7 +27,7 @@ public class DoubleJumpAbility : Ability
 
     public override void Deactivate(GameObject parent)
     {
-        PlayerController player = parent.GetComponent<PlayerController>();
-        player.SetBaseModifiers();
+        //PlayerController player = parent.GetComponent<PlayerController>();
+        //player.SetBaseModifiers();
     }
 }

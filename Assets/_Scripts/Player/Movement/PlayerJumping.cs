@@ -6,14 +6,14 @@ using UnityEngine.InputSystem;
 public class PlayerJumping : MonoBehaviour
 {
     [SerializeField] float jumpForce = 5f;
-    [SerializeField] float jumpPressBufferTime = .05f;
+    [SerializeField] internal float jumpPressBufferTime = .05f;
 
     PlayerController player;
-    bool isTryingToJump = false;
+    internal bool isTryingToJump = false;
     bool jumpIsCanceled;
-    float lastJumpPressTime;
-    [SerializeField] float coyoteTime;
-    private float coyoteTimeCounter;
+    internal float lastJumpPressTime;
+    [SerializeField] internal float coyoteTime;
+    internal float coyoteTimeCounter;
     private bool hasJumped = false;
 
     void Awake()
