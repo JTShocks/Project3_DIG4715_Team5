@@ -9,7 +9,6 @@ public class PlayerJumping : MonoBehaviour
     [SerializeField] float jumpPressBufferTime = .05f;
 
     PlayerController player;
-    private DoubleJumpAbilityHolder doubleJumpHolder;
     bool isTryingToJump = false;
     bool jumpIsCanceled;
     float lastJumpPressTime;
@@ -20,8 +19,6 @@ public class PlayerJumping : MonoBehaviour
     void Awake()
     {
         player = GetComponent<PlayerController>();
-
-        doubleJumpHolder = GetComponent<DoubleJumpAbilityHolder>();
     }
     void OnEnable(){ player.OnBeforeMove += OnBeforeMove;}
 
@@ -47,7 +44,6 @@ public class PlayerJumping : MonoBehaviour
         if (player.isGrounded)
         {
             coyoteTimeCounter = coyoteTime;
-            //doubleJumpHolder.ResetDoubleJump();
             hasJumped = false;
         }
         else
@@ -66,12 +62,6 @@ public class PlayerJumping : MonoBehaviour
             coyoteTimeCounter = 0;
             hasJumped = true;
         }
-        /*else if(!player.isGrounded && hasJumped && doubleJumpHolder.canDoubleJump)
-        {
-            player.velocity.y += jumpForce;
-            //doubleJumpHolder.UseDoubleJump();
-            hasJumped = false;
-        }*/
 
         if(jumpIsCanceled)
         {
