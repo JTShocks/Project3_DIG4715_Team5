@@ -15,9 +15,9 @@ public class GlideAbility : Ability
 
         if(!player.isGrounded)
         {
-            player.velocity.y = 0;
+            //player.velocity.y = 0;
             player.fallingSpeedMultiplier *= glideFallspeedReduction;
-            player.velocity.y *= glideFallspeedReduction;
+            //player.velocity.y *= glideFallspeedReduction;
         }
 
         
@@ -25,6 +25,6 @@ public class GlideAbility : Ability
     public override void Deactivate(GameObject parent)
     {
         PlayerController player = parent.GetComponent<PlayerController>();
-        player.SetBaseModifiers();
+        player.fallingSpeedMultiplier =1;
     }
 }
