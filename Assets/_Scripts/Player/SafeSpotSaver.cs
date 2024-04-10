@@ -5,7 +5,11 @@ using UnityEngine;
 public class SafeSpotSaver : MonoBehaviour
 {
     public float checkInterval = 3f;
+
     public LayerMask groundLayer;
+    public LayerMask platformLayer;
+    public LayerMask conveyorBeltLayer;
+
     private Vector3 lastSafePosition;
     private float nextCheckTime;
     //private Rigidbody playerRigidbody; // CharacterController could go here if using that instead.
@@ -116,7 +120,7 @@ public class SafeSpotSaver : MonoBehaviour
         }
         return true;
     }
-
+    /*
     bool IsStandingOnPlatform()
     {
         RaycastHit hit;
@@ -126,6 +130,16 @@ public class SafeSpotSaver : MonoBehaviour
             {
                 return true;
             }
+        }
+        return false;
+    }
+    */
+    bool IsStandingOnPlatform()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f, platformLayer | conveyorBeltLayer))
+        {
+            return true;
         }
         return false;
     }
