@@ -18,7 +18,7 @@ MonoBehaviour:
   tutorialText: Press RB to Dash forward and activate switches and deal damage to
     enemies.
   cooldownTime: 0
-  activeTime: 0.4
+  activeTime: 0.3
   abilitySlot: 1
-  dashVelocity: 25
+  dashVelocity: 18
   turningSpeedModifier: 0.5
