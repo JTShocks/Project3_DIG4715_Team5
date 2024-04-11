@@ -18,5 +18,5 @@ MonoBehaviour:
   cooldownTime: 0
   activeTime: 0
   abilitySlot: 1
-  grappleArmDistance: 10
-  grappleArmRetractSpeed: 20
+  grappleArmDistance: 30
+  grappleArmRetractSpeed: 39.3
