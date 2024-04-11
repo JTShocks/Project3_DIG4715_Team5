@@ -5,7 +5,7 @@ using UnityEngine;
 public class RespawnManager : MonoBehaviour
 {
     public List<Transform> respawnStations;
-    private int currentCheckpointIndex = 0;
+    public int currentCheckpointIndex = 0;
 
     public void UpdateCheckpointIndex(int newIndex)
     {
