@@ -10,6 +10,7 @@ public class RespawnManager : MonoBehaviour
     public void UpdateCheckpointIndex(int newIndex)
     {
         currentCheckpointIndex = newIndex;
+        Debug.Log("Checkpoint saved.");
     }
 
     public void RespawnPlayer(GameObject player)

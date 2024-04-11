@@ -70,9 +70,10 @@ public class SafeSpotSaver : MonoBehaviour
             }
             else
             {
-                playerHealth.TakeDamage(1);
                 RespawnManager respawnManager = FindObjectOfType<RespawnManager>();
                 respawnManager.RespawnPlayer(gameObject);
+                Transform currentCheckpoint = respawnManager.respawnStations[respawnManager.currentCheckpointIndex];
+                lastSafePosition = currentCheckpoint.position;
             }
         }
     }
