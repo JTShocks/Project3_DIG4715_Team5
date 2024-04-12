@@ -1048,7 +1048,7 @@ GameObject:
   - component: {fileID: 9076143223114916349}
   - component: {fileID: 96080469005168221}
   m_Layer: 5
-  m_Name: Ability1
+  m_Name: HandAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2126,12 +2126,12 @@ GameObject:
   - component: {fileID: 530688957272661539}
   - component: {fileID: 8186908588121044291}
   m_Layer: 5
-  m_Name: Ability2
+  m_Name: CoreAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2452898821505607009
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2665,12 +2665,12 @@ GameObject:
   - component: {fileID: 7142807630481199047}
   - component: {fileID: 2974869183243976223}
   m_Layer: 5
-  m_Name: Ability4
+  m_Name: LegAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7298856546976041486
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5273,6 +5273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8118491151289513312}
+  - component: {fileID: 4852094483285372284}
   m_Layer: 5
   m_Name: Abilities
   m_TagString: Untagged
@@ -5301,6 +5302,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &4852094483285372284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8577298787805341458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68743aa53ca238b4f86e510a43e9ec83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityImages:
+  - {fileID: 8186908588121044291}
+  - {fileID: 96080469005168221}
+  - {fileID: 2974869183243976223}
+  - {fileID: 9055697776061051173}
 --- !u!1 &8623205553390472083
 GameObject:
   m_ObjectHideFlags: 0
@@ -5313,12 +5331,12 @@ GameObject:
   - component: {fileID: 1191520321297133498}
   - component: {fileID: 9055697776061051173}
   m_Layer: 5
-  m_Name: Ability3
+  m_Name: WeaponAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5147033085580504145
 RectTransform:
   m_ObjectHideFlags: 0

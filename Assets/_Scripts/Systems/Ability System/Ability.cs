@@ -12,13 +12,16 @@ public class Ability : ScriptableObject
     public string description;
     [TextArea]
     public string tutorialText;
+
+    public Sprite abilitySprite;
+
     public float cooldownTime;
     public float activeTime;
     public AbilitySlot abilitySlot;
 
     public virtual void Activate(GameObject parent)
     {
-
+        
     }
     public virtual void Deactivate(GameObject parent)
     {
