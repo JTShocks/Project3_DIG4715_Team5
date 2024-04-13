@@ -171,7 +171,7 @@ Transform:
   - {fileID: 8973018610786474494}
   - {fileID: 597044587492380932}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1374268398498329965
 CapsuleCollider:
@@ -288,6 +288,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8174203807298902223, guid: b62a674ce1ad2fc45ad2bb681a144760,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.00014937248
+      objectReference: {fileID: 0}
+    - target: {fileID: -8174203807298902223, guid: b62a674ce1ad2fc45ad2bb681a144760,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: -8174203807298902223, guid: b62a674ce1ad2fc45ad2bb681a144760,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.244
+      objectReference: {fileID: 0}
+    - target: {fileID: -8174203807298902223, guid: b62a674ce1ad2fc45ad2bb681a144760,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 137.60376
       objectReference: {fileID: 0}
     - target: {fileID: -7342060502314031811, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}

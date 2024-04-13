@@ -49,7 +49,7 @@ public class AbilityController : MonoBehaviour
         var input = changeAction.ReadValue<Vector2>();
         //Get the player input to try equipping an ability
 
-        input.Normalized();
+        input.Normalize();
 
         AbilitySlot slotToCheck = new();
         
