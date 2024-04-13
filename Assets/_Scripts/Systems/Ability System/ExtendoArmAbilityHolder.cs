@@ -111,6 +111,7 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         }
         if(state == AbilityState.Ready && value.isPressed)
         {
+            //var ray = Physics.Raycast();
             extendArmAbility.Activate(gameObject);
             AbilityController.changeAction.Disable();
             CreateHandHitbox();
@@ -137,7 +138,7 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         player.velocity = Vector3.zero;
         hand = Instantiate(extendoHand);
         activeHand = hand.GetComponent<ExtendoHand>();
-        activeHand.rb.position = transform.position + transform.forward + new Vector3(0,1,0);
+        activeHand.rb.position = transform.position + new Vector3(0,1,0);
             activeHand.retractSpeed = handRetractSpeed;
 
                         state = AbilityState.Active;

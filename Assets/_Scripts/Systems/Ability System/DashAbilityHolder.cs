@@ -43,10 +43,6 @@ public class DashAbilityHolder : MonoBehaviour
             return;
         }
 
-        if(state != AbilityState.Ready && player.isGrounded)
-        {
-            state = AbilityState.Ready;
-        }
         switch(state)
         {
             case AbilityState.Active:

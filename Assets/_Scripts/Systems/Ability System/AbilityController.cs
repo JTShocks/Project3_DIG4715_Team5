@@ -81,7 +81,7 @@ public class AbilityController : MonoBehaviour
                 //Up
                 slotToCheck = AbilitySlot.Core;
             break;
-                        default:
+            default:
             break;
         }
 
