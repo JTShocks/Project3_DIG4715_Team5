@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 896629988081046233}
   m_Layer: 6
   m_Name: vent bend
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
