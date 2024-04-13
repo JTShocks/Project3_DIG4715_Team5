@@ -74,6 +74,42 @@ public class AbilitiesManager : MonoBehaviour
         equippedAbilities[slotToClear] = null;
     }
 
+    public void FindAbilityWithSlot(AbilitySlot slot)
+    {
+
+        List<Ability> tempAbilities = new();
+        //Check the full list of unlockedAbilities
+
+        foreach(Ability ability in unlockedAbilities)
+        {
+            if(ability.abilitySlot == slot)
+            {
+                tempAbilities.Add(ability);
+            }
+        }
+
+        if(tempAbilities.Contains(equippedAbilities[slot]))
+        {
+            tempAbilities.Remove(equippedAbilities[slot]);
+        }
+        //If the list is empty, report back nothing
+
+        if(tempAbilities.Count <= 0)
+        {
+            var nullAbility = ScriptableObject.CreateInstance<Ability>();
+            nullAbility.abilitySlot = slot;
+            EquipAbility(nullAbility);
+        }
+        else
+        {
+            EquipAbility(tempAbilities[0]);
+            Debug.Log("Equipped " + tempAbilities[0].name);
+        }
+        
+
+
+    }
+
     
 
 

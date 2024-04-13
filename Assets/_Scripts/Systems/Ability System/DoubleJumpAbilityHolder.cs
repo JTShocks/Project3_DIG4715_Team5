@@ -82,6 +82,8 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
 
     void OnJump(InputValue value)
     {
+        if (!abilityIsEnabled)
+            return;
         if(state == AbilityState.Ready && value.isPressed)
         {
             jumpAbility.Activate(gameObject);

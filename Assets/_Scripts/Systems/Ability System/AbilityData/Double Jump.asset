@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Double Jump
   description: This ability grants the user the ability to jump a second time.
   tutorialText: Press JUMP again to do a second jump.
+  abilitySprite: {fileID: 21300000, guid: b106a392f3bd2b6448d448313fc029a2, type: 3}
   cooldownTime: 0.4
   activeTime: 5
   abilitySlot: 2

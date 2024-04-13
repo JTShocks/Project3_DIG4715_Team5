@@ -16,6 +16,7 @@ MonoBehaviour:
   description: Hold A while in mid-air to glide down slowly for a short amount of
     time.
   tutorialText: 
+  abilitySprite: {fileID: 21300000, guid: c57d103724e5faa42915f458e4149db2, type: 3}
   cooldownTime: 0
   activeTime: 10
   abilitySlot: 0
