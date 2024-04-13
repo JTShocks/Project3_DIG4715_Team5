@@ -49,6 +49,8 @@ public class AbilityController : MonoBehaviour
         var input = changeAction.ReadValue<Vector2>();
         //Get the player input to try equipping an ability
 
+        input.Normalized();
+
         AbilitySlot slotToCheck = new();
         
         //Search the unlocked abilities for one of the same type
