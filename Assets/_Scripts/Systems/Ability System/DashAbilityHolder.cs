@@ -42,6 +42,11 @@ public class DashAbilityHolder : MonoBehaviour
         {
             return;
         }
+
+        if(state != AbilityState.Ready && player.isGrounded)
+        {
+            state = AbilityState.Ready;
+        }
         switch(state)
         {
             case AbilityState.Active:
@@ -67,6 +72,7 @@ public class DashAbilityHolder : MonoBehaviour
                 else
                 {
                     state = AbilityState.Ready;
+                    AbilityController.changeAction.Enable();
                     DebugMessage(handAbility.name + " is now ready.", MessageType.Default);
                 }
             break;
@@ -85,6 +91,7 @@ public class DashAbilityHolder : MonoBehaviour
         }
         if(state == AbilityState.Ready && value.isPressed)
         {
+            AbilityController.changeAction.Disable();
             hitbox.enabled = true;
             player.playerAnimator.SetTrigger("OnDash");
             handAbility.Activate(gameObject);

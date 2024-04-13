@@ -93,6 +93,7 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
             //When the ability is active, it is moving the hand to the desired location
             break;
             case AbilityState.Cooldown:
+                AbilityController.changeAction.Enable();
 
                 state = AbilityState.Ready;
             break;
@@ -111,6 +112,7 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         if(state == AbilityState.Ready && value.isPressed)
         {
             extendArmAbility.Activate(gameObject);
+            AbilityController.changeAction.Disable();
             CreateHandHitbox();
 
             player.controlsLocked = true;

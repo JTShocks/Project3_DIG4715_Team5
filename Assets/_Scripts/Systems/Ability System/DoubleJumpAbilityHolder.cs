@@ -48,6 +48,7 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
             state = AbilityState.Ready;
             canDoubleJump = true;
             DebugMessage(jumpAbility.name + " is now ready.", MessageType.Default);
+            AbilityController.changeAction.Enable();
         }
         switch(state)
         {
@@ -87,6 +88,7 @@ public class DoubleJumpAbilityHolder : MonoBehaviour
         if(state == AbilityState.Ready && value.isPressed)
         {
             jumpAbility.Activate(gameObject);
+            AbilityController.changeAction.Disable();
             //state = AbilityState.Active;
             abilityActiveTime = jumpAbility.activeTime;
             DebugMessage(jumpAbility.name + " has been activated.", MessageType.Default);
