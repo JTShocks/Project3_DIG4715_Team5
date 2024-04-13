@@ -34,7 +34,7 @@ Transform:
   - {fileID: 7599328172301551268}
   - {fileID: 2936652056591438661}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!65 &4424587770328609967
 BoxCollider:
@@ -217,12 +217,12 @@ PrefabInstance:
     - target: {fileID: 6438580347895778647, guid: 420051cedd1a45445b363b223feed919,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6438580347895778647, guid: 420051cedd1a45445b363b223feed919,
         type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: IgnoreCamera
       objectReference: {fileID: 0}
     - target: {fileID: 6438580347895778647, guid: 420051cedd1a45445b363b223feed919,
         type: 3}
@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 6451257501390763503, guid: 420051cedd1a45445b363b223feed919,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6451257501390763503, guid: 420051cedd1a45445b363b223feed919,
         type: 3}

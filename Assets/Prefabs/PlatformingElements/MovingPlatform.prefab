@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 3633840980000397179}
   - component: {fileID: 8616104676244862731}
   - component: {fileID: 1656133661619587871}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: PlatformTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ Transform:
   - {fileID: 4272307537964419690}
   - {fileID: 8011504639326817976}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1568268233280218843
 PrefabInstance:
@@ -349,8 +349,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 20977a8c62471964cb561f2cdb09ae9e,
         type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20977a8c62471964cb561f2cdb09ae9e,
+        type: 3}
       propertyPath: m_TagString
       value: IgnoreCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998320063995617139, guid: 20977a8c62471964cb561f2cdb09ae9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -460,6 +470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499241899095425506, guid: c6743847c62b9284a8fc0964d419ffa4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7499241899095425506, guid: c6743847c62b9284a8fc0964d419ffa4,
         type: 3}
