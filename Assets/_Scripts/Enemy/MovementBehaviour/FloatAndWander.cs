@@ -59,7 +59,7 @@ public class FloatAndWander : MovementBehaviour
             currentWaypoint = GenerateRandomPoint();
         }
 
-            behaviour.hostEnemy.transform.LookAt(currentWaypoint);
+            behaviour.hostEnemy.transform.LookAt(new Vector3(currentWaypoint.x, transform.position.y, currentWaypoint.z));
             MoveEnemyToPoint(behaviour.hostEnemy);
 
 
@@ -67,7 +67,7 @@ public class FloatAndWander : MovementBehaviour
         {
             //The player is within range of the enemy
             //Debug.Log("Player is within range to draw aggro");
-            behaviour.ChangeEnemyState(EnemyBehaviour.EnemyState.Attack);
+            //behaviour.ChangeEnemyState(EnemyBehaviour.EnemyState.Attack);
         }
     }
 
