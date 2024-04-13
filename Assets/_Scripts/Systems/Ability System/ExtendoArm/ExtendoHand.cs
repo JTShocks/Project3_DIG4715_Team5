@@ -54,15 +54,12 @@ public class ExtendoHand : MonoBehaviour
     {
         
         //Use a collision and just leave out anything it should ignore/ check for certain tags
-        GrapplePoint grapplePoint = collision.collider.GetComponent<GrapplePoint>();
-        if(grapplePoint != null)
-        {
+
             Vector3 point = collision.GetContact(0).point;
-            grapplePoint.Interact();
             OnReachHandHold?.Invoke(point);
             isRetracting = true;
 
-        }
+        
 
     }
 

@@ -75,6 +75,8 @@ public class AbilityController : MonoBehaviour
                 //Up
                 slotToCheck = AbilitySlot.Core;
             break;
+                        default:
+            break;
         }
 
         AbilitiesManager.instance.FindAbilityWithSlot(slotToCheck);
