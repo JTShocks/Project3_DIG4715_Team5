@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7567051536341732927}
   m_Layer: 7
   m_Name: enemy_Sweeper
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 6636434792848068426}
   - {fileID: 7355656913392874395}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7181832313276214185
 MonoBehaviour:
@@ -173,6 +173,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: sweeper Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578544203406395569, guid: c488d435bd613a340a086e4738c660a9,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
       objectReference: {fileID: 0}
     - target: {fileID: 4243053109915554315, guid: c488d435bd613a340a086e4738c660a9,
         type: 3}
