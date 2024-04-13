@@ -77,7 +77,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.5
+    Value: 1
     m_SpeedMode: 0
     m_MaxSpeed: 2
     m_AccelTime: 0.2
@@ -131,11 +131,11 @@ MonoBehaviour:
   m_BindingMode: 5
   m_SplineCurvature: 0.2
   m_Orbits:
-  - m_Height: 4.18
+  - m_Height: 4.5
     m_Radius: 10
   - m_Height: 4.18
     m_Radius: 10
-  - m_Height: 4.18
+  - m_Height: 3.86
     m_Radius: 10
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
@@ -899,8 +899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748c00357b62a6f43bb5e20ba3199044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeLookCamera: {fileID: 0}
-  controllerSensitivity: 100
+  freeLookCamera: {fileID: 2755889940426826456}
+  controllerSensitivity: 5
   mouseSensitivity: 2
 --- !u!1 &8187912640755972773
 GameObject:
@@ -929,8 +929,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8187912640755972773}
-  m_LocalRotation: {x: 0.12509441, y: 0.6835668, z: -0.12062423, w: 0.7088989}
-  m_LocalPosition: {x: -24.333382, y: -3.2000005, z: -0.623724}
+  m_LocalRotation: {x: -0.023903256, y: 0.975214, z: -0.17512119, w: -0.13311233}
+  m_LocalPosition: {x: -8.884689, y: 24.54013, z: 7.1436195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
