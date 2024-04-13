@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hubtest.unity
     guid: 8ec04110e7b37de4ea9fc9bbdc7d0a33
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: a5d81427fcdf8904f8e878b74a89e5ee
   m_configObjects: {}
