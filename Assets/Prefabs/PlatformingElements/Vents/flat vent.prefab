@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7194867407183725257}
   m_Layer: 6
   m_Name: flat vent
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
