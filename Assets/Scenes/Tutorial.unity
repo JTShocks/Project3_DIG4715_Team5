@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 17309726}
   m_Layer: 6
   m_Name: Cube (27)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1078,7 +1078,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42250
+  m_Name: pb_Mesh582032
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3110,7 +3110,7 @@ GameObject:
   - component: {fileID: 116748897}
   m_Layer: 6
   m_Name: Cube (23)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5775,7 +5775,7 @@ GameObject:
   - component: {fileID: 250198008}
   m_Layer: 6
   m_Name: Cube (24)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8324,12 +8324,12 @@ PrefabInstance:
     - target: {fileID: 206947825879153357, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.936323
+      value: -3.9363232
       objectReference: {fileID: 0}
     - target: {fileID: 206947825879153357, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.06880617
+      value: 0.06880522
       objectReference: {fileID: 0}
     - target: {fileID: 206947825879153357, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
@@ -8504,12 +8504,12 @@ PrefabInstance:
     - target: {fileID: 4496301349988438109, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0000014305115
       objectReference: {fileID: 0}
     - target: {fileID: 4496301349988438109, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 4496301349988438109, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
@@ -8539,12 +8539,12 @@ PrefabInstance:
     - target: {fileID: 4553439177086198260, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0000014305115
       objectReference: {fileID: 0}
     - target: {fileID: 4553439177086198260, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 4553439177086198260, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
@@ -8559,7 +8559,7 @@ PrefabInstance:
     - target: {fileID: 4553439177086198260, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.44905326
+      value: 0.4490533
       objectReference: {fileID: 0}
     - target: {fileID: 4553439177086198260, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
@@ -11711,7 +11711,7 @@ GameObject:
   - component: {fileID: 452197043}
   m_Layer: 6
   m_Name: Cube (22)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13349,7 +13349,7 @@ PrefabInstance:
     - target: {fileID: 5231080650827657230, guid: 5f9baa7573506864fa0f375f77755d96,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.91
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 5231080650827657230, guid: 5f9baa7573506864fa0f375f77755d96,
         type: 3}
@@ -13538,7 +13538,7 @@ GameObject:
   - component: {fileID: 488951085}
   m_Layer: 6
   m_Name: Cube (18)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22174,7 +22174,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh41704
+  m_Name: pb_Mesh581486
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -25315,7 +25315,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43074
+  m_Name: pb_Mesh582856
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -26110,7 +26110,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43952
+  m_Name: pb_Mesh583736
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -27328,7 +27328,7 @@ PrefabInstance:
     - target: {fileID: 4722845873619014286, guid: abe9be2cb6bf0d64c9dd2285c42a1f16,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 41.03
+      value: 40.07
       objectReference: {fileID: 0}
     - target: {fileID: 4722845873619014286, guid: abe9be2cb6bf0d64c9dd2285c42a1f16,
         type: 3}
@@ -32076,7 +32076,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh41954
+  m_Name: pb_Mesh581736
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -32907,7 +32907,7 @@ GameObject:
   - component: {fileID: 1285965692}
   m_Layer: 6
   m_Name: Cube (20)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37555,7 +37555,7 @@ PrefabInstance:
     - target: {fileID: 5231080650827657230, guid: 5f9baa7573506864fa0f375f77755d96,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.91
+      value: -0.082
       objectReference: {fileID: 0}
     - target: {fileID: 5231080650827657230, guid: 5f9baa7573506864fa0f375f77755d96,
         type: 3}
@@ -40102,7 +40102,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43666
+  m_Name: pb_Mesh583450
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -40346,7 +40346,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh41822
+  m_Name: pb_Mesh581604
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -46980,7 +46980,7 @@ GameObject:
   - component: {fileID: 1810479617}
   m_Layer: 6
   m_Name: Cube (21)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47407,7 +47407,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42188
+  m_Name: pb_Mesh581970
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -53986,7 +53986,7 @@ GameObject:
   - component: {fileID: 2035499538}
   m_Layer: 6
   m_Name: Cube (29)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57356,6 +57356,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1241423920}
     m_Modifications:
+    - target: {fileID: 1928494939056734665, guid: 183d0e2ffb6d2754d83a69bc0f4848b1,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 4644400239874576283, guid: 183d0e2ffb6d2754d83a69bc0f4848b1,
         type: 3}
       propertyPath: m_RootOrder
@@ -57411,10 +57416,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90.767
       objectReference: {fileID: 0}
+    - target: {fileID: 5708494947589613456, guid: 183d0e2ffb6d2754d83a69bc0f4848b1,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898005572404534087, guid: 183d0e2ffb6d2754d83a69bc0f4848b1,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 7606487829423888601, guid: 183d0e2ffb6d2754d83a69bc0f4848b1,
         type: 3}
       propertyPath: m_Name
       value: pCylinder5 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326972422936535971, guid: 183d0e2ffb6d2754d83a69bc0f4848b1,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
