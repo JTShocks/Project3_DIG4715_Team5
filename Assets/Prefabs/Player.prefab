@@ -1805,7 +1805,7 @@ Transform:
   - {fileID: 8212170328440908508}
   - {fileID: 523878011485402652}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -7.984, y: 87.916, z: 0}
 --- !u!143 &1364602460308625088
 CharacterController:
@@ -2772,7 +2772,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c31751f7b8303df448eaee9547d27abb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59eb1bf36a72a7047b654a435d7662d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3229,6 +3229,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5939198689402459460, guid: a3e9a8248fd8d8d4e99f4d379330b1c7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 889000d213d9a6648bed94b2704fb9d5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
