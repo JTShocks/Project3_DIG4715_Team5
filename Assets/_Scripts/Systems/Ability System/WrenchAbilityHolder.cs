@@ -56,7 +56,7 @@ public class WrenchAbilityHolder : MonoBehaviour
                 else
                 {
                     player.SetBaseModifiers();
-                    
+                    AbilityController.changeAction.Enable();
                     wrenchAbility.Deactivate(gameObject);
                     state = AbilityState.Cooldown;
                     abilityCooldownTime = wrenchAbility.cooldownTime;
@@ -94,7 +94,7 @@ public class WrenchAbilityHolder : MonoBehaviour
         }
         if(state == AbilityState.Ready)
         {
-
+            AbilityController.changeAction.Disable();
         state = AbilityState.Active;
         Debug.Log("Swung the wrench");
                 wrenchAbility.Activate(gameObject);

@@ -10,10 +10,12 @@ public class AbilityController : MonoBehaviour
     public static Action<Ability> OnEnableAbility;
 
     public List<Ability> equippedAbilities;
-    InputAction changeAction;
+    public static InputAction changeAction;
 
     void OnEnable(){AbilitiesManager.OnEquipAbility += EnableAbility;}
     void OnDisable(){AbilitiesManager.OnEquipAbility -= EnableAbility;}
+
+
 
     void Awake()
     {
@@ -46,6 +48,8 @@ public class AbilityController : MonoBehaviour
         //Check the list of unlocked abilities for another ability that shares the slot
         //If there isn't then just default to no ability
 
+
+
         var input = changeAction.ReadValue<Vector2>();
         //Get the player input to try equipping an ability
 
@@ -77,7 +81,7 @@ public class AbilityController : MonoBehaviour
                 //Up
                 slotToCheck = AbilitySlot.Core;
             break;
-                        default:
+            default:
             break;
         }
 

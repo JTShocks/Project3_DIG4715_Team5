@@ -31,6 +31,8 @@ public class ExtendoHand : MonoBehaviour
 
     public void Launch(Vector3 destination)
     {
+
+
         rb.position = Vector3.MoveTowards(rb.position, destination, retractSpeed * Time.fixedDeltaTime);
         if(Vector3.Distance(rb.position, destination) <= 0.8)
         {
@@ -52,7 +54,10 @@ public class ExtendoHand : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        
+        if(isRetracting)
+        {
+            return;
+        }
         //Use a collision and just leave out anything it should ignore/ check for certain tags
 
             Vector3 point = collision.GetContact(0).point;
