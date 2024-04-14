@@ -18,7 +18,7 @@ MonoBehaviour:
   tutorialText: Press RB to Dash forward and activate switches and deal damage to
     enemies.
   abilitySprite: {fileID: 21300000, guid: 8a79bad2f597ecc49b9d97e6aebf677b, type: 3}
-  cooldownTime: 0
+  cooldownTime: 0.5
   activeTime: 0.3
   abilitySlot: 1
   dashVelocity: 18

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2826629188609783953}
   - component: {fileID: 1379019553682941103}
   - component: {fileID: 4047883284951415277}
-  - component: {fileID: 5300626986741756872}
   m_Layer: 6
   m_Name: Pipe C
   m_TagString: IgnoreCamera
@@ -34,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 4932414953622650154}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.767}
 --- !u!33 &2826629188609783953
 MeshFilter:
@@ -108,28 +107,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1226817584057097758, guid: 1157c991584d3a34aa916740e8886a33, type: 3}
---- !u!64 &5300626986741756872
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7606487829423888601}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1226817584057097758, guid: 1157c991584d3a34aa916740e8886a33, type: 3}
 --- !u!1001 &4898170615283702465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,6 +172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7917291961305824890, guid: e486bf898e82ff24ba9fb013659d7723,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7917291961305824890, guid: e486bf898e82ff24ba9fb013659d7723,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -236,7 +218,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -7917291961305824890, guid: e486bf898e82ff24ba9fb013659d7723,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 624655583835535572}
+    - targetCorrespondingSourceObject: {fileID: -7917291961305824890, guid: e486bf898e82ff24ba9fb013659d7723,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 280722828227655546}
   m_SourcePrefab: {fileID: 100100000, guid: e486bf898e82ff24ba9fb013659d7723, type: 3}
 --- !u!4 &4932414953622650154 stripped
 Transform:
@@ -244,3 +234,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4898170615283702465}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5898005572404534087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7917291961305824890, guid: e486bf898e82ff24ba9fb013659d7723,
+    type: 3}
+  m_PrefabInstance: {fileID: 4898170615283702465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &624655583835535572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5898005572404534087}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.055612754, y: 0.052241534, z: 0.21512894}
+  m_Center: {x: -0.0030381437, y: 0.000000059510977, z: 0}
+--- !u!65 &280722828227655546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5898005572404534087}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.21346033, y: 0.052241534, z: 0.053388994}
+  m_Center: {x: -0.0008341689, y: 0.000000059348743, z: -0.00037018218}
