@@ -17416,12 +17416,12 @@ PrefabInstance:
     - target: {fileID: 206947825879153357, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.983345
+      value: -3.983347
       objectReference: {fileID: 0}
     - target: {fileID: 206947825879153357, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.06091976
+      value: -0.060917854
       objectReference: {fileID: 0}
     - target: {fileID: 206947825879153357, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
@@ -17512,7 +17512,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 1332304390}
+      objectReference: {fileID: 2090459888}
+    - target: {fileID: 2755889940426826456, guid: 535441ee9fb2895458e0910ff5f66b39,
+        type: 3}
+      propertyPath: m_Orbits.Array.data[0].m_Height
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2755889940426826456, guid: 535441ee9fb2895458e0910ff5f66b39,
+        type: 3}
+      propertyPath: m_Orbits.Array.data[0].m_Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2755889940426826456, guid: 535441ee9fb2895458e0910ff5f66b39,
+        type: 3}
+      propertyPath: m_Orbits.Array.data[1].m_Radius
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2755889940426826456, guid: 535441ee9fb2895458e0910ff5f66b39,
+        type: 3}
+      propertyPath: m_Orbits.Array.data[2].m_Height
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 3060139886117998824, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_RootOrder
@@ -17626,7 +17646,7 @@ PrefabInstance:
     - target: {fileID: 4553439177086198260, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21126278
+      value: 0.2112628
       objectReference: {fileID: 0}
     - target: {fileID: 4553439177086198260, guid: 535441ee9fb2895458e0910ff5f66b39,
         type: 3}
@@ -30106,6 +30126,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8917be626c953764c82ef5c9bfc3d8b7, type: 3}
+--- !u!4 &2090459888 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4832890227190117512, guid: 8917be626c953764c82ef5c9bfc3d8b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2090459887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &2115839533
 Mesh:
   m_ObjectHideFlags: 0
