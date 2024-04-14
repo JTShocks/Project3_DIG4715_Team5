@@ -81,13 +81,14 @@ public class GlideAbilityHolder : MonoBehaviour
         }
         if(value.isPressed)
         {            
-
-        glideAbility.Activate(gameObject);
-        state = AbilityState.Active;
+            AbilityController.changeAction.Disable();
+            glideAbility.Activate(gameObject);
+            state = AbilityState.Active;
                 
         }
         else 
         {
+            AbilityController.changeAction.Enable();
             glideAbility.Deactivate(gameObject);
             state = AbilityState.Ready;
         }

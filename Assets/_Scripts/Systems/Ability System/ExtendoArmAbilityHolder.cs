@@ -85,7 +85,9 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
                 else
                 {
                     player.velocity = Vector3.zero;
-                    activeHand.Launch(handDestination);
+                        activeHand.Launch(handDestination);
+
+                    
 
                 }
                 //Hand will spawn at the transform forward in local position, 1 space away.
@@ -93,6 +95,7 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
             //When the ability is active, it is moving the hand to the desired location
             break;
             case AbilityState.Cooldown:
+                AbilityController.changeAction.Enable();
 
                 state = AbilityState.Ready;
             break;
@@ -110,11 +113,24 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         }
         if(state == AbilityState.Ready && value.isPressed)
         {
+
             extendArmAbility.Activate(gameObject);
+            if(Physics.Raycast(transform.position, handDestination, 2))
+            {
+                Debug.Log("Too close to a wall");
+                return;
+            }
+            //var ray = Physics.Raycast();
+
+            AbilityController.changeAction.Disable();
             CreateHandHitbox();
 
             player.controlsLocked = true;
             player.facingIsLocked = true;
+            
+                        state = AbilityState.Active;
+
+
 
             //CreateHand()
 
@@ -135,10 +151,9 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         player.velocity = Vector3.zero;
         hand = Instantiate(extendoHand);
         activeHand = hand.GetComponent<ExtendoHand>();
-        activeHand.rb.position = transform.position + transform.forward + new Vector3(0,1,0);
+        activeHand.rb.position = transform.position + new Vector3(0,1,0);
             activeHand.retractSpeed = handRetractSpeed;
 
-                        state = AbilityState.Active;
         //Get the necessary components for the hand
         //Subscribe to the events on the hand, then unsubscribe when the hand is not active
     }
