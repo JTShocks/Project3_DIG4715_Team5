@@ -28,6 +28,7 @@ public class Door : MonoBehaviour
     {
         Debug.LogFormat("Door {0} activated by event", id);
 
-        Destroy(gameObject);
+        BoxCollider boxCollider = GetComponent<BoxCollider>();
+        boxCollider.enabled = true;
     }
 }
