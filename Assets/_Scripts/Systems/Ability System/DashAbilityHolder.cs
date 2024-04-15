@@ -26,7 +26,7 @@ public class DashAbilityHolder : MonoBehaviour
         float abilityCooldownTime;
     static bool abilityIsEnabled = false;
 
-    [SerializeField] BoxCollider hitbox;
+    [SerializeField] Hitbox hitbox;
     AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
@@ -88,7 +88,8 @@ public class DashAbilityHolder : MonoBehaviour
         if(state == AbilityState.Ready && value.isPressed)
         {
             AbilityController.changeAction.Disable();
-            hitbox.enabled = true;
+            hitbox.box.enabled = true;
+            hitbox.damage = 2;
             player.playerAnimator.SetTrigger("OnDash");
             handAbility.Activate(gameObject);
             state = AbilityState.Active;

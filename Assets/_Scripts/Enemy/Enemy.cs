@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
     //Get a reference to the enemy behaviour
     EnemyBehaviour enemyBehaviour;
     
-    float currentHealth;
+    [SerializeField] float currentHealth;
 
     internal Rigidbody rb;
     [SerializeField] internal float movementSpeed;
