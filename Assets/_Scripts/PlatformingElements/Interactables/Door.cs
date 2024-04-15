@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
 
     public int id;
     [SerializeField] Interactable switchForDoor;
+    [SerializeField] GameObject Object;
     // Start is called before the first frame update
     void OnEnable(){
         if(switchForDoor != null)
@@ -28,7 +29,6 @@ public class Door : MonoBehaviour
     {
         Debug.LogFormat("Door {0} activated by event", id);
 
-        BoxCollider boxCollider = GetComponent<BoxCollider>();
-        boxCollider.enabled = true;
+        Object.SetActive(true);
     }
 }
