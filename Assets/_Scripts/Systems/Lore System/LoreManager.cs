@@ -7,7 +7,7 @@ public class LoreManager : MonoBehaviour
 {
     //This is a static class that holds all the collected lore
      public static LoreManager instance;
-    public static event Action OnPickupLore;
+    public static event Action<Lore> OnPickupLore;
     public static List<Lore> collectedLore = new();
 
 
@@ -34,7 +34,7 @@ public class LoreManager : MonoBehaviour
         if(!collectedLore.Contains(lore))
         {
             collectedLore.Add(lore);
-            OnPickupLore?.Invoke();
+            OnPickupLore?.Invoke(lore);
         }
     }
 

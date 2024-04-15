@@ -15,9 +15,10 @@ MonoBehaviour:
   name: Dash Fist
   description: Dash forward with powerful steam, dealing damage to foes and barriers.
     Can maneuver slightly while in the air
+
   tutorialText: Press RB or SHIFT to Dash forward and activate switches and deal
     damage to enemies.
-  abilitySprite: {fileID: 21300000, guid: 8a79bad2f597ecc49b9d97e6aebf677b, type: 3}
+  abilitySprite: {fileID: 21300000, guid: d0fe16f3b602a6b48b2c6fe469e33071, type: 3}
   cooldownTime: 0.5
   activeTime: 0.3
   abilitySlot: 1

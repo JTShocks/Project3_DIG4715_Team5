@@ -17,7 +17,7 @@ MonoBehaviour:
   tutorialText: This is second ability for your hand slot press RB or Shift to shoot
     out a grapple and pull yourself towards it. This ability can be swapped at any
     point in time by pressing Right on the Dpad or the Right Arrow key.
-  abilitySprite: {fileID: 21300000, guid: f3033eb4d6725d34590e9bc77848b33b, type: 3}
+  abilitySprite: {fileID: 21300000, guid: f73720f9d14b838479fa5fd3ef806795, type: 3}
   cooldownTime: 0
   activeTime: 0
   abilitySlot: 1
