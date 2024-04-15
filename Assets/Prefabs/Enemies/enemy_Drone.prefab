@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5734899420518124264}
   - component: {fileID: 5051766861152813990}
   - component: {fileID: 1311225391299468189}
+  - component: {fileID: -796973703658874129}
   m_Layer: 0
   m_Name: enemy_Drone
   m_TagString: Untagged
@@ -50,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147b952ac155c5a46b07a5822a6a349f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 1.5
   damage: 1
 --- !u!114 &7483254553638172573
 MonoBehaviour:
@@ -147,6 +148,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5494442, y: 0.67588973, z: 0.54247224}
   m_Center: {x: -0.029604912, y: 0.16205513, z: -0.039441645}
+--- !u!114 &-796973703658874129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630173879474667366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b218b78faf5af42b89aaf34b7f3555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aggroRange: 10
+  yThreshold: 1
+  whatIsSolid:
+    serializedVersion: 2
+    m_Bits: 2113
 --- !u!1001 &3037008945231604137
 PrefabInstance:
   m_ObjectHideFlags: 0
