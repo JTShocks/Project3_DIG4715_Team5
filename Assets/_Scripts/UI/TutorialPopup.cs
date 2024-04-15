@@ -22,10 +22,9 @@ public class TutorialPopup : MonoBehaviour
 
     void ShowTutorial(Ability ability)
     {
-        if(tutorial == null)
-        {
-            tutorial = StartCoroutine(TutorialText(ability));
-        }
+
+        tutorial = StartCoroutine(TutorialText(ability));
+        
     }
 
     IEnumerator TutorialText(Ability ability)
