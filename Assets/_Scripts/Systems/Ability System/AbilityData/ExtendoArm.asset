@@ -15,7 +15,7 @@ MonoBehaviour:
   name: 
   description: 
   tutorialText: 
-  abilitySprite: {fileID: 21300000, guid: f3033eb4d6725d34590e9bc77848b33b, type: 3}
+  abilitySprite: {fileID: 21300000, guid: f73720f9d14b838479fa5fd3ef806795, type: 3}
   cooldownTime: 0
   activeTime: 0
   abilitySlot: 1
