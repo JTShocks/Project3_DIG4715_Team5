@@ -61,13 +61,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _RimPower: 5.64
-    - _Rim_Light_Brightness: 9.5
+    - _RimPower: 2
+    - _Rim_Light_Brightness: 1.43
     - _Smoothness: 0.37
-    - _Toon_Ramp_Offset: 0.57
-    - _Toon_Ramp_Smoothness: -0.02
+    - _Toon_Ramp_Offset: 0.85
+    - _Toon_Ramp_Smoothness: 0
     m_Colors:
     - _BaseColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
     - _Color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
-    - _Toon_Ramp_Tinting: {r: 0.6415094, g: 0.58341044, b: 0.58341044, a: 0}
+    - _Toon_Ramp_Tinting: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0}
   m_BuildTextureStacks: []
