@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Glide
   description: Hold A while in mid-air to glide down slowly for a short amount of
     time.
-  tutorialText: 
+  tutorialText: Press and hold LT or K to glide around while you are in the air.
   abilitySprite: {fileID: 21300000, guid: f11a2956ea6e3a04590c9e1f0cd8b291, type: 3}
   cooldownTime: 0
   activeTime: 10
