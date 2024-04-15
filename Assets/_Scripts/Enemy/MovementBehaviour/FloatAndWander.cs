@@ -67,7 +67,7 @@ public class FloatAndWander : MovementBehaviour
         {
             //The player is within range of the enemy
             //Debug.Log("Player is within range to draw aggro");
-            //behaviour.ChangeEnemyState(EnemyBehaviour.EnemyState.Attack);
+            behaviour.ChangeEnemyState(EnemyBehaviour.EnemyState.Attack);
         }
     }
 
