@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
     void ActivateMenuUI(bool isGamePaused)
     {
         testUI.SetActive(isGamePaused);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     public void EquipAbility(Ability ability)
     {
@@ -34,6 +36,8 @@ public class UIController : MonoBehaviour
     public void ResumeGame()
     {
         GameManager.instance.UnpauseGame();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void QuitGame()
