@@ -20,6 +20,8 @@ public class CameraController : MonoBehaviour
     public void Start()
     {
         offset = new Vector3(0, CameraHeight, -PlayerDistance);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     private void Update()
     {

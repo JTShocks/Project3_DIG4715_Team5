@@ -39,8 +39,7 @@ public class GameManager : MonoBehaviour
         }
 
         OnGameLoad?.Invoke();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+
 
     }
 
