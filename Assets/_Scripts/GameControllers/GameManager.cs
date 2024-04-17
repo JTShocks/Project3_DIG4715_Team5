@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     //Controls the game state and there is always an instance of the game manager for other scripts to call
     //The player controller is what will send the input to pause the game, but the game manager does the pausing
 
-    bool gameIsPaused;
+    public bool gameIsPaused;
     private void Awake()
     {
         //pause = PlayerInput.
