@@ -256,11 +256,11 @@ public class PlayerController : MonoBehaviour
             //Level1
             UnityEngine.SceneManagement.SceneManager.LoadScene("Level 1-1");
             break;
-            case (1f,0f,0f):
+            case (-1f,0f,0f):
             //Level2
             UnityEngine.SceneManagement.SceneManager.LoadScene("Level 2");
             break;
-            case (-1f,0f,0f):
+            case (1f,0f,0f):
             //Level3
             UnityEngine.SceneManagement.SceneManager.LoadScene("Level 3");
             break;
