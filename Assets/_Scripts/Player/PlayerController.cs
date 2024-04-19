@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     //References to the various input actions for the player
     PlayerInput playerInput;
         InputAction moveAction;
+        InputAction numKey;
 
     [SerializeField] float currentFallingSpeed;
 
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
         character = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["move"];
+        numKey = playerInput.actions["numkeys"];
         
         Debug.Log(cameraYRotation);
         SetBaseModifiers();
@@ -233,6 +235,40 @@ public class PlayerController : MonoBehaviour
         massModifier = 1f;
         fallingSpeedMultiplier = 1f;
         turnSpeedMultiplier = 1f;
+    }
+
+
+    //Section for DEV Commands to teleport the player to different stages
+    void OnNumKeys()
+    {
+           Vector3 button = numKey.ReadValue<Vector3>();
+
+            float buttonX = button.x;
+            float buttonY = button.y;
+            float buttonZ = button.z;
+           switch(buttonX, buttonY, buttonZ)
+           {
+            case (0f,1f,0f):
+            //HUB
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Hubtest");
+            break;
+            case (0f,-1f,0f):
+            //Level1
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Level 1-1");
+            break;
+            case (-1f,0f,0f):
+            //Level2
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Level 2");
+            break;
+            case (1f,0f,0f):
+            //Level3
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Level 3");
+            break;
+            case (0f,0f,1f):
+            //Tutorial
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial");
+            break;
+           }
     }
     
 
