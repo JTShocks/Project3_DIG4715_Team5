@@ -134,7 +134,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Toon_Ramp_Tinting: {r: 0.4245283, g: 0.18182626, b: 0.18182626, a: 0}
+    - _Toon_Ramp_Tinting: {r: 0.5188679, g: 0.49145603, b: 0.49145603, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5215313462139141677
 MonoBehaviour:
