@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  movementSpeed: 1.5
+  movementSpeed: 2.5
   damage: 1
 --- !u!114 &7483254553638172573
 MonoBehaviour:
