@@ -636,18 +636,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MenuLeft",
-                    "type": "Button",
-                    "id": "a172befa-d8c6-454a-97da-d3fc831205c0",
-                    "expectedControlType": "Button",
+                    "name": "ChangeMenu",
+                    "type": "Value",
+                    "id": "e0227f01-b1d6-404f-8b60-9dba259c623d",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "MenuRight",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "737bf41c-7fd2-4cab-b8f1-1481e6dfd355",
+                    "id": "39fde1ed-522c-40d2-a384-2c89d0c16c0a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1074,24 +1074,79 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "bfc28401-d2f9-42f5-b9f6-a15194a8b330",
+                    "name": "2D Vector",
+                    "id": "9d873e0c-21ff-4aee-b3bf-85fc29646f7a",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeMenu",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "faf7fcdb-0969-42b9-829c-01c3bfd66631",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "50d9c650-8c3a-45f6-97dd-9709e9431eaf",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "a2816c33-48af-4040-aa77-31c46dd2f085",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "MenuLeft",
+                    "action": "ChangeMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "784dc9e5-a659-4908-b627-fccaa201bd6d",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ChangeMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ebfeb25a-7838-47cd-bb3d-0b9bac69a7e4",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "f223a07d-46a1-4d09-8abe-c47c61200498",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "8d348f50-31eb-4ffa-a223-61ac39daaf63",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "MenuRight",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
