@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1714324849200821720}
   - component: {fileID: 678735974936445557}
   - component: {fileID: 1679751354772402442}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Debug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 597044587492380932}
   - component: {fileID: 163426869341996440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,9 +149,9 @@ GameObject:
   - component: {fileID: 2200303676626960361}
   - component: {fileID: 1374268398498329965}
   - component: {fileID: 7533580847833965536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fan
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,7 @@ Transform:
   - {fileID: 8973018610786474494}
   - {fileID: 597044587492380932}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1374268398498329965
 CapsuleCollider:
@@ -289,6 +289,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8387291811051844897, guid: b62a674ce1ad2fc45ad2bb681a144760,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -8174203807298902223, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -314,6 +319,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0d26d658109e3874da48094f2c1ad729, type: 2}
+    - target: {fileID: -7310244506519752801, guid: b62a674ce1ad2fc45ad2bb681a144760,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -5520194731489056442, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -323,6 +333,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: fan
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b62a674ce1ad2fc45ad2bb681a144760,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610208206605447032, guid: b62a674ce1ad2fc45ad2bb681a144760,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2865159493296118709, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}
@@ -334,6 +354,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b245402f822050f4fbda04fbc128f31e, type: 2}
+    - target: {fileID: 8939196909575815729, guid: b62a674ce1ad2fc45ad2bb681a144760,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
