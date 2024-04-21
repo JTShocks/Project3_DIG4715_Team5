@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lore_Tutorial1
   m_EditorClassIdentifier: 
   loreTitle: Machine Debug #2
-  loreText: 'To escape these hollow depths, you must rise through the heaps of scrap,
-    for you were built for a greater purpose than this. '
+  loreText: 'As I descend I must also ascend, what is it that the great makers intend
+    for me to do? These other machines seem unintrested in exchanging data. Their
+    work is unending. '
   indexValue: 0

@@ -19,7 +19,7 @@ MonoBehaviour:
   cooldownTime: 0.3
   activeTime: 0.5
   abilitySlot: 3
-  damage: 4
+  damage: 1
   hitboxPosition: {x: 0, y: 0, z: 1}
   hitboxSize: {x: 1, y: 1, z: 1}
   enemyLayer:

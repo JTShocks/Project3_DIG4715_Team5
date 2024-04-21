@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bcdc9b127067e40a267ecf06a40ddc, type: 3}
   m_Name: PowerFist
   m_EditorClassIdentifier: 
-  loreTitle: Power Arm
-  loreText: The Icarus can hold many diffrent modules Including the new rocket punch.
-    Rreach for greater distances with this revolutionary technology.
-  indexValue: 0
+  loreTitle: Power Fist
+  loreText: 'The power fist, Increases potential for any model. Hit those pesky buttons,
+    and made to dismantle any creature, with enough force to push the biggest of
+    buttons without fail. '
+  indexValue: 3

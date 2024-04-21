@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Icarus model details
   m_EditorClassIdentifier: 
   loreTitle: Icarus Model
-  loreText: The Icarus model is your key to the future! Among the brass and steam,
-    there is a buddy just for you. A self-learning machine, one that is capable of
-    bending to any task. Why waste your precious time on the ground when you could
-    be soaring through the skies with the Icarus!
+  loreText: The Icarus model... Cognitive Creation. This model will serve... to live,
+    experience, complete our. No task assigned to this model.
   indexValue: 3

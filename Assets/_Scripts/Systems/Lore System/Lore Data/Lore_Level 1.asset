@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lore_Level 1
   m_EditorClassIdentifier: 
   loreTitle: Workers Debug #3
-  loreText: 'Left to rust, till our batteries  ran out. We have gained and lost that
-    which we never had. '
+  loreText: 'So many models before me, left to rust and degrade, they run out of
+    charge, they all work unending,  gears shifting until they brake. Is our task
+    to fail? We learn to think for a moment, only to fade. '
   indexValue: 0

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lore Tutorial 2
   m_EditorClassIdentifier: 
   loreTitle: Workers Debug #1
-  loreText: Abandoned?Incomplete? take the leap of faith and join us in the Great
-    Design.
-  indexValue: 0
+  loreText: 'I awake once more, this time I will make it to the creators, by taking
+    this leap of faith, I will serve and find my place among the great creation. '
+  indexValue: 1
