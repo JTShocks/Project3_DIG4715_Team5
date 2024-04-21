@@ -114,14 +114,14 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RimPower: 5
-    - _Rim_Light_Brightness: -0.96
+    - _Rim_Light_Brightness: 0.07
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Toon_Ramp_Offset: 0.67
+    - _Toon_Ramp_Offset: 0.34
     - _Toon_Ramp_Smoothness: 0
     - _WorkflowMode: 1
     - _ZWrite: 1

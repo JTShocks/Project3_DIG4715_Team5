@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         gameIsPaused = false;
         Time.timeScale = 1;
         OnGamePause?.Invoke(false);
+        PlayerController.playerInput.SwitchCurrentActionMap("Player");
 
         if(currentGameState == GameState.Paused)
         {

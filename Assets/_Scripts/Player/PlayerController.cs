@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     internal bool controlsLocked = false;
 
     //References to the various input actions for the player
-    PlayerInput playerInput;
+    public static PlayerInput playerInput;
         InputAction moveAction;
         InputAction numKey;
 
@@ -136,10 +136,12 @@ public class PlayerController : MonoBehaviour
             {
 
                 GameManager.instance.ChangeGameState(GameManager.instance.previousState);
+                
             }
             else
             {
                 GameManager.instance.ChangeGameState(GameManager.GameState.Paused);
+                playerInput.SwitchCurrentActionMap("UI");
             }
     }
 

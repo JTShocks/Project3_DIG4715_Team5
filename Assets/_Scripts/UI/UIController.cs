@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
 
     //When the game is paused, show the UI for pausing
 
-    [SerializeField] GameObject testUI;
+    [SerializeField] GameObject menus;
 
     //Make the UI into a prefab object that is instantiated by the game manager
     //Once it is made, activate the different screens
@@ -17,7 +17,7 @@ public class UIController : MonoBehaviour
 
     void ActivateMenuUI(bool isGamePaused)
     {
-        testUI.SetActive(isGamePaused);
+        menus.SetActive(isGamePaused);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
