@@ -115,7 +115,7 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         {
 
             extendArmAbility.Activate(gameObject);
-            if(Physics.Raycast(transform.position, handDestination, 2))
+            if(Physics.Raycast(transform.position + Vector3.up, handDestination, 2))
             {
                 Debug.Log("Too close to a wall");
                 return;
