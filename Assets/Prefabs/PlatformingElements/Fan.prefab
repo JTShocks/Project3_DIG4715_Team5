@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1115823821975398914}
   - component: {fileID: 6200846876490886930}
   - component: {fileID: 7488845558159117148}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Model (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4912,7 +4912,7 @@ GameObject:
   - component: {fileID: 3738332846451801711}
   - component: {fileID: 5410909526426708742}
   - component: {fileID: 4003921214696408425}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Model (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9813,7 +9813,7 @@ GameObject:
   - component: {fileID: 2200303676626960361}
   - component: {fileID: 1374268398498329965}
   - component: {fileID: 7533580847833965536}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Fan
   m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
@@ -9836,7 +9836,7 @@ Transform:
   - {fileID: 3738332846451801711}
   - {fileID: 1115823821975398914}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1374268398498329965
 CapsuleCollider:
@@ -9957,7 +9957,7 @@ PrefabInstance:
     - target: {fileID: -8387291811051844897, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8174203807298902223, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}
@@ -9987,7 +9987,7 @@ PrefabInstance:
     - target: {fileID: -7310244506519752801, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5520194731489056442, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}
@@ -10007,7 +10007,7 @@ PrefabInstance:
     - target: {fileID: 1610208206605447032, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2865159493296118709, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}
@@ -10022,7 +10022,7 @@ PrefabInstance:
     - target: {fileID: 8939196909575815729, guid: b62a674ce1ad2fc45ad2bb681a144760,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
