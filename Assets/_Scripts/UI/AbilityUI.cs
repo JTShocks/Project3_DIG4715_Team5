@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class AbilityUI : MonoBehaviour
 {
     public List<Image> abilityImages;
+
+    public static Sprite[] existingImages= new Sprite[4];
     //ORDER OF THE LIST
     // 0 = Core
     //1 = Hand
@@ -22,6 +24,17 @@ public class AbilityUI : MonoBehaviour
         AbilitiesManager.OnEquipAbility -= EnableUISlot;
     }
 
+    void Awake()
+    {
+        if(existingImages.Length > 0)
+        {
+            for(int i = 0; i < existingImages.Length; i++)
+            {
+                abilityImages[i].sprite = existingImages[i];
+            }
+        }
+    }
+
     void EnableUISlot(Ability ability)
     {
         //Check the ability, get the image
@@ -31,15 +44,20 @@ public class AbilityUI : MonoBehaviour
         {
             case AbilitySlot.Core:
             abilityImages[0].sprite = ability.abilitySprite;
+            existingImages[0] = ability.abilitySprite;
             break;
             case AbilitySlot.Hand:
+            
             abilityImages[1].sprite = ability.abilitySprite;
+            existingImages[1] = ability.abilitySprite;
             break;
             case AbilitySlot.Leg:
             abilityImages[2].sprite = ability.abilitySprite;
+            existingImages[2] = ability.abilitySprite;
             break;
             case AbilitySlot.Weapon:
             abilityImages[3].sprite = ability.abilitySprite;
+            existingImages[3] = ability.abilitySprite;
             break;
         }
     }
