@@ -26,13 +26,16 @@ public class AbilityUI : MonoBehaviour
 
     void Awake()
     {
-        if(existingImages.Length > 0)
+
+        for(int i = 0; i < existingImages.Length; i++)
         {
-            for(int i = 0; i < existingImages.Length; i++)
+            if(existingImages[i] != null)
             {
                 abilityImages[i].sprite = existingImages[i];
             }
+
         }
+        
     }
 
     void EnableUISlot(Ability ability)

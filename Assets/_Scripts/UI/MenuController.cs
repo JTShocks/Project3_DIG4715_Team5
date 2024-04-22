@@ -15,7 +15,7 @@ public class MenuController : MonoBehaviour
     //The Animator slides between them, activating them and moving them around.
 
     float timer;
-    float timeBetweenMenus = 1;
+    float timeBetweenMenus = .5f;
 
 
     //Each are animated from their PARENT, which has nothing OTHER than being enabled or not and being moved around the screen
