@@ -900,8 +900,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freeLookCamera: {fileID: 2755889940426826456}
-  controllerSensitivity: 2.5
-  mouseSensitivity: 0.7
+  controllerXSensitivity: 2.5
+  controllerYSensitivity: 2.5
+  mouseXSensitivity: 0.3
+  mouseYSensitivity: 1
   target: {fileID: 0}
   CameraHeight: 2
   PlayerDistance: 5
@@ -938,8 +940,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8187912640755972773}
-  m_LocalRotation: {x: 0.07799182, y: 0.690042, z: -0.0752048, w: 0.71561414}
-  m_LocalPosition: {x: -24.333382, y: -4.68, z: -0.623724}
+  m_LocalRotation: {x: 0.27955627, y: 0.5796024, z: -0.49859992, w: 0.5807819}
+  m_LocalPosition: {x: -2.5959935, y: 8.823229, z: 9.978344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

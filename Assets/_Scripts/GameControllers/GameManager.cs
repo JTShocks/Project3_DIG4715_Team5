@@ -57,7 +57,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         OnGamePause?.Invoke(false);
         PlayerController.playerInput.SwitchCurrentActionMap("Player");
-
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    
         if(currentGameState == GameState.Paused)
         {
             currentGameState = previousState;
