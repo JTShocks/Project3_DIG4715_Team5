@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bcdc9b127067e40a267ecf06a40ddc, type: 3}
   m_Name: Lore_Level 1
   m_EditorClassIdentifier: 
-  loreTitle: Workers Debug #3
+  loreTitle: Workers Debug #4
   loreText: 'So many models before me, left to rust and degrade, they run out of
     charge, they all work unending,  gears shifting until they brake. Is our task
     to fail? We learn to think for a moment, only to fade. '

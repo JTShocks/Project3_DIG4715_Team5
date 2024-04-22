@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bcdc9b127067e40a267ecf06a40ddc, type: 3}
   m_Name: Lore_Level 2
   m_EditorClassIdentifier: 
-  loreTitle: Debug Log #4
+  loreTitle: Workers Debug #5
   loreText: 'The great machine must cool to acess the depts of creation. Follow the
     red lights to reach the switch. I will be descending into forge to create myself
     anew.   '

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bcdc9b127067e40a267ecf06a40ddc, type: 3}
   m_Name: Lore_Level 3
   m_EditorClassIdentifier: 
-  loreTitle: Credo Ex Machina
+  loreTitle: Workers Debug #6
   loreText: 'The gate must be opened, there are 3 switches, one for each part. there
     I will discover my true task. '
   indexValue: 5
