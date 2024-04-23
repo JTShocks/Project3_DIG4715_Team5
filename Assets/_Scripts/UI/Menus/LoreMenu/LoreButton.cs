@@ -39,7 +39,7 @@ public class LoreButton : MonoBehaviour
         }
     }
 
-    void ShowLore()
+    public void ShowLore()
     {
         OnLoreButtonClick?.Invoke(index);
     }
