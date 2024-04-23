@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button : Interactable
+public class PunchButton : Interactable
 {
     //Place for the punchable button. Needs to specifically be triggered by the PunchAttack
     //Interactable can have a reference to "triggered by dash punch"
