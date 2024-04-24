@@ -5,13 +5,17 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-public class LoreMenu : MonoBehaviour
+public class LoreMenu : GameMenu
 {
     //On the left, the buttons for each UI element.
     //On the right, the text
 
     [SerializeField] TextMeshProUGUI loreTitle;
     [SerializeField] TextMeshProUGUI loreDescription;
+
+    [SerializeField] GameObject loreButtons;
+
+    List<LoreButton> theButtons = new();
 
 
 
@@ -29,6 +33,33 @@ public class LoreMenu : MonoBehaviour
     void Awake()
     {
         //Need to find a way to make the buttons behave consistently
+
+    }
+
+    public override void MenuSetActive(int menu)
+    {
+        base.MenuSetActive(menu);
+        int childCount = loreButtons.transform.childCount;
+
+        for(int i = 0; i < childCount; i++)
+        {
+            LoreButton nextButton = loreButtons.transform.GetChild(i).GetComponent<LoreButton>();
+            theButtons.Add(nextButton);
+
+            try
+            {
+                nextButton.EnableLoreButton(LoreManager.sortedLore[i]);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Debug.Log("No lore to show. Button should not work");
+            }
+        }
+
+        theButtons[0].button.Select();
+
+
+
     }
 
 

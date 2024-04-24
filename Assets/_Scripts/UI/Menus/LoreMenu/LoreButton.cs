@@ -35,8 +35,13 @@ public class LoreButton : MonoBehaviour
         button.interactable = false;
     }
 
-    void EnableLoreButton(Lore lore)
+    public void EnableLoreButton(Lore lore)
     {
+
+        if(lore == null)
+        {
+            throw new ArgumentOutOfRangeException();
+        }
         if(lore.IndexValue == index)
         {
             button.interactable = true;

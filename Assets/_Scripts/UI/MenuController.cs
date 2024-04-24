@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class MenuController : MonoBehaviour
 
     float timer;
     float timeBetweenMenus = .5f;
+
+    public static event Action<int> OnMenuSetActive;
 
 
     //Each are animated from their PARENT, which has nothing OTHER than being enabled or not and being moved around the screen
