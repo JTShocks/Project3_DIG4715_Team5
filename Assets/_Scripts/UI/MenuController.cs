@@ -55,6 +55,7 @@ public class MenuController : MonoBehaviour
         changeMenuAction = PlayerController.playerInput.actions["changemenu"];
         activeMenu = transform.GetChild(0).gameObject;
         activeMenu.SetActive(true);
+        activeMenu.GetComponentInChildren<Button>().Select();
     }
     void Update()
     {

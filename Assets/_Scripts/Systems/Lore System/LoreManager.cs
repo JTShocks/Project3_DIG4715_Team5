@@ -38,6 +38,8 @@ public class LoreManager : MonoBehaviour
             collectedLore.Add(lore);
             OnPickupLore?.Invoke(lore);
             SortLore();
+
+
         }
     }
 

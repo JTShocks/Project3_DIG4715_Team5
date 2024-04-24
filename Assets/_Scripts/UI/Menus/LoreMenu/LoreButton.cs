@@ -20,6 +20,11 @@ public class LoreButton : MonoBehaviour
 
     void OnEnable(){
         LoreManager.OnPickupLore += EnableLoreButton;
+
+
+    }
+    void OnDisable(){
+        LoreManager.OnPickupLore -= EnableLoreButton;
     }
 
     void Awake()
@@ -28,7 +33,6 @@ public class LoreButton : MonoBehaviour
         button = GetComponent<Button>();
         buttonText = GetComponentInChildren<TextMeshProUGUI>();
         button.interactable = false;
-        
     }
 
     void EnableLoreButton(Lore lore)
@@ -36,6 +40,8 @@ public class LoreButton : MonoBehaviour
         if(lore.IndexValue == index)
         {
             button.interactable = true;
+            buttonText.text = lore.LoreTitle;
+
         }
     }
 

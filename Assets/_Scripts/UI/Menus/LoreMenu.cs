@@ -14,6 +14,8 @@ public class LoreMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI loreDescription;
 
 
+
+
     //Each button will have a Lore assigned to it, based on their sibling index
 
     void OnEnable(){
@@ -24,9 +26,13 @@ public class LoreMenu : MonoBehaviour
         LoreButton.OnLoreButtonClick -= DisplayLore;
     }
 
+    void Awake()
+    {
+        //Need to find a way to make the buttons behave consistently
+    }
+
 
     //Make a class LoreButton that gets it's sibling index and passes it through to this menu to display the correct lore for that index
-
 
 
     public void DisplayLore(int index)
@@ -34,4 +40,6 @@ public class LoreMenu : MonoBehaviour
         loreTitle.text = LoreManager.sortedLore[index].LoreTitle;
         loreDescription.text = LoreManager.sortedLore[index].LoreText;
     }
+
+
 }
