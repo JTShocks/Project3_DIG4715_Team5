@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,9 @@ public class MenuController : MonoBehaviour
     //The Animator slides between them, activating them and moving them around.
 
     float timer;
-    float timeBetweenMenus = 1;
+    float timeBetweenMenus = .5f;
+
+    public static event Action<int> OnMenuSetActive;
 
 
     //Each are animated from their PARENT, which has nothing OTHER than being enabled or not and being moved around the screen
@@ -55,6 +58,7 @@ public class MenuController : MonoBehaviour
         changeMenuAction = PlayerController.playerInput.actions["changemenu"];
         activeMenu = transform.GetChild(0).gameObject;
         activeMenu.SetActive(true);
+        activeMenu.GetComponentInChildren<Button>().Select();
     }
     void Update()
     {
