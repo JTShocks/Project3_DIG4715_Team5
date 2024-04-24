@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4190877975366990026}
   m_Layer: 0
   m_Name: er (1)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 1876436900857097435}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 1104149564167520393}
   m_Layer: 0
   m_Name: er (2)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 8216486591159141120}
   m_Layer: 0
   m_Name: Sphere (1)
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 4777916822337660192}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,7 +564,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cc92da0e80fc5564d927afe3d58db128,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc92da0e80fc5564d927afe3d58db128,
         type: 3}
@@ -631,15 +631,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8418885108249170206, guid: cc92da0e80fc5564d927afe3d58db128,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
+      objectReference: {fileID: 0}
     - target: {fileID: -6442298374534657108, guid: cc92da0e80fc5564d927afe3d58db128,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 55a4fd3ccab9c824c8b22073ccc6355a, type: 2}
+    - target: {fileID: -4620282718447106903, guid: cc92da0e80fc5564d927afe3d58db128,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cc92da0e80fc5564d927afe3d58db128,
         type: 3}
       propertyPath: m_Name
       value: Repair_station Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cc92da0e80fc5564d927afe3d58db128,
+        type: 3}
+      propertyPath: m_TagString
+      value: IgnoreCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
