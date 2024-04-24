@@ -10,6 +10,8 @@ public class LoreManager : MonoBehaviour
     public static event Action<Lore> OnPickupLore;
     public static List<Lore> collectedLore = new();
 
+    public static List<Lore> sortedLore = new();
+
 
     void OnEnable(){
 
@@ -35,6 +37,31 @@ public class LoreManager : MonoBehaviour
         {
             collectedLore.Add(lore);
             OnPickupLore?.Invoke(lore);
+            SortLore();
+
+
+        }
+    }
+
+    /// <summary>
+    /// Sort the list of the lore to make sure it displays in the proper order according to the order of the buttons in the menu
+    /// </summary>
+    void SortLore()
+    {
+        for(int i = 0; i < collectedLore.Count; i++)
+        {
+            foreach(Lore lore in collectedLore)
+            {
+                if(lore.IndexValue == i)
+                {
+                    sortedLore.Insert(lore.IndexValue, lore);
+                }
+                else
+                {
+                    Lore blankLore = ScriptableObject.CreateInstance<Lore>();
+                    sortedLore.Insert(i, blankLore);
+                }
+            }
         }
     }
 
