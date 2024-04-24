@@ -23,8 +23,16 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(clip);
     }
 
-    public void SetPosition(Vector3 position)
+    // An overload to allow for temporary audio to be played at certain positions.
+    public void PlaySound(AudioClip clip, Vector3 position)
     {
-        transform.position = position;
+        GameObject tempAudioObject = new GameObject("TempAudio");
+        tempAudioObject.transform.position = position;
+
+        AudioSource tempAudioSource = tempAudioObject.AddComponent<AudioSource>();
+        tempAudioSource.clip = clip;
+        tempAudioSource.Play();
+
+        Destroy(tempAudioObject, clip.length);
     }
 }

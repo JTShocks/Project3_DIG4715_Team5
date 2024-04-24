@@ -463,7 +463,34 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1186587073407675652}
+    - targetCorrespondingSourceObject: {fileID: -2793727289926329592, guid: 0baa64b797c59a14ca63368150bf53cd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 320156064879501447}
+    - targetCorrespondingSourceObject: {fileID: -5731229141766309534, guid: 0baa64b797c59a14ca63368150bf53cd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1912857197421930581}
   m_SourcePrefab: {fileID: 100100000, guid: 0baa64b797c59a14ca63368150bf53cd, type: 3}
+--- !u!1 &1798088947395197373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2793727289926329592, guid: 0baa64b797c59a14ca63368150bf53cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4741929261482091189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &320156064879501447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798088947395197373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37a05ba0de5409428a086f70ba19dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -90
 --- !u!4 &5063188336736650590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0baa64b797c59a14ca63368150bf53cd,
@@ -497,3 +524,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.29055786, y: 0.045777228, z: 0.16685948}
   m_Center: {x: 0.00045182725, y: 0.026806898, z: 0.042939838}
+--- !u!1 &8194338004405148631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5731229141766309534, guid: 0baa64b797c59a14ca63368150bf53cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4741929261482091189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1912857197421930581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8194338004405148631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37a05ba0de5409428a086f70ba19dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -90

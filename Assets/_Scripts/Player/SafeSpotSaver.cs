@@ -9,6 +9,7 @@ public class SafeSpotSaver : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask platformLayer;
     public LayerMask conveyorBeltLayer;
+    public LayerMask spikeHazardLayer;
 
     private Vector3 lastSafePosition;
     private float nextCheckTime;
@@ -56,7 +57,7 @@ public class SafeSpotSaver : MonoBehaviour
     */
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.CompareTag("Spike Hazard"))
+        if ((spikeHazardLayer.value & (1 << hit.gameObject.layer)) != 0)
         {
             //playerHealth.TakeDamage(1);
             if (PlayerHealth.CurrentHealth > 0)
@@ -113,7 +114,7 @@ public class SafeSpotSaver : MonoBehaviour
             }
             if (Physics.Raycast(transform.position, diagonalDirection, out hit, spikeHazardCheckDistance))
             {
-                if (hit.collider.CompareTag("Spike Hazard"))
+                if ((spikeHazardLayer.value & (1 << hit.collider.gameObject.layer)) != 0)
                 {
                     return false;
                 }
