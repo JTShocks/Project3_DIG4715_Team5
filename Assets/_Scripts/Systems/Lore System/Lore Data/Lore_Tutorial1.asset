@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bcdc9b127067e40a267ecf06a40ddc, type: 3}
   m_Name: Lore_Tutorial1
   m_EditorClassIdentifier: 
-  loreTitle: Machine Debug #2
+  loreTitle: Workers Debug #2
   loreText: 'As I descend I must also ascend, what is it that the great makers intend
     for me to do? These other machines seem unintrested in exchanging data. Their
     work is unending. '

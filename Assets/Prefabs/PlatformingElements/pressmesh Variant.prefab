@@ -68,9 +68,9 @@ GameObject:
   - component: {fileID: 8153671010007074148}
   - component: {fileID: 9004183941589363030}
   - component: {fileID: 9122776160616452679}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: boltsandbottom_low (1)
-  m_TagString: Spike Hazard
+  m_TagString: IgnoreCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
