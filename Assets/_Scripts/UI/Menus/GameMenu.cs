@@ -22,7 +22,7 @@ public class GameMenu : MonoBehaviour
     }
     
 
-    public virtual void MenuSetActive(int menu)
+    public virtual void MenuSetActive()
     {
         
     }
