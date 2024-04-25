@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AbilityMenu : MonoBehaviour
+public class AbilityMenu : GameMenu
 {
     //Like the ability UI, creating a small list for the current equipped abilities
 

@@ -10,7 +10,7 @@ public class LoreManager : MonoBehaviour
     public static event Action<Lore> OnPickupLore;
     public static List<Lore> collectedLore = new();
 
-    public static List<Lore> sortedLore = new();
+    public static Lore[] sortedLore = new Lore[15];
 
 
     void OnEnable(){
@@ -28,6 +28,7 @@ public class LoreManager : MonoBehaviour
         {
             Destroy(this);
         }
+
     }
 
 
@@ -48,21 +49,14 @@ public class LoreManager : MonoBehaviour
     /// </summary>
     void SortLore()
     {
-        for(int i = 0; i < collectedLore.Count; i++)
-        {
+
             foreach(Lore lore in collectedLore)
             {
-                if(lore.IndexValue == i)
-                {
-                    sortedLore.Insert(lore.IndexValue, lore);
-                }
-                else
-                {
-                    Lore blankLore = ScriptableObject.CreateInstance<Lore>();
-                    sortedLore.Insert(i, blankLore);
-                }
+
+                sortedLore[lore.IndexValue] = lore;
+
             }
-        }
+        
     }
 
     

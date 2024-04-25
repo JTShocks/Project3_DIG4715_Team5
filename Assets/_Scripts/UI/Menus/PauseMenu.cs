@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : GameMenu
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] Button startButton;
+    [SerializeField] Button pauseButton;
+    void Awake()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void MenuSetActive()
     {
+        base.MenuSetActive();
+        startButton.Select();
         
     }
 }

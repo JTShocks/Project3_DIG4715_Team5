@@ -18,7 +18,7 @@ public class MenuController : MonoBehaviour
     float timer;
     float timeBetweenMenus = .5f;
 
-    public static event Action<int> OnMenuSetActive;
+    public static event Action OnMenuSetActive;
 
 
     //Each are animated from their PARENT, which has nothing OTHER than being enabled or not and being moved around the screen
@@ -46,11 +46,11 @@ public class MenuController : MonoBehaviour
 
     void OnEnable(){
 
-
+        GameManager.OnGamePause += ActivateCurrentMenu;
 
     }
     void OnDisable(){
-
+        GameManager.OnGamePause -= ActivateCurrentMenu;
     }
 
     void Awake()
@@ -58,7 +58,8 @@ public class MenuController : MonoBehaviour
         changeMenuAction = PlayerController.playerInput.actions["changemenu"];
         activeMenu = transform.GetChild(0).gameObject;
         activeMenu.SetActive(true);
-        activeMenu.GetComponentInChildren<Button>().Select();
+        GameMenu menu = activeMenu.GetComponent<GameMenu>();
+        menu.MenuSetActive();
     }
     void Update()
     {
@@ -96,11 +97,19 @@ public class MenuController : MonoBehaviour
         previousMenu.SetActive(false);
         nextMenu.gameObject.SetActive(true);
         activeMenu = nextMenu.gameObject;
+        GameMenu menu = nextMenu.gameObject.GetComponent<GameMenu>();
+        menu.MenuSetActive();
 
         //Direction is the X value fo the Vector for the RB and LB buttons. That is passed through as a way to increment the index to the active child
 
         
         
+    }
+
+    void ActivateCurrentMenu(bool pause)
+    {
+        GameMenu menu = activeMenu.GetComponent<GameMenu>();
+        menu.MenuSetActive();
     }
 
     public Transform GetNextMenu(Transform currentMenu)

@@ -36,9 +36,9 @@ public class LoreMenu : GameMenu
 
     }
 
-    public override void MenuSetActive(int menu)
+    public override void MenuSetActive()
     {
-        base.MenuSetActive(menu);
+        base.MenuSetActive();
         int childCount = loreButtons.transform.childCount;
 
         for(int i = 0; i < childCount; i++)
