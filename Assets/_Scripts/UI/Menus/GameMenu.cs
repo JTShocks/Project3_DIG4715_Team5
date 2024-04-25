@@ -10,10 +10,12 @@ public class GameMenu : MonoBehaviour
 
     void OnEnable(){
         MenuController.OnMenuSetActive += MenuSetActive;
+        MenuController.OnMenuDisable += MenuDisable;
     }
 
     void OnDisable(){
         MenuController.OnMenuSetActive -= MenuSetActive;
+        MenuController.OnMenuDisable -= MenuDisable;
     }
 
     void Awake()
@@ -25,5 +27,10 @@ public class GameMenu : MonoBehaviour
     public virtual void MenuSetActive()
     {
         
+    }
+
+    public virtual void MenuDisable()
+    {
+
     }
 }

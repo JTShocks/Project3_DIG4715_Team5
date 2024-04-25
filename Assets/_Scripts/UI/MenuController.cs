@@ -19,6 +19,7 @@ public class MenuController : MonoBehaviour
     float timeBetweenMenus = .5f;
 
     public static event Action OnMenuSetActive;
+    public static event Action OnMenuDisable;
 
 
     //Each are animated from their PARENT, which has nothing OTHER than being enabled or not and being moved around the screen
@@ -94,7 +95,10 @@ public class MenuController : MonoBehaviour
             nextMenu = GetNextMenu(activeMenu.transform);
             break;
         }
+        GameMenu oldMenu = previousMenu.GetComponent<GameMenu>();
+        oldMenu.MenuDisable();
         previousMenu.SetActive(false);
+
         nextMenu.gameObject.SetActive(true);
         activeMenu = nextMenu.gameObject;
         GameMenu menu = nextMenu.gameObject.GetComponent<GameMenu>();

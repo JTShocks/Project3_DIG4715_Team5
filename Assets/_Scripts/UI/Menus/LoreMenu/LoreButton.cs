@@ -20,6 +20,7 @@ public class LoreButton : MonoBehaviour
 
     void OnEnable(){
         LoreManager.OnPickupLore += EnableLoreButton;
+        
 
 
     }
@@ -54,4 +55,5 @@ public class LoreButton : MonoBehaviour
     {
         OnLoreButtonClick?.Invoke(index);
     }
+
 }

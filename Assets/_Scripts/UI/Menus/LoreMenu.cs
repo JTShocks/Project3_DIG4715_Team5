@@ -15,7 +15,7 @@ public class LoreMenu : GameMenu
 
     [SerializeField] GameObject loreButtons;
 
-    List<LoreButton> theButtons = new();
+    private static List<LoreButton> theButtons = new();
 
 
 
@@ -44,7 +44,11 @@ public class LoreMenu : GameMenu
         for(int i = 0; i < childCount; i++)
         {
             LoreButton nextButton = loreButtons.transform.GetChild(i).GetComponent<LoreButton>();
-            theButtons.Add(nextButton);
+            if(!theButtons.Contains(nextButton))
+            {
+                theButtons.Add(nextButton);
+            }
+
 
             try
             {
@@ -60,6 +64,19 @@ public class LoreMenu : GameMenu
 
 
 
+    }
+
+    public override void MenuDisable()
+    {
+        base.MenuDisable();
+
+        foreach(LoreButton loreButton in theButtons)
+        {
+            Animator animator = loreButton.gameObject.GetComponent<Animator>();
+            animator.SetTrigger("GoToIdle");
+            
+
+        }
     }
 
 
