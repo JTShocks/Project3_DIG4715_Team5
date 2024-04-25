@@ -66,7 +66,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Main_Texture:
-        m_Texture: {fileID: 2800000, guid: d8630defae0e8334f84bc94d9dc4c838, type: 3}
+        m_Texture: {fileID: 2800000, guid: b3ec43fbd0259ec49ac584c701403115, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
@@ -143,5 +143,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Toon_Ramp_Tinting: {r: 1, g: 0.99433964, b: 0.99433964, a: 0}
+    - _Toon_Ramp_Tinting: {r: 0.5660378, g: 0.4613742, b: 0.4613742, a: 0}
   m_BuildTextureStacks: []
