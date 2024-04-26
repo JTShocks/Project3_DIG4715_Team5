@@ -43,6 +43,7 @@ public class GlideAbilityHolder : MonoBehaviour
         {
             //When the player is grounded, the ability is Ready again
             state = AbilityState.Ready;
+            player.playerAnimator.SetBool("IsGliding", false);
             DebugMessage(glideAbility.name + " is now ready.", MessageType.Default);
         }
         switch(state)
@@ -79,10 +80,11 @@ public class GlideAbilityHolder : MonoBehaviour
         {
             return;
         }
-        if(value.isPressed)
+        if(value.isPressed && state != AbilityState.Active)
         {            
             AbilityController.changeAction.Disable();
             glideAbility.Activate(gameObject);
+            player.playerAnimator.SetBool("IsGliding", true);
             state = AbilityState.Active;
                 
         }
@@ -90,6 +92,7 @@ public class GlideAbilityHolder : MonoBehaviour
         {
             AbilityController.changeAction.Enable();
             glideAbility.Deactivate(gameObject);
+            player.playerAnimator.SetBool("IsGliding", false);
             state = AbilityState.Ready;
         }
     }
