@@ -31,8 +31,7 @@ public class ExtendoHand : MonoBehaviour
 
     public void Launch(Vector3 destination)
     {
-
-
+        
         rb.position = Vector3.MoveTowards(rb.position, destination, retractSpeed * Time.fixedDeltaTime);
         if(Vector3.Distance(rb.position, destination) <= 0.8)
         {

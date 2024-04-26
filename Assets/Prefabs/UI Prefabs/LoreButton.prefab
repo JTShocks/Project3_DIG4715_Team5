@@ -318,8 +318,8 @@ MonoBehaviour:
   index: 0
   button: {fileID: 0}
   cardImage: {fileID: 425367938322658656}
-  loreHighlight: {fileID: 8300000, guid: a43527c7a0ee8c64cbccbfcf77091db3, type: 3}
-  loreSelect: {fileID: 8300000, guid: 52fa4bf40b9dc10428b3e1e3866325cc, type: 3}
+  loreHighlight: {fileID: 8300000, guid: 6b2a2eed1fed00046b68a266ec64d69a, type: 3}
+  loreSelect: {fileID: 8300000, guid: 7576458f3748bc94e8f028ec85067885, type: 3}
 --- !u!95 &7508644534539266477
 Animator:
   serializedVersion: 5

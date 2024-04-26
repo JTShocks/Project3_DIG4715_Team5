@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class DashAbilityHolder : MonoBehaviour
 {
     [SerializeField] bool enableDebugMessages;
+    [SerializeField] GameObject dashFist;
     enum MessageType{
         Default,
         Warning,
@@ -30,6 +31,7 @@ public class DashAbilityHolder : MonoBehaviour
     AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
+        dashFist.SetActive(abilityIsEnabled);
 
     }
 
@@ -56,7 +58,7 @@ public class DashAbilityHolder : MonoBehaviour
                     state = AbilityState.Cooldown;
                     abilityCooldownTime = handAbility.cooldownTime;
                     handAbility.Deactivate(gameObject);
-                    hitbox.enabled = false;
+                    hitbox.box.enabled = false;
                     DebugMessage(handAbility.name + " is on cooldown.", MessageType.Default);
                 }
             break;
@@ -91,6 +93,8 @@ public class DashAbilityHolder : MonoBehaviour
             hitbox.box.enabled = true;
             hitbox.damage = 2;
             player.playerAnimator.SetTrigger("OnDash");
+            Animator dashFistAnimator = dashFist.GetComponent<Animator>();
+            dashFistAnimator.SetTrigger("OnPunch");
             handAbility.Activate(gameObject);
             state = AbilityState.Active;
             abilityActiveTime = handAbility.activeTime;
@@ -106,10 +110,13 @@ public class DashAbilityHolder : MonoBehaviour
             if(ability == handAbility)
             {
                 abilityIsEnabled = true;
+                dashFist.SetActive(abilityIsEnabled);
+                
             }
             else
             {
                 abilityIsEnabled = false;
+                dashFist.SetActive(abilityIsEnabled);
             }
         }
     }
