@@ -39,13 +39,13 @@ public class LorePopup : MonoBehaviour
 
     IEnumerator LoreText(Lore lore)
     {
-        lore_text.text = lore.LoreText;
-        lore_Title.text = lore.LoreTitle;
+        lore_text.text = "Press Start to view new Lore";
+        lore_Title.text = "Acquired Lore";
         //animator.SetTrigger("ActivateText");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSecondsRealtime(5);
         //Set all the text, have it fade in, then fade out after a few seconds
         //animator.SetTrigger("ClearText");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
         lore_text.text = "";
         lore_Title.text = "";
     }
