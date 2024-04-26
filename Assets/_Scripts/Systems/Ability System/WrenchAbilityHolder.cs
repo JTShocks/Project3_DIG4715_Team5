@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class WrenchAbilityHolder : MonoBehaviour
 {
 [SerializeField] bool enableDebugMessages;
+
+[SerializeField] GameObject wrenchObject;
     enum MessageType{
         Default,
         Warning,
@@ -30,6 +32,7 @@ public class WrenchAbilityHolder : MonoBehaviour
     internal AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
+        wrenchObject.SetActive(abilityIsEnabled);
     }
 
     void OnEnable(){player.OnBeforeMove += OnBeforeMove; AbilityController.OnEnableAbility += SetActiveAbility;}
@@ -112,10 +115,12 @@ public class WrenchAbilityHolder : MonoBehaviour
             if(wrenchAbility == ability)
             {
                 abilityIsEnabled = true;
+                wrenchObject.SetActive(abilityIsEnabled);
             }
             else
             {
                 abilityIsEnabled = false;
+                wrenchObject.SetActive(abilityIsEnabled);
             }
         }
     }

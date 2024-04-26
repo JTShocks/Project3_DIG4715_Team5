@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class ExtendoArmAbilityHolder : MonoBehaviour
@@ -20,6 +21,10 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
     static bool abilityIsEnabled = false;
     AbilityState state = AbilityState.Ready;
 
+    [Header("GrappleReferences")]
+    [SerializeField] LineRenderer grappleCord;
+    [SerializeField] Transform handSocket;
+
     //These are the variables specific to the extendoArm
 
     Rigidbody handRB;
@@ -38,6 +43,7 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
 
     void Awake(){
         player = GetComponent<PlayerController>();
+        grappleCord = GetComponent<LineRenderer>();
     }
     void OnEnable(){
         player.OnBeforeMove += OnBeforeMove;
@@ -50,6 +56,15 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         AbilityController.OnEnableAbility -= SetActiveAbility;
         ExtendoHand.OnReachHandHold -= SetDestinationPoint;
         ExtendoHand.OnRetracted -= OnRetracted;
+    }
+
+    void LateUpdate()
+    {
+        if(state == AbilityState.Active)
+        {
+            grappleCord.SetPosition(0, handSocket.position);
+            grappleCord.SetPosition(1, activeHand.rb.position);
+        }
     }
 
     void OnBeforeMove()
@@ -96,7 +111,7 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
             break;
             case AbilityState.Cooldown:
                 AbilityController.changeAction.Enable();
-
+                grappleCord.enabled = false;
                 state = AbilityState.Ready;
             break;
             //While the ability is active, before it goes on cooldown, it checks if it is retracting and will wait until it is done retracting.
@@ -130,6 +145,9 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
             
                         state = AbilityState.Active;
 
+            grappleCord.enabled = true;
+            grappleCord.SetPosition(1, activeHand.rb.position);
+
 
 
             //CreateHand()
@@ -153,7 +171,10 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
         activeHand = hand.GetComponent<ExtendoHand>();
         activeHand.rb.position = transform.position + new Vector3(0,1,0);
             activeHand.retractSpeed = handRetractSpeed;
-
+        
+            
+            Quaternion toRotation = Quaternion.LookRotation(handDestination, Vector3.up);
+        activeHand.rb.rotation = toRotation;
         //Get the necessary components for the hand
         //Subscribe to the events on the hand, then unsubscribe when the hand is not active
     }

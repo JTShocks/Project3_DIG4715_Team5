@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class GlideAbilityHolder : MonoBehaviour
 {
     [SerializeField] bool enableDebugMessages;
+
+    [SerializeField] GameObject glider;
     enum MessageType{
         Default,
         Warning,
@@ -28,6 +30,7 @@ public class GlideAbilityHolder : MonoBehaviour
     public AbilityState state = AbilityState.Ready;
     void Awake(){
         player = GetComponent<PlayerController>();
+        glider.SetActive(false);
     }
 
     void OnEnable(){player.OnBeforeMove += OnBeforeMove; AbilityController.OnEnableAbility += SetActiveAbility;}
@@ -43,6 +46,7 @@ public class GlideAbilityHolder : MonoBehaviour
         {
             //When the player is grounded, the ability is Ready again
             state = AbilityState.Ready;
+            player.playerAnimator.SetBool("IsGliding", false);
             DebugMessage(glideAbility.name + " is now ready.", MessageType.Default);
         }
         switch(state)
@@ -79,18 +83,22 @@ public class GlideAbilityHolder : MonoBehaviour
         {
             return;
         }
-        if(value.isPressed)
+        if(value.isPressed && state != AbilityState.Active)
         {            
             AbilityController.changeAction.Disable();
             glideAbility.Activate(gameObject);
+            player.playerAnimator.SetBool("IsGliding", true);
             state = AbilityState.Active;
+            glider.SetActive(true);
                 
         }
         else 
         {
             AbilityController.changeAction.Enable();
             glideAbility.Deactivate(gameObject);
+            player.playerAnimator.SetBool("IsGliding", false);
             state = AbilityState.Ready;
+            glider.SetActive(false);
         }
     }
     void SetActiveAbility(Ability ability)
