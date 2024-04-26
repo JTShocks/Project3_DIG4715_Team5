@@ -9,6 +9,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
+
+    [SerializeField] List<Ability> allAbilities;
     //TO:DO
     /*
         Adjust the player turning to ONLY do the smooth turn when the new input is less than 90 degrees
@@ -260,15 +262,22 @@ public class PlayerController : MonoBehaviour
             break;
             case (-1f,0f,0f):
             //Level2
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Level 2");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Level 3");
             break;
             case (1f,0f,0f):
             //Level3
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Level 3");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Level 2");
             break;
             case (0f,0f,1f):
             //Tutorial
             UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial");
+            break;
+            case (0f,0f,-1f):
+            foreach(Ability ability in allAbilities)
+            {
+                AbilitiesManager.instance.UnlockAbility(ability);
+            }
+
             break;
            }
     }

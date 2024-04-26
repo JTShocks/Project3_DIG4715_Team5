@@ -2599,6 +2599,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcd8a1e90513be48ae714746570a535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allAbilities:
+  - {fileID: 11400000, guid: 2121cd018d1d0df4881f962c963d9421, type: 2}
+  - {fileID: 11400000, guid: d51452679090ec946997c33bb81abd3a, type: 2}
+  - {fileID: 11400000, guid: feef5e4f294a4ee4aab9130745851d2a, type: 2}
+  - {fileID: 11400000, guid: 46e1bc963205e414e887b3fa6fb96849, type: 2}
+  - {fileID: 11400000, guid: d2128fd586c5ef648b91f14fdc443ccf, type: 2}
   enableDebugMessages: 0
   playerModel: {fileID: 0}
   cameraTransform: {fileID: 0}
