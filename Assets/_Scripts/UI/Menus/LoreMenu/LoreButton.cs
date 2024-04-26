@@ -13,7 +13,12 @@ public class LoreButton : MonoBehaviour
 
     public int index; 
     public Button button;
-    TextMeshProUGUI buttonText;
+    //TextMeshProUGUI buttonText;
+
+    [SerializeField] Image cardImage;
+
+    [SerializeField] AudioClip loreHighlight;
+    [SerializeField] AudioClip loreSelect;
 
     public static event Action<int> OnLoreButtonClick;
 
@@ -32,7 +37,7 @@ public class LoreButton : MonoBehaviour
     {
         index = transform.GetSiblingIndex();
         button = GetComponent<Button>();
-        buttonText = GetComponentInChildren<TextMeshProUGUI>();
+       // buttonText = GetComponentInChildren<TextMeshProUGUI>();
         button.interactable = false;
     }
 
@@ -41,19 +46,27 @@ public class LoreButton : MonoBehaviour
 
         if(lore == null)
         {
+            cardImage.enabled = false;
             throw new ArgumentOutOfRangeException();
         }
         if(lore.IndexValue == index)
         {
             button.interactable = true;
-            buttonText.text = lore.LoreTitle;
+            cardImage.enabled = true;
+            //buttonText.text = lore.LoreTitle;
 
         }
+    }
+
+    public void PlayMenuSFX()
+    {
+        AudioManager.instance.PlaySound(loreHighlight);
     }
 
     public void ShowLore()
     {
         OnLoreButtonClick?.Invoke(index);
+        AudioManager.instance.PlaySound(loreSelect);
     }
 
 }

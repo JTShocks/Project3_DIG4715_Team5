@@ -20,6 +20,7 @@ public class LoreMenu : GameMenu
 
 
 
+
     //Each button will have a Lore assigned to it, based on their sibling index
 
     void OnEnable(){
@@ -40,6 +41,9 @@ public class LoreMenu : GameMenu
     {
         base.MenuSetActive();
         int childCount = loreButtons.transform.childCount;
+
+        loreTitle.text = "";
+        loreDescription.text = "";
 
         for(int i = 0; i < childCount; i++)
         {
@@ -76,8 +80,6 @@ public class LoreMenu : GameMenu
             animator.SetTrigger("GoToIdle");
 
             loreButton.button.interactable = false;
-            
-
         }
     }
 
