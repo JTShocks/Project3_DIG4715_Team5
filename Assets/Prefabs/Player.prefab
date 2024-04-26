@@ -377,6 +377,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &98158020036495441
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +721,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &464984875387341451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,6 +1351,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &1067886678738562918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,6 +2451,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &1680881401624194939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3713,6 +3725,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &3399947348612653720
 GameObject:
   m_ObjectHideFlags: 0
@@ -4134,7 +4149,7 @@ Transform:
   - {fileID: 523878011485402652}
   - {fileID: 4832890227190117512}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -7.984, y: 87.916, z: 0}
 --- !u!143 &1364602460308625088
 CharacterController:
@@ -5063,6 +5078,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &4753831154656683756
 GameObject:
   m_ObjectHideFlags: 0
@@ -5695,6 +5713,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &5187279303874279345
 GameObject:
   m_ObjectHideFlags: 0
@@ -6055,6 +6076,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &5310908010897770190
 GameObject:
   m_ObjectHideFlags: 0
@@ -6204,6 +6228,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &5399912429602821376
 GameObject:
   m_ObjectHideFlags: 0
@@ -7031,6 +7058,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &6106994856134008694
 GameObject:
   m_ObjectHideFlags: 0
@@ -7314,6 +7344,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &6204641512646914616
 GameObject:
   m_ObjectHideFlags: 0
@@ -8020,6 +8053,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &6592253912413108531
 GameObject:
   m_ObjectHideFlags: 0
@@ -8594,6 +8630,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &7175270248892445596
 GameObject:
   m_ObjectHideFlags: 0
@@ -9460,6 +9499,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   button: {fileID: 0}
+  cardImage: {fileID: 0}
+  loreHighlight: {fileID: 0}
+  loreSelect: {fileID: 0}
 --- !u!1 &8041628693779014362
 GameObject:
   m_ObjectHideFlags: 0
@@ -11041,7 +11083,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b5d848d993894c04fbf1a5ded2ab98bd, type: 2}
+      objectReference: {fileID: 2100000, guid: 889000d213d9a6648bed94b2704fb9d5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
