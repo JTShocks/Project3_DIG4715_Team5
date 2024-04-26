@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class Enemy : MonoBehaviour, ITakeDamage
     internal Rigidbody rb;
     [SerializeField] internal float movementSpeed;
     [SerializeField] internal float damage;
+
+    public event Action OnEnemyKilled;
     //Enemy needs
     //Health, Movespeed, Idle, Move, Attack states and behaviours
 
@@ -34,6 +37,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     public virtual void KillEnemy()
     {
+        OnEnemyKilled?.Invoke();
         Destroy(gameObject);
     }
 

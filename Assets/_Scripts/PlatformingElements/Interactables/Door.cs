@@ -5,9 +5,9 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
 
-
     public int id;
     [SerializeField] Interactable switchForDoor;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -26,7 +26,7 @@ public class Door : MonoBehaviour
         }
     }
 
-    void ActivateDoor()
+    public void ActivateDoor()
     {
         Debug.LogFormat("Door {0} activated by event", id);
 
