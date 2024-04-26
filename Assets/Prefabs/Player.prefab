@@ -2553,7 +2553,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.091000006, y: 0.069000006}
   m_AnchorMax: {x: 0.95400006, y: 0.8951975}
-  m_AnchoredPosition: {x: -22.50058, y: 11}
+  m_AnchoredPosition: {x: -22.50061, y: 11}
   m_SizeDelta: {x: -729, y: -406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3399947348612653720
@@ -2976,7 +2976,7 @@ Transform:
   - {fileID: 523878011485402652}
   - {fileID: 4832890227190117512}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -7.984, y: 87.916, z: 0}
 --- !u!143 &1364602460308625088
 CharacterController:
@@ -7399,7 +7399,7 @@ PrefabInstance:
     - target: {fileID: 6000200400772500982, guid: 20b369633eddf5b42b1e3f73d7e30af4,
         type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6000200400772500982, guid: 20b369633eddf5b42b1e3f73d7e30af4,
         type: 3}

@@ -74,6 +74,8 @@ public class LoreMenu : GameMenu
         {
             Animator animator = loreButton.gameObject.GetComponent<Animator>();
             animator.SetTrigger("GoToIdle");
+
+            loreButton.button.interactable = false;
             
 
         }
