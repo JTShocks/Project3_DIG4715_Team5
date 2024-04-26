@@ -17,7 +17,7 @@ MonoBehaviour:
     Can maneuver slightly while in the air
   tutorialText: Use RB or LShift to Dash forward, activating buttons and damaging
     enemies.
-  abilitySprite: {fileID: 21300000, guid: d0fe16f3b602a6b48b2c6fe469e33071, type: 3}
+  abilitySprite: {fileID: 21300000, guid: d08599144861b954c977efbc608e9d06, type: 3}
   cooldownTime: 0.5
   activeTime: 0.4
   abilitySlot: 1

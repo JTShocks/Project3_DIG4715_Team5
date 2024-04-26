@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   tutorialText: Prss RB or Shift to shoot out a grapple and get pulled to that location.
     You can swap Grapple and Dash with Right Dpad or Right Arrow key.
-  abilitySprite: {fileID: 21300000, guid: f73720f9d14b838479fa5fd3ef806795, type: 3}
+  abilitySprite: {fileID: 21300000, guid: 81f71fada06a52e41a3632f5700f2a3d, type: 3}
   cooldownTime: 0
   activeTime: 0
   abilitySlot: 1

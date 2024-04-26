@@ -10,7 +10,7 @@ public class LoreManager : MonoBehaviour
     public static event Action<Lore> OnPickupLore;
     public static List<Lore> collectedLore = new();
 
-    public static Lore[] sortedLore = new Lore[15];
+    public static Lore[] sortedLore = new Lore[16];
 
 
     void OnEnable(){
