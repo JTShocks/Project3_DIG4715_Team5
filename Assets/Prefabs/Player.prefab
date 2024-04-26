@@ -1992,13 +1992,14 @@ GameObject:
   - component: {fileID: 5939593073205185231}
   - component: {fileID: 2249645410910636265}
   - component: {fileID: 4385197782943644928}
+  - component: {fileID: 7629129488216773142}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5939593073205185231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2057,6 +2058,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &7629129488216773142
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2962831430723448198}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &3046691734402745280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,7 +2546,7 @@ Transform:
   - {fileID: 4832890227190117512}
   - {fileID: 2304626938132493772}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -7.984, y: 87.916, z: 0}
 --- !u!143 &1364602460308625088
 CharacterController:
