@@ -2755,7 +2755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c114379dbaee944b94e730bdbcb479e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkInterval: 3
+  checkInterval: 1.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
