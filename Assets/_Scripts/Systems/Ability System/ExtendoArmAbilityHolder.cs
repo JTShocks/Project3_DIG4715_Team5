@@ -41,6 +41,8 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
     ExtendoHand activeHand;
     GameObject hand;
 
+    [SerializeField] internal List<AudioClip> grappleSFX;
+
     void Awake(){
         player = GetComponent<PlayerController>();
         grappleCord = GetComponent<LineRenderer>();
@@ -87,6 +89,7 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
 
                 if(activeHand.isRetracting)
                 {
+                    
                     if(foundGrapplePoint)
                     {
                         PullPlayerToGrapplePoint();
@@ -187,13 +190,21 @@ public class ExtendoArmAbilityHolder : MonoBehaviour
                 player.controlsLocked = false;
                 player.facingIsLocked = false;
                 foundGrapplePoint = false;
+                AudioManager.instance.audioSource.Stop();
+                AudioManager.instance.audioSource.loop = false;
     }
 
     void SetDestinationPoint(Vector3 dropPoint)
     {
+        AudioManager.instance.audioSource.loop = false;
+        AudioManager.instance.PlaySound(grappleSFX[1]);
         this.dropPoint = dropPoint;
         dropPointDirection = dropPoint - transform.position;
         foundGrapplePoint = true;
+        AudioManager.instance.audioSource.loop = true;
+        AudioManager.instance.audioSource.clip = grappleSFX[2];
+        AudioManager.instance.audioSource.Play();
+        
 
 
     }

@@ -26,6 +26,9 @@ public class ExtendoArmAbility : Ability
         holder.handDestination = parent.transform.position + parent.transform.forward * grappleArmDistance;
         //Debug.Log(holder.handDestination);
         holder.handRetractSpeed = grappleArmRetractSpeed;
+        AudioManager.instance.audioSource.loop = true;
+        AudioManager.instance.PlaySound(holder.grappleSFX[0]);
+
 
     }
 
