@@ -112,6 +112,9 @@ public class MenuController : MonoBehaviour
 
     void ActivateCurrentMenu(bool pause)
     {
+        activeMenu.SetActive(false);
+        activeMenu = transform.GetChild(0).gameObject;
+        activeMenu.SetActive(true);
         GameMenu menu = activeMenu.GetComponent<GameMenu>();
         menu.MenuSetActive();
     }

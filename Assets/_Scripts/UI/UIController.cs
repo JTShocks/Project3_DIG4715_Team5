@@ -18,6 +18,7 @@ public class UIController : MonoBehaviour
     void ActivateMenuUI(bool isGamePaused)
     {
         menus.SetActive(isGamePaused);
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
