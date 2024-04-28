@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Lore_Level 3
   m_EditorClassIdentifier: 
   loreTitle: Workers Debug #6
-  loreText: 'The gate must be opened, there are 3 switches, one for each part. there
-    I will discover my true task. '
+  loreText: '
+
+    The gate must be opened, there are 3 switches, one for each section.
+    There I will discover my true task.'
   indexValue: 5

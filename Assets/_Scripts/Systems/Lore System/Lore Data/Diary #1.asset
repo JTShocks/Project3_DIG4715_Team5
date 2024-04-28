@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Diary #1
   m_EditorClassIdentifier: 
   loreTitle: Diary #1
-  loreText: 'The cleanup is done, now we must leave this place.  It can create, there
-    is no need for us. This will certainly outlive us as a species. we may never
-    see its full potential. '
+  loreText: It can create, there is no need for us. This will certainly outlive us
+    as a species, we may never see its full potential. The cleanup is done, now,
+    we must leave.
   indexValue: 8

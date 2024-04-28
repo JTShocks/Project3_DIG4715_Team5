@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BullLore
   m_EditorClassIdentifier: 
   loreTitle: Bull Model
-  loreText: 'Creation of an animal. Task to carry heavy metals. Bulls to charge into
-    debris. The head serves no purpose. May attack smaller models. '
+  loreText: "Creation of an animal. Tasked to carry heavy metals. Bulls to charge
+    into debris. The head serves no practical \npurpose. May attack smaller models."
   indexValue: 13
