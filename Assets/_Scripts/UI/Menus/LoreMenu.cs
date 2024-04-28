@@ -15,7 +15,7 @@ public class LoreMenu : GameMenu
 
     [SerializeField] GameObject loreButtons;
 
-    private static List<LoreButton> theButtons = new();
+    private List<LoreButton> theButtons = new();
 
 
 
@@ -48,10 +48,9 @@ public class LoreMenu : GameMenu
         for(int i = 0; i < childCount; i++)
         {
             LoreButton nextButton = loreButtons.transform.GetChild(i).GetComponent<LoreButton>();
-            if(!theButtons.Contains(nextButton))
-            {
+
                 theButtons.Add(nextButton);
-            }
+            
 
 
             try
