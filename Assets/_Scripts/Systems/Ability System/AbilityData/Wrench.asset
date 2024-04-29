@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Wrench
   description: A humble wrench
-  tutorialText: Press RT or J to swing your wrench and deal damage in front of you.
+  tutorialText: Press RT or Left click to swing your wrench and deal damage in front
+    of you.
   abilitySprite: {fileID: 21300000, guid: 1a93e87a798bdf64c9b5acd964091401, type: 3}
   cooldownTime: 0.3
   activeTime: 0.5
